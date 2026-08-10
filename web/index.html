@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n-key="page_title">
+      サブメモ - サブスクの請求額と更新日をまとめるアプリ
+    </title>
+    <meta
+      name="description"
+      data-i18n-key="meta_description"
+      content="サブメモは、契約中のサブスクを手で書き留めて、今月いくら払っているかと次の更新日を1画面で見られる iPhone アプリです。無料トライアルの終了も更新の数日前もロック画面に通知します。銀行やカードには繋ぎません。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="images/app-icon.png" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav-container">
+        <a class="nav-logo" href="#">
+          <img src="images/app-icon.png" alt="サブメモ" class="nav-logo-mark" />
+          <h1 data-i18n-key="app_name">サブメモ</h1>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#features" data-i18n-key="nav_features">機能</a></li>
+          <li style="display: none">
+            <a href="#screenshots" data-i18n-key="nav_screenshots"
+              >スクリーンショット</a
+            >
+          </li>
+          <li>
+            <a href="#download" data-i18n-key="nav_download">ダウンロード</a>
+          </li>
+          <li>
+            <a href="#privacy" data-i18n-key="nav_privacy">プライバシー</a>
+          </li>
+          <li>
+            <a href="#contact" data-i18n-key="nav_contact">お問い合わせ</a>
+          </li>
+        </ul>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="ja">日本語</button>
+          <span class="lang-separator">|</span>
+          <button class="lang-btn" data-lang="en">English</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h2 class="hero-title">
+            <span data-i18n-key="hero_title_line1">サブスク、</span><br />
+            <span data-i18n-key="hero_title_line2"
+              >いくら払っているか言えますか。</span
+            >
+          </h2>
+          <p class="hero-description" data-i18n-key="hero_description">
+            サブメモは、契約中のサブスクを手で書き留めて、今月いくら払っているかと次の更新日を1画面で見られる
+            iPhone
+            アプリです。無料トライアルの終了も、更新の数日前も、ロック画面に通知します。銀行やカードには繋ぎません。
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="#download"
+              class="btn btn-primary"
+              data-i18n-key="hero_download_button"
+              >App Store でダウンロード</a
+            >
+            <a
+              href="#features"
+              class="btn btn-outline"
+              data-i18n-key="hero_features_button"
+              >機能を見る</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="app-icon-placeholder">
+            <img src="images/app-icon.png" alt="サブメモ" class="app-icon-image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title" data-i18n-key="features_title">主な機能</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">✍️</div></div>
+            <h3 data-i18n-key="feature_capture_title">サービス名を入れるだけ</h3>
+            <p data-i18n-key="feature_capture_text">
+              主要なサービスを候補として持っているので、名前を選べば料金と更新サイクルが入ります。一覧にないものは手で追加できます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">💴</div></div>
+            <h3 data-i18n-key="feature_total_title">今月・年額・1日あたり</h3>
+            <p data-i18n-key="feature_total_text">
+              今月の請求額を大きく表示。金額をタップすると年額換算・1日あたりに切り替わります。年払いは月割りにして並べて見られます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">🔔</div></div>
+            <h3 data-i18n-key="feature_trial_title">無料トライアルの終了通知</h3>
+            <p data-i18n-key="feature_trial_text">
+              終了の数日前に最優先で通知し、ロック画面にも表示します。本文に金額と日付が入るので、開かなくても判断できます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">🗓️</div></div>
+            <h3 data-i18n-key="feature_timeline_title">これからの予定</h3>
+            <p data-i18n-key="feature_timeline_text">
+              更新日とトライアル終了日を近い順に一覧。何日前に知らせるかは 7 日前・3
+              日前・前日・当日から選べ、「あとで」で再通知もできます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">📊</div></div>
+            <h3 data-i18n-key="feature_stats_title">カテゴリ別の内訳</h3>
+            <p data-i18n-key="feature_stats_text">
+              動画・音楽・クラウドなどカテゴリごとの割合と金額を集計。カテゴリをタップすれば、その中身の一覧が開きます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">✂️</div></div>
+            <h3 data-i18n-key="feature_cancel_title">解約シミュレーション</h3>
+            <p data-i18n-key="feature_cancel_text">
+              使っていない印をつけたものをまとめて、解約したら年いくら浮くかを計算。対象はタップで出し入れできます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">💱</div></div>
+            <h3 data-i18n-key="feature_fx_title">外貨のサブスクも円で</h3>
+            <p data-i18n-key="feature_fx_text">
+              USD・EUR 建ての料金を円に換算して合計に含めます。レートは欧州中央銀行の公表値を自動取得。手動で決めることもできます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">☁️</div></div>
+            <h3 data-i18n-key="feature_icloud_title">iCloud 同期</h3>
+            <p data-i18n-key="feature_icloud_text">
+              登録内容を iCloud Key-Value Store
+              経由で端末間ミラーリング。機種変更や再インストールでも続きから使えます。オフにもできます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">📄</div></div>
+            <h3 data-i18n-key="feature_csv_title">CSV で書き出し</h3>
+            <p data-i18n-key="feature_csv_text">
+              期間と列を選んで CSV に書き出せます。UTF-8（BOM
+              つき）なので、Excel やスプレッドシートでそのまま開けます。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><div class="icon-placeholder">🔒</div></div>
+            <h3 data-i18n-key="feature_privacy_title">銀行にもカードにも繋がない</h3>
+            <p data-i18n-key="feature_privacy_text">
+              明細を読み取る仕組みは持ちません。登録内容は端末内に保存され、当方のサーバーには一切送信されません。アカウント登録も不要です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section（実機スクショ用意後に style を外して有効化） -->
+    <section class="screenshots" id="screenshots" style="display: none">
+      <div class="container">
+        <h2 class="section-title" data-i18n-key="screenshots_title">
+          スクリーンショット
+        </h2>
+        <div class="screenshots-grid">
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">
+              <img
+                data-src-ja="images/ja/home.png"
+                data-src-en="images/en/home.png"
+                src="images/ja/home.png"
+                alt="ホーム"
+                class="screenshot-image lazy"
+                onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-fallback').style.display='flex';"
+              />
+              <div class="screenshot-fallback" style="display: none">
+                <span data-i18n-key="screenshots_home_title">ホーム</span>
+              </div>
+            </div>
+            <h3 data-i18n-key="screenshots_home_title">ホーム</h3>
+            <p data-i18n-key="screenshots_home_text">
+              今月の請求額と契約中の一覧
+            </p>
+          </div>
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">
+              <img
+                data-src-ja="images/ja/stats.png"
+                data-src-en="images/en/stats.png"
+                src="images/ja/stats.png"
+                alt="集計"
+                class="screenshot-image lazy"
+                onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-fallback').style.display='flex';"
+              />
+              <div class="screenshot-fallback" style="display: none">
+                <span data-i18n-key="screenshots_stats_title">集計と見直し</span>
+              </div>
+            </div>
+            <h3 data-i18n-key="screenshots_stats_title">集計と見直し</h3>
+            <p data-i18n-key="screenshots_stats_text">
+              カテゴリ内訳と、使っていないものの洗い出し
+            </p>
+          </div>
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">
+              <img
+                data-src-ja="images/ja/notif.png"
+                data-src-en="images/en/notif.png"
+                src="images/ja/notif.png"
+                alt="これからの予定"
+                class="screenshot-image lazy"
+                onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-fallback').style.display='flex';"
+              />
+              <div class="screenshot-fallback" style="display: none">
+                <span data-i18n-key="screenshots_notif_title">これからの予定</span>
+              </div>
+            </div>
+            <h3 data-i18n-key="screenshots_notif_title">これからの予定</h3>
+            <p data-i18n-key="screenshots_notif_text">
+              更新日とトライアル終了日を近い順に
+            </p>
+          </div>
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">
+              <img
+                data-src-ja="images/ja/detail.png"
+                data-src-en="images/en/detail.png"
+                src="images/ja/detail.png"
+                alt="詳細"
+                class="screenshot-image lazy"
+                onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-fallback').style.display='flex';"
+              />
+              <div class="screenshot-fallback" style="display: none">
+                <span data-i18n-key="screenshots_detail_title">詳細</span>
+              </div>
+            </div>
+            <h3 data-i18n-key="screenshots_detail_title">詳細</h3>
+            <p data-i18n-key="screenshots_detail_text">
+              料金・カテゴリ・支払い方法をその場で編集
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+      <div class="container">
+        <h2 class="section-title" data-i18n-key="download_title">
+          ダウンロード
+        </h2>
+        <div class="download-content">
+          <div class="download-info">
+            <h3 data-i18n-key="download_heading">
+              App Store で今すぐダウンロード
+            </h3>
+            <p data-i18n-key="download_subheading">
+              iOS 26.0 以降に対応しています。
+            </p>
+            <a
+              href="#"
+              class="app-store-placeholder"
+              data-i18n-key="download_button"
+              >App Store でダウンロード</a
+            >
+          </div>
+          <div class="download-requirements">
+            <h4 data-i18n-key="download_requirements_title">システム要件</h4>
+            <ul>
+              <li data-i18n-key="download_requirements_ios">iOS 26.0 以降</li>
+              <li data-i18n-key="download_requirements_devices">
+                iPhone 専用・縦向き
+              </li>
+              <li data-i18n-key="download_requirements_price">
+                無料ダウンロード
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="privacy" id="privacy">
+      <div class="container">
+        <h2 class="section-title" data-i18n-key="privacy_title">
+          プライバシーポリシー
+        </h2>
+        <div class="privacy-content">
+          <h3 data-i18n-key="privacy_handling_heading">
+            個人情報の取り扱いについて
+          </h3>
+          <p data-i18n-key="privacy_handling_text">
+            サブメモはユーザーのプライバシーを尊重し、個人情報の保護に努めています。
+          </p>
+
+          <h4 data-i18n-key="privacy_collect_heading">収集する情報</h4>
+          <p data-i18n-key="privacy_collect_text">
+            アプリが個人情報を当方のサーバーに送信して収集することはありません。アカウント登録もなく、利用状況の解析や広告のための計測も行いません。
+          </p>
+
+          <h4 data-i18n-key="privacy_bank_heading">
+            銀行口座・クレジットカードとの連携について
+          </h4>
+          <p data-i18n-key="privacy_bank_text">
+            サブメモは銀行口座やクレジットカードの明細を読み取る仕組みを一切持ちません。登録されるサブスクの内容は、すべてユーザーが自分で入力したものです。
+          </p>
+
+          <h4 data-i18n-key="privacy_storage_heading">情報の保存</h4>
+          <p data-i18n-key="privacy_storage_text">
+            サブスク・カテゴリ・支払い方法・設定はすべて端末内（UserDefaults）に保存され、当方のサーバーには送信されません。任意で iCloud
+            同期を有効にした場合、データは Apple の iCloud Key-Value Store
+            を介してユーザー本人の iCloud
+            アカウント領域にのみミラーされ、当方からはアクセスできません。
+          </p>
+
+          <h4 data-i18n-key="privacy_network_heading">外部との通信</h4>
+          <p data-i18n-key="privacy_network_text">
+            外貨建てのサブスクを円に換算するため、為替レートの取得時のみ外部の公開 API（api.frankfurter.app／欧州中央銀行の公表値）へ通信します。送信するのは通貨コードだけで、登録内容や端末を識別する情報は一切含みません。この通信はレートの自動更新を「手動」に設定すれば行われません。
+          </p>
+
+          <h4 data-i18n-key="privacy_notifications_heading">通知について</h4>
+          <p data-i18n-key="privacy_notifications_text">
+            更新前とトライアル終了の通知は、すべて端末内のローカル通知として処理され、当方のサーバーやプッシュ通知サービスは経由しません。通知の許可はいつでも
+            iOS の設定から変更できます。
+          </p>
+
+          <h4 data-i18n-key="privacy_export_heading">書き出したデータ</h4>
+          <p data-i18n-key="privacy_export_text">
+            CSV
+            の書き出しでは、端末内にファイルを作成して iOS
+            の共有画面に渡します。保存先や送信先を決めるのはユーザーで、当方が内容を受け取ることはありません。
+          </p>
+
+          <h4 data-i18n-key="privacy_sharing_heading">第三者との共有</h4>
+          <p data-i18n-key="privacy_sharing_text">
+            当方がユーザーの情報を第三者と共有することはありません。
+          </p>
+
+          <h4 data-i18n-key="privacy_trademark_heading">サービス名について</h4>
+          <p data-i18n-key="privacy_trademark_text">
+            アプリ内に表示される各サービス名および商標は、各権利者に帰属します。本アプリはこれらのサービスと提携・関連するものではありません。
+          </p>
+
+          <h4 data-i18n-key="privacy_contact_heading">お問い合わせ</h4>
+          <p>
+            <span data-i18n-key="privacy_contact_text_before"
+              >プライバシーポリシーに関するご質問は、</span
+            ><a href="#contact" data-i18n-key="privacy_contact_link"
+              >お問い合わせ</a
+            ><span data-i18n-key="privacy_contact_text_after"
+              >までご連絡ください。</span
+            >
+          </p>
+
+          <p class="privacy-update" data-i18n-key="privacy_update">
+            最終更新: 2026 年 8 月
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n-key="contact_title">
+          お問い合わせ
+        </h2>
+        <div class="contact-content">
+          <p data-i18n-key="contact_intro">
+            アプリに関するご質問、バグ報告、機能要望などがございましたら、お気軽にお問い合わせください。
+          </p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h3 data-i18n-key="contact_email_heading">📧 メール</h3>
+              <p>
+                <a href="mailto:angocat215@gmail.com">angocat215@gmail.com</a>
+              </p>
+            </div>
+            <div class="contact-method">
+              <h3 data-i18n-key="contact_bug_heading">🐛 バグ報告</h3>
+              <p data-i18n-key="contact_bug_text">
+                アプリ内の不具合や問題を発見された場合は、上記メールアドレスまで詳細をお送りください。
+              </p>
+            </div>
+            <div class="contact-method">
+              <h3 data-i18n-key="contact_feature_heading">💡 機能要望</h3>
+              <p data-i18n-key="contact_feature_text">
+                対応してほしいサービスの候補や、新しい機能のご要望もお待ちしています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p data-i18n-key="footer_copyright">
+            © 2026 サブメモ. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

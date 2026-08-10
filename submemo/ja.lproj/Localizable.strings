@@ -1,0 +1,434 @@
+/* commons */
+"brand_name"    = "サブメモ";
+"close"         = "閉じる";
+"cancel"        = "キャンセル";
+"save"          = "保存";
+"add_plus"      = "＋ 追加";
+"list_joiner"   = " ・ ";
+
+/* tab bar */
+"tab_home"     = "ホーム";
+"tab_stats"    = "集計";
+"tab_notif"    = "通知";
+"tab_settings" = "設定";
+
+/* accessibility */
+"a11y_toggle_theme" = "テーマを切り替え";
+"a11y_add"          = "サブスクを追加";
+"a11y_home_hero_hint"  = "タップして今月の請求額・年額換算・1日あたりを切り替え";
+"a11y_stats_hero_hint" = "タップして年額換算・月額換算・1日あたりを切り替え";
+
+/* appearance */
+"appearance_system" = "システム";
+"appearance_light"  = "ライト";
+"appearance_dark"   = "ダーク";
+
+/* 更新サイクル */
+"cycle_chip_month"     = "月ごと";
+"cycle_chip_year"      = "年ごと";
+"cycle_chip_week"      = "週ごと";
+"cycle_chip_bimonthly" = "隔月";
+
+/* 請求単位の表記 */
+"raw_yearly_format"  = "%@ / 年";
+"raw_monthly_format" = "%@ / 月";
+"raw_monthly_plain"  = "毎月";
+"raw_yearly_split"   = "年払い（月割）";
+"per_month_suffix"   = " /月";
+"per_year_suffix"    = " /年";
+"per_month_amount_format" = "%@ / 月";
+"per_year_amount_format"  = "%@/年";
+
+/* 価格の記録 */
+"hist_unchanged" = "変更なし";
+"hist_trial"     = "無料期間中";
+"hist_fx_format" = "%1$@ ・ 1%2$@=¥%3$@";
+
+/* カテゴリ */
+"cat_video"       = "動画";
+"cat_music"       = "音楽";
+"cat_cloud"       = "クラウド";
+"cat_game"        = "ゲーム";
+"cat_learning"    = "学習";
+"cat_telecom"     = "通信";
+"cat_life"        = "生活";
+"cat_other"       = "その他";
+"cat_new_default" = "新しいカテゴリ";
+
+/* 支払い方法 */
+"pay_label_card4242"     = "カード ・・・4242";
+"pay_label_card1881"     = "カード ・・・1881";
+"pay_label_appStore"     = "App Store 決済";
+"pay_label_bankTransfer" = "口座振替";
+"pay_label_unset"        = "未設定";
+"pay_name_card4242"      = "メインカード";
+"pay_name_card1881"      = "サブカード";
+"pay_name_appStore"      = "App Store";
+"pay_name_bankTransfer"  = "口座振替";
+"pay_name_unset"         = "未設定";
+"pay_sub_card4242"       = "Visa ・・・4242";
+"pay_sub_card1881"       = "Mastercard ・・・1881";
+"pay_sub_appStore"       = "Apple ID 決済";
+"pay_sub_bankTransfer"   = "みずほ銀行";
+"pay_sub_unset"          = "支払い方法を選んでいません";
+
+/* サンプルのサービス名（実名テキスト＋頭文字タイル。ロゴは使わない） */
+"svc_adobe"      = "Adobe フォトプラン";
+"svc_amazon"     = "Amazon プライム";
+"svc_gym"        = "エニタイムフィットネス";
+"svc_switch"     = "Nintendo Switch Online";
+"svc_nikkei"     = "日経電子版";
+
+/* オンボーディング */
+"ob1_title" = "銀行にもカードにも、\n繋ぎません。";
+"ob1_body"  = "手で登録するだけ。データは端末の中だけに保存されます。ログインも不要です。";
+"ob2_title" = "月いくら払っているか、\n1画面で。";
+"ob2_body"  = "月合計・年額換算・1日あたりを自動で計算。カテゴリの内訳も見えます。";
+"ob3_title" = "解約忘れは、\n通知でゼロに。";
+"ob3_body"  = "無料トライアルの終了3日前に最優先で通知。ロック画面にも表示します。";
+"ob_next"   = "次へ";
+"ob_start"  = "はじめる";
+"ob_skip"   = "スキップ";
+
+/* ホーム：ヒーロー */
+"hero_this_month"    = "今月の請求額";
+"hero_year"          = "年額換算";
+"hero_day"           = "1日あたり";
+"hero_sub_split"     = "月割り %@";
+"hero_sub_split_if"  = "月割りなら %@";
+"hero_sub_year"      = "年 %@";
+"hero_sub_day"       = "1日 %@";
+"home_annual_note_format" = "年払い %1$d件（月割り %2$@）は今月の請求に入りません";
+
+/* ホーム：一覧 */
+"home_active_count_format" = "契約中 %d件";
+"sort_high"        = "高い順";
+"sort_soon"        = "更新が近い順";
+"home_swipe_hint"  = "行を左にドラッグすると編集・削除";
+"row_edit"         = "編集";
+"row_delete"       = "削除";
+"flag_trial"       = "無料";
+"flag_unused"      = "未使用";
+"row_trial_end_format" = "終了 %@";
+"row_days_left_format" = "あと%d日";
+
+/* ホーム：トライアル警告・未使用まとめ */
+"home_trial_title_format" = "無料トライアル終了まで あと%d日";
+"home_trial_line_format"  = "%1$@ ・ %2$@に %3$@ の課金がはじまります";
+"home_unused_label_format" = "あまり使っていない %d件を解約すると";
+"home_unused_save_format"  = "年間 %@ 節約";
+
+/* ホーム：空状態 */
+"empty_title"   = "まず1件だけ登録してみましょう";
+"empty_body"    = "サービス名を入れるだけ。料金と更新日は候補から入ります。銀行やカードには繋ぎません。";
+"empty_cta"     = "最初のサブスクを登録";
+"empty_add_cta" = "サブスクを登録する";
+
+"empty_stats_title" = "集計するものがまだありません";
+"empty_stats_body"  = "2件くらい登録すると、カテゴリの内訳と1日あたりの金額が出ます。";
+
+"empty_notif_title"    = "予定されている更新はありません";
+"empty_notif_body"     = "サブスクを登録すると、次の更新日と無料トライアルの終了日がここに並びます。通知はその予定にあわせて届きます。";
+"empty_notif_settings" = "先に通知の設定を見ておく";
+
+/* 画面ごとのガイド（初回のみ） */
+"coach_done" = "はじめる";
+"coach_home_main"      = "金額はタップで切り替わります。今月の請求額 → 年額換算 → 1日あたり。";
+"coach_stats_main"     = "カテゴリをタップすると、その中身の一覧がひらきます。";
+"coach_notif_main"     = "更新日と無料トライアルの終了日が、近い順に並びます。";
+"coach_home_empty"     = "ここから登録します。あとで増やすときは、右上の ＋ からでも。";
+"coach_stats_empty"    = "登録が増えると、高い順や、使っていないものの洗い出しもここに出ます。";
+"coach_notif_empty"    = "通知は登録があってから届きます。何日前に知らせるかは、先にここで決められます。";
+
+/* 詳細 */
+"detail_from_notif_title"      = "ロック画面の通知から開きました";
+"detail_from_notif_body_format" = "無料期間の終了まであと%d日。ここで解約するか、あとで思い出すかを選べます。";
+"detail_snooze_format"         = "%@に再通知";
+"detail_per_month"             = "/ 月";
+"detail_per_month_yearly"      = "/ 月（年払い）";
+"detail_yearly"                = "年額換算";
+"detail_per_day"               = "1日あたり";
+"detail_category"              = "カテゴリ";
+"detail_next"                  = "次回更新";
+"detail_days_suffix_format"    = "（あと%d日）";
+"detail_cycle"                 = "更新サイクル";
+"detail_cycle_monthly_format"  = "毎月 %@";
+"detail_pay"                   = "支払い方法";
+"detail_history"               = "価格の記録";
+"detail_cancel_sim"            = "解約したら年間いくら浮く？";
+"detail_mark_unused"           = "「使っていない」印をつける";
+"detail_unmark_unused"         = "「使っていない」印を外す";
+
+/* 解約シミュレーション */
+"cancel_who_format"           = "%@ を解約すると";
+"cancel_unused_count_format"  = "あまり使っていない %d件";
+"cancel_per_year"             = "1年で浮きます";
+"cancel_breakdown_format"     = "月 %1$@ ・ 1日 %2$@";
+"cancel_three_years_format"   = "3年つづけると %@";
+"cancel_targets"              = "対象（タップで切り替え）";
+"cancel_note_candidate"       = "解約候補";
+"cancel_save_format"          = "%@/年";
+"legal_trademarks"            = "各商標は各社に帰属します。本アプリは各サービスと提携していません。";
+
+/* 追加：ステップ1 */
+"add_title"                = "サブスクを追加";
+"add_search_placeholder"   = "サービス名を入力（例：ね）";
+"add_suggest_popular"      = "よく使われているサービス";
+"add_suggest_results"      = "検索結果";
+"add_manual_cta"           = "一覧にないものを手で追加";
+"add_manual_name"          = "新しいサブスク";
+
+/* 追加：ステップ2 */
+"add_confirm_title"     = "内容の確認";
+"add_autofill_note"     = "候補から自動入力しました。違えば上書きできます";
+"add_price"             = "料金";
+"add_fx_line_format"    = "≒ %1$@（1%2$@ = ¥%3$@）";
+"add_cycle"             = "更新サイクル";
+"add_category"          = "カテゴリ";
+"add_trial_title"       = "無料トライアル中";
+"add_trial_note"        = "終了3日前に最優先で通知します";
+"add_summary_format"    = "月 %1$@ ／ 年 %2$@ ／ 1日 %3$@";
+"add_new_total_format"  = "追加すると今月の合計は %@ になります";
+"add_save"              = "追加する";
+
+/* 集計 */
+"stats_title"              = "集計と見直し";
+"stats_hero_month"         = "月額換算";
+"stats_unused_title"       = "使っていない印がついたもの";
+"stats_unused_meta_format" = "%1$d件 ・ 年 %2$@";
+"stats_cancel_all"         = "まとめて解約シミュレーション";
+"stats_by_pay"             = "支払い方法別";
+"stats_ranking"            = "高い順（1日あたり）";
+"stats_per_day_format"     = "1日 %@";
+
+/* 通知：これからの予定 */
+"notif_title"                = "これからの予定";
+"notif_note_trial"           = "無料期間が終了・課金開始";
+"notif_note_renew_format"    = "更新（あと%d日）";
+"notif_preview_label"        = "届く通知（プレビュー）";
+"notif_now"                  = "いま";
+"notif_preview_cta"          = "タップして開いた後の画面を見る ›";
+"notif_row_before"           = "更新の◯日前に通知";
+"notif_row_trial"            = "トライアル終了の通知";
+"notif_row_trial_value"      = "最優先・ロック画面";
+"notif_row_open"             = "通知設定をひらく";
+"notif_trial_only"           = "トライアルのみ";
+"notif_off"                  = "オフ";
+
+/* 通知の文面（登録内容から組み立てる） */
+"msgs_title"      = "通知の文面";
+"msgs_note"       = "金額と日付を必ず本文に入れます。通知を開かずに判断できることが目的です。";
+"msgs_empty"      = "登録がまだないので、届く文面もありません。サブスクを登録すると、ここに実際の文面が並びます。";
+"msg_tag_renewal"     = "更新前";
+"msg_tag_trial"       = "トライアル";
+"msg_tag_today"       = "当日";
+"msg_renewal_title_format" = "%1$@ が%2$d日後に更新されます";
+"msg_renewal_body_format"  = "%1$@ に %2$@。続けるならこのまま、やめるなら更新日までに解約を。";
+"msg_action_snooze_format" = "あとで（%@に再通知）";
+"msg_trial_title_format"   = "%1$@ の無料期間が%2$d日後に終わります";
+"msg_trial_body_format"    = "%1$@ から %2$@。解約はいまのうちに。";
+"msg_today_title_format"   = "今日 %@ が更新されます";
+"msg_today_body_format"    = "%1$@ が%2$@から引かれます。";
+"msg_today_body_fx_format" = "%1$@（%2$@ ・ 1%3$@=¥%4$@）が%5$@から引かれます。";
+"msg_today_act"            = "詳細を開く";
+
+/* 通知の設定 */
+"notifset_title"         = "通知の設定";
+"notifset_before"        = "更新の何日前に知らせるか（複数可）";
+"before_7"               = "7日前";
+"before_3"               = "3日前";
+"before_1"               = "前日";
+"before_0"               = "当日";
+"notifset_time"          = "通知する時刻";
+"notifset_trial"         = "無料トライアル終了（最優先）";
+"days_before_format"     = "%d日前";
+"notifset_snooze"        = "「あとで」を押したときの再通知";
+"snooze_oneHour"         = "1時間後";
+"snooze_oneDay"          = "1日後";
+"snooze_dayBefore"       = "更新前日";
+"notifset_lock_title"    = "ロック画面に金額を表示";
+"notifset_lock_note"     = "オフにすると本文から金額を伏せます（サービス名と「◯日後」は表示）";
+"notifset_quiet_title"   = "夜間は鳴らさない";
+"notifset_quiet_note"    = "22:00 – 8:00 は翌朝にまとめて通知";
+"notifset_see_messages_format" = "実際に届く文面を見る（%d種）";
+"notifset_note"          = "通知はすべて端末内のスケジュールで動きます。サーバーには何も送りません。";
+
+/* 設定 */
+"settings_notif"           = "通知";
+"settings_cats"            = "カテゴリ";
+"settings_cats_value_format" = "%d件";
+"settings_pays"            = "支払い方法";
+"settings_count_format"    = "%d件";
+"settings_theme"           = "テーマ";
+"settings_fx"              = "通貨と為替レート";
+"settings_fx_value_format" = "JPY ・ 1%1$@=¥%2$@";
+"settings_storage"         = "データの保存先";
+"settings_storage_value"   = "この端末のみ";
+"settings_msgs"            = "通知の文面一覧";
+"settings_csv"             = "CSV書き出し";
+"settings_note"            = "データは端末内にのみ保存され、銀行・カードとは一切連携しません。各商標は各社に帰属します。本アプリは各サービスと提携していません。";
+
+/* カテゴリ管理 */
+"cats_title"             = "カテゴリ";
+"cats_total_format"      = "%dカテゴリ";
+"cats_unused"            = "未使用";
+"cats_note"              = "カテゴリを削除しても、サブスクは消えません。「その他」に移ります。並べ替えは長押しドラッグ（実装時）。";
+"cats_sheet_new"         = "カテゴリを追加";
+"cats_sheet_edit"        = "カテゴリを編集";
+"cats_name_placeholder"  = "カテゴリ名";
+"cats_color"             = "色";
+"cats_usage_new"         = "色は一覧の頭文字タイルにも使われます";
+"cats_usage_edit"        = "削除すると、このカテゴリのサブスクは「その他」に移ります";
+"cats_delete"            = "このカテゴリを削除";
+
+/* 支払い方法 */
+"pays_title"         = "支払い方法";
+"pays_breakdown"     = "支払い方法別の内訳";
+"pays_privacy_title" = "カードの下4桁だけを記録します";
+"pays_privacy_body"  = "カード番号・有効期限は入力しません。どのカードから引かれるかを自分で見分けるためのラベルです。";
+
+/* 通貨と為替レート */
+"fx_title"       = "通貨と為替レート";
+"fx_current"     = "現在の適用レート";
+"fx_mode_label"  = "レートの更新";
+"fx_mode_daily"  = "自動（毎日）";
+"fx_mode_weekly" = "自動（週1）";
+"fx_mode_manual" = "手動";
+"fx_mode_note"   = "レートは欧州中央銀行が平日に公表している値です。土日・祝日は更新されず、前の営業日と同じ値のままになります。";
+"fx_items_label" = "外貨で登録しているサブスク";
+"fx_note"        = "過去の記録は当時のレートで保存され、あとから書き換わりません。";
+
+/* CSV 書き出し */
+"csv_title"             = "CSVで書き出す";
+"csv_range"             = "次回更新日で絞る";
+"csv_range_all"         = "すべて";
+"csv_range_thisYear_format" = "%d年";
+"csv_range_thisMonth"   = "今月のみ";
+"csv_columns"           = "含める列（サービス名は常に含みます）";
+"csv_col_name"          = "サービス名";
+"csv_col_price"         = "料金";
+"csv_col_next"          = "次回更新日";
+"csv_col_cat"           = "カテゴリ";
+"csv_col_pay"           = "支払い方法";
+"csv_encoding_note"     = "文字コードはUTF-8（BOMつき）。Excelでそのまま開けます。";
+"csv_rows_format"       = "%1$d行 ・ %2$d列";
+"csv_run_format"        = "%@ を書き出す";
+"csv_done_title"        = "書き出しました";
+"csv_done_note"         = "「ファイル」アプリに保存、または共有できます";
+"csv_share"             = "共有";
+
+/* サンプルデータ（Debug ビルドのみ） */
+"settings_section_data"                = "データ（Debug）";
+"settings_sample_add_jp"               = "サンプルデータ（日本語）を追加";
+"settings_sample_add_jp_sub"           = "日本語のサブスク10件を今日起点で入れます";
+"settings_sample_add_en"               = "サンプルデータ（English）を追加";
+"settings_sample_add_en_sub"           = "英語のサブスク10件を今日起点で入れます";
+"settings_coach_reset"      = "ガイドをもう一度出す";
+"settings_coach_reset_sub"  = "各画面の「読んだ」記録を消します";
+"settings_coach_reset_done" = "ガイドの記録を消しました";
+"settings_sample_clear"                = "サンプルデータを削除";
+"settings_sample_clear_sub"            = "サンプルとして入れたものだけ消します";
+"settings_sample_clear_confirm_title"  = "サンプルデータを削除しますか？";
+"settings_sample_clear_confirm_message" = "自分で登録したものは残ります。";
+"settings_sample_added_summary_format" = "%d件を追加しました";
+"settings_sample_removed_message"      = "サンプルデータを削除しました";
+"settings_delete_all"                  = "すべてのデータを削除";
+"settings_delete_all_sub"              = "登録とカスタムカテゴリをすべて消します";
+"settings_delete_all_confirm_title"    = "すべてのデータを削除しますか？";
+"settings_delete_all_confirm_message"  = "この操作は取り消せません。";
+
+/* 入力フォーム（追加・編集で共用） */
+"form_title_edit"             = "編集";
+"form_name_placeholder"       = "サービス名";
+"form_next_renewal"           = "次回更新日";
+"form_new_total_format"       = "保存すると今月の合計は %@ になります";
+"form_delete"                 = "この登録を削除";
+"form_delete_confirm_title"   = "この登録を削除しますか？";
+"form_delete_confirm_message" = "この操作は取り消せません。";
+
+/* 集計 → カテゴリの内訳一覧 */
+"catlist_share"        = "全体に占める割合";
+"catlist_count"        = "件数";
+"catlist_next_format"  = "次回 %@";
+"catlist_trial_format" = "無料 ・ %@に開始";
+"catlist_empty"        = "このカテゴリにはまだ何もありません";
+"catlist_add_format"   = "「%@」にサブスクを追加";
+
+/* iCloud 同期 */
+"settings_icloud_toggle"        = "iCloudで同期";
+"settings_icloud_now"           = "今すぐ同期";
+"settings_icloud_synced_format" = "最終同期: %@";
+"settings_icloud_never"         = "まだ同期していません";
+"settings_storage_value_icloud" = "この端末とiCloud";
+"settings_note_icloud"          = "データはこの端末とあなたのiCloudにのみ保存され、銀行・カードとは一切連携しません。各商標は各社に帰属します。本アプリは各サービスと提携していません。";
+"icloud_err_off"                = "iCloud同期はオフです";
+"icloud_err_unavailable"        = "iCloudを利用できません。設定でiCloudにサインインしているか確認してください";
+
+/* 画面名（戻るボタンのラベルに使う） */
+"nav_detail" = "詳細";
+"nav_cancel" = "解約シミュレーション";
+
+/* すでに登録済みのものを追加しようとしたとき（design 3c） */
+"dup_title_format" = "%@ はすでに登録されています";
+"dup_open"         = "登録済みを開く";
+"dup_add_anyway"   = "別プランとして追加";
+
+/* 支払い方法の追加・編集 */
+"pays_unused"            = "まだ使っていない支払い方法";
+"pays_sheet_new"         = "支払い方法を追加";
+"pays_sheet_edit"        = "支払い方法を編集";
+"pays_name_placeholder"  = "名前（例：メインカード）";
+"pays_last4"             = "カードの下4桁（任意）";
+"pays_last4_placeholder" = "4242";
+"pays_delete"            = "この支払い方法を削除";
+"pay_last4_format"       = "・・・%@";
+"pay_new_default"        = "新しい支払い方法";
+
+/* 通知の許可・本文 */
+"notif_denied_title" = "通知が許可されていません";
+"notif_denied_body"  = "このままでは更新日やトライアル終了をお知らせできません。iOSの設定から通知を許可してください。";
+"notif_denied_open"  = "設定を開く";
+"notif_body_generic" = "更新が近づいています。";
+"msg_trial_today_format" = "今日 %@ の無料期間が終わります";
+
+/* 登録候補：日英で表記が変わるサービス名 */
+"svc_primevideo"       = "Prime Video";
+"svc_abema"            = "ABEMA プレミアム";
+"svc_danime"           = "dアニメストア";
+"svc_lemino"           = "Lemino プレミアム";
+"svc_fod"              = "FOD プレミアム";
+"svc_wowow"            = "WOWOW オンデマンド";
+"svc_nhk"              = "NHKオンデマンド";
+"svc_switch_pack"      = "Nintendo Switch Online + 追加パック";
+"svc_studysapuri"      = "スタディサプリ";
+"svc_dmagazine"        = "dマガジン";
+"svc_rakutenmagazine"  = "楽天マガジン";
+"svc_rakutenmobile"    = "楽天モバイル";
+"svc_nuro"             = "NURO 光";
+"svc_docomohikari"     = "ドコモ光";
+"svc_softbankhikari"   = "SoftBank 光";
+"svc_auhikari"         = "auひかり";
+"svc_goldsgym"         = "ゴールドジム";
+"svc_konami"           = "コナミスポーツクラブ";
+"svc_timescar"         = "タイムズカー";
+"svc_yahoopremium"     = "Yahoo!プレミアム";
+"svc_linesticker"      = "LINEスタンプ プレミアム";
+"svc_note"             = "note プレミアム";
+"svc_jump"             = "少年ジャンプ+";
+"pays_delete_note_format" = "削除すると、この支払い方法の %d件 は「未設定」に移ります。サブスクは消えません。";
+"csv_failed_title" = "書き出せませんでした";
+"csv_error"        = "ファイルを作成できませんでした。空き容量を確認してください。";
+"fx_updated_format"       = "1 %1$@ あたり ・ %2$@ 更新";
+"fx_never_fetched_format" = "1 %@ あたり ・ まだ取得していません";
+"fx_manual_format"        = "1 %@ あたり ・ 手動で設定した値";
+"fx_fetching"           = "レートを取得しています…";
+"fx_error_unavailable"  = "レートを取得できませんでした。前回の値で計算しています";
+"notif_action_snooze" = "あとで";
+
+/* 利用の記録（自己申告） */
+"unused_note_since_format"  = "最終利用 %1$@ ・ %2$dか月使っていません";
+"unused_note_recent_format" = "最終利用 %@";
+"unused_note_marked"        = "「使っていない」と印を付けています";
+"detail_last_used"          = "最後に使った日";
+"detail_last_used_never"    = "記録なし";
+"detail_used_today"         = "今日使ったと記録する";

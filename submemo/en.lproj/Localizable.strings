@@ -1,0 +1,434 @@
+/* commons */
+"brand_name"    = "Submemo";
+"close"         = "Close";
+"cancel"        = "Cancel";
+"save"          = "Save";
+"add_plus"      = "＋ Add";
+"list_joiner"   = " · ";
+
+/* tab bar */
+"tab_home"     = "Home";
+"tab_stats"    = "Stats";
+"tab_notif"    = "Alerts";
+"tab_settings" = "Settings";
+
+/* accessibility */
+"a11y_toggle_theme" = "Toggle theme";
+"a11y_add"          = "Add a subscription";
+"a11y_home_hero_hint"  = "Tap to switch between this month, yearly and daily";
+"a11y_stats_hero_hint" = "Tap to switch between yearly, monthly and daily";
+
+/* appearance */
+"appearance_system" = "System";
+"appearance_light"  = "Light";
+"appearance_dark"   = "Dark";
+
+/* billing cycle */
+"cycle_chip_month"     = "Monthly";
+"cycle_chip_year"      = "Yearly";
+"cycle_chip_week"      = "Weekly";
+"cycle_chip_bimonthly" = "Every 2 mo";
+
+/* how it is actually billed */
+"raw_yearly_format"  = "%@ / year";
+"raw_monthly_format" = "%@ / month";
+"raw_monthly_plain"  = "Monthly";
+"raw_yearly_split"   = "Paid yearly (split)";
+"per_month_suffix"   = " /mo";
+"per_year_suffix"    = " /yr";
+"per_month_amount_format" = "%@ / mo";
+"per_year_amount_format"  = "%@/yr";
+
+/* price history */
+"hist_unchanged" = "No change";
+"hist_trial"     = "Free trial";
+"hist_fx_format" = "%1$@ · %2$@1 = ¥%3$@";
+
+/* categories */
+"cat_video"       = "Video";
+"cat_music"       = "Music";
+"cat_cloud"       = "Cloud";
+"cat_game"        = "Games";
+"cat_learning"    = "Learning";
+"cat_telecom"     = "Telecom";
+"cat_life"        = "Living";
+"cat_other"       = "Other";
+"cat_new_default" = "New category";
+
+/* payment methods */
+"pay_label_card4242"     = "Card ••••4242";
+"pay_label_card1881"     = "Card ••••1881";
+"pay_label_appStore"     = "App Store";
+"pay_label_bankTransfer" = "Bank transfer";
+"pay_label_unset"        = "Not set";
+"pay_name_card4242"      = "Main card";
+"pay_name_card1881"      = "Second card";
+"pay_name_appStore"      = "App Store";
+"pay_name_bankTransfer"  = "Bank transfer";
+"pay_name_unset"         = "Not set";
+"pay_sub_card4242"       = "Visa ••••4242";
+"pay_sub_card1881"       = "Mastercard ••••1881";
+"pay_sub_appStore"       = "Billed to Apple ID";
+"pay_sub_bankTransfer"   = "Mizuho Bank";
+"pay_sub_unset"          = "No payment method chosen";
+
+/* sample service names (plain text + initial tile — no logos) */
+"svc_adobe"      = "Adobe Photography Plan";
+"svc_amazon"     = "Amazon Prime";
+"svc_gym"        = "Anytime Fitness";
+"svc_switch"     = "Nintendo Switch Online";
+"svc_nikkei"     = "Nikkei Digital";
+
+/* onboarding */
+"ob1_title" = "No bank.\nNo card. Ever.";
+"ob1_body"  = "You add each subscription by hand. Everything stays on this device, and there is no account to create.";
+"ob2_title" = "What you pay,\non one screen.";
+"ob2_body"  = "Monthly total, yearly equivalent and cost per day — calculated for you, with a category breakdown.";
+"ob3_title" = "Never forget\nto cancel again.";
+"ob3_body"  = "A top-priority alert 3 days before a free trial ends, shown on the Lock Screen too.";
+"ob_next"   = "Next";
+"ob_start"  = "Get started";
+"ob_skip"   = "Skip";
+
+/* home: hero */
+"hero_this_month"    = "Billed this month";
+"hero_year"          = "Yearly equivalent";
+"hero_day"           = "Per day";
+"hero_sub_split"     = "%@ / mo";
+"hero_sub_split_if"  = "%@ / mo if split";
+"hero_sub_year"      = "%@ / yr";
+"hero_sub_day"       = "%@ / day";
+"home_annual_note_format" = "%1$d yearly plans (%2$@ / mo when split) are not billed this month";
+
+/* home: list */
+"home_active_count_format" = "%d active";
+"sort_high"        = "Highest";
+"sort_soon"        = "Renewing soon";
+"home_swipe_hint"  = "Drag a row left to edit or delete";
+"row_edit"         = "Edit";
+"row_delete"       = "Delete";
+"flag_trial"       = "Free";
+"flag_unused"      = "Unused";
+"row_trial_end_format" = "Ends %@";
+"row_days_left_format" = "%d days left";
+
+/* home: trial warning / unused roundup */
+"home_trial_title_format" = "Free trial ends in %d days";
+"home_trial_line_format"  = "%1$@ · billing starts %2$@ at %3$@";
+"home_unused_label_format" = "Cancel the %d you barely use and save";
+"home_unused_save_format"  = "%@ a year";
+
+/* home: empty state */
+"empty_title"   = "Start with just one";
+"empty_body"    = "Just type a service name. The price and renewal date come from the suggestions. No bank or card is ever connected.";
+"empty_cta"     = "Add your first subscription";
+"empty_add_cta" = "Add a subscription";
+
+"empty_stats_title" = "Nothing to total up yet";
+"empty_stats_body"  = "Add a couple and you'll see the category breakdown and what it costs per day.";
+
+"empty_notif_title"    = "No renewals coming up";
+"empty_notif_body"     = "Once you add a subscription, its next renewal and free-trial end date show up here. Reminders follow those dates.";
+"empty_notif_settings" = "Check the reminder settings first";
+
+/* per-screen guide (first visit only) */
+"coach_done" = "Got it";
+"coach_home_main"      = "Tap the amount to switch it: billed this month, yearly equivalent, per day.";
+"coach_stats_main"     = "Tap a category to see everything inside it.";
+"coach_notif_main"     = "Renewals and free-trial end dates, soonest first.";
+"coach_home_empty"     = "Start here. To add more later, use the ＋ in the top right.";
+"coach_stats_empty"    = "As you add more, this is also where you'll spot the priciest ones and what you never use.";
+"coach_notif_empty"    = "Reminders start once you add something. You can set how many days ahead from here first.";
+
+/* detail */
+"detail_from_notif_title"      = "Opened from a Lock Screen alert";
+"detail_from_notif_body_format" = "The free trial ends in %d days. Cancel now, or be reminded later.";
+"detail_snooze_format"         = "Remind me %@";
+"detail_per_month"             = "/ mo";
+"detail_per_month_yearly"      = "/ mo (paid yearly)";
+"detail_yearly"                = "Per year";
+"detail_per_day"               = "Per day";
+"detail_category"              = "Category";
+"detail_next"                  = "Next renewal";
+"detail_days_suffix_format"    = " (%d days)";
+"detail_cycle"                 = "Billing cycle";
+"detail_cycle_monthly_format"  = "%@ monthly";
+"detail_pay"                   = "Payment method";
+"detail_history"               = "Price history";
+"detail_cancel_sim"            = "How much would cancelling save?";
+"detail_mark_unused"           = "Mark as “not using”";
+"detail_unmark_unused"         = "Remove the “not using” mark";
+
+/* cancel simulation */
+"cancel_who_format"           = "Cancelling %@ saves";
+"cancel_unused_count_format"  = "the %d you barely use";
+"cancel_per_year"             = "in a year";
+"cancel_breakdown_format"     = "%1$@ / mo · %2$@ / day";
+"cancel_three_years_format"   = "%@ over three years";
+"cancel_targets"              = "Included (tap to toggle)";
+"cancel_note_candidate"       = "Cancellation candidate";
+"cancel_save_format"          = "%@/yr";
+"legal_trademarks"            = "All trademarks belong to their respective owners. This app is not affiliated with any of these services.";
+
+/* add: step 1 */
+"add_title"                = "Add a subscription";
+"add_search_placeholder"   = "Type a service name (e.g. “net”)";
+"add_suggest_popular"      = "Commonly used services";
+"add_suggest_results"      = "Search results";
+"add_manual_cta"           = "Not listed — add it by hand";
+"add_manual_name"          = "New subscription";
+
+/* add: step 2 */
+"add_confirm_title"     = "Check the details";
+"add_autofill_note"     = "Filled in from the suggestion. Change anything that is off.";
+"add_price"             = "Price";
+"add_fx_line_format"    = "≈ %1$@ (1%2$@ = ¥%3$@)";
+"add_cycle"             = "Billing cycle";
+"add_category"          = "Category";
+"add_trial_title"       = "On a free trial";
+"add_trial_note"        = "Alerts you 3 days before it ends, at top priority";
+"add_summary_format"    = "%1$@ / mo · %2$@ / yr · %3$@ / day";
+"add_new_total_format"  = "Adding this brings this month to %@";
+"add_save"              = "Add";
+
+/* stats */
+"stats_title"              = "Stats & review";
+"stats_hero_month"         = "Monthly equivalent";
+"stats_unused_title"       = "Marked as not using";
+"stats_unused_meta_format" = "%1$d · %2$@ / yr";
+"stats_cancel_all"         = "Simulate cancelling all of them";
+"stats_by_pay"             = "By payment method";
+"stats_ranking"            = "Most expensive (per day)";
+"stats_per_day_format"     = "%@/day";
+
+/* alerts: what's coming */
+"notif_title"                = "What's coming";
+"notif_note_trial"           = "Trial ends · billing starts";
+"notif_note_renew_format"    = "Renews in %d days";
+"notif_preview_label"        = "The alert you'll get (preview)";
+"notif_now"                  = "now";
+"notif_preview_cta"          = "Tap to see what opens ›";
+"notif_row_before"           = "Alert me before a renewal";
+"notif_row_trial"            = "Trial-ending alert";
+"notif_row_trial_value"      = "Top priority · Lock Screen";
+"notif_row_open"             = "Open alert settings";
+"notif_trial_only"           = "Trials only";
+"notif_off"                  = "Off";
+
+/* Alert wording (built from the user's entries) */
+"msgs_title"      = "Alert wording";
+"msgs_note"       = "The amount and the date are always in the body, so you can decide without opening the app.";
+"msgs_empty"      = "Nothing is registered yet, so there is no alert to preview. Add a subscription and the real wording shows up here.";
+"msg_tag_renewal"     = "Renewal";
+"msg_tag_trial"       = "Trial";
+"msg_tag_today"       = "Today";
+"msg_renewal_title_format" = "%1$@ renews in %2$d days";
+"msg_renewal_body_format"  = "%2$@ on %1$@. Keep it, or cancel before the renewal date.";
+"msg_action_snooze_format" = "Later (remind me %@)";
+"msg_trial_title_format"   = "%1$@'s free trial ends in %2$d days";
+"msg_trial_body_format"    = "%2$@ from %1$@. Cancel now if you don't want it.";
+"msg_today_title_format"   = "%@ renews today";
+"msg_today_body_format"    = "%1$@ will be charged to %2$@.";
+"msg_today_body_fx_format" = "%1$@ (%2$@ at ¥%4$@/%3$@) will be charged to %5$@.";
+"msg_today_act"            = "Open details";
+
+/* alert settings */
+"notifset_title"         = "Alert settings";
+"notifset_before"        = "How far ahead to warn you (multiple)";
+"before_7"               = "7 days";
+"before_3"               = "3 days";
+"before_1"               = "1 day";
+"before_0"               = "Same day";
+"notifset_time"          = "Time of day";
+"notifset_trial"         = "Free trial ending (top priority)";
+"days_before_format"     = "%d days";
+"notifset_snooze"        = "When you tap “Later”";
+"snooze_oneHour"         = "In 1 hour";
+"snooze_oneDay"          = "Tomorrow";
+"snooze_dayBefore"       = "Day before renewal";
+"notifset_lock_title"    = "Show the amount on the Lock Screen";
+"notifset_lock_note"     = "When off, the amount is left out of the body (the name and “in N days” still show)";
+"notifset_quiet_title"   = "Stay quiet at night";
+"notifset_quiet_note"    = "22:00 – 8:00 is held until the next morning";
+"notifset_see_messages_format" = "See the actual wording (%d types)";
+"notifset_note"          = "Alerts are scheduled entirely on this device. Nothing is sent to a server.";
+
+/* settings */
+"settings_notif"           = "Alerts";
+"settings_cats"            = "Categories";
+"settings_cats_value_format" = "%d";
+"settings_pays"            = "Payment methods";
+"settings_count_format"    = "%d";
+"settings_theme"           = "Theme";
+"settings_fx"              = "Currency & exchange rate";
+"settings_fx_value_format" = "JPY · %1$@1=¥%2$@";
+"settings_storage"         = "Where data lives";
+"settings_storage_value"   = "This device only";
+"settings_msgs"            = "All alert wording";
+"settings_csv"             = "CSV export";
+"settings_note"            = "Your data stays on this device and is never linked to a bank or card. All trademarks belong to their respective owners; this app is not affiliated with any of these services.";
+
+/* categories */
+"cats_title"             = "Categories";
+"cats_total_format"      = "%d categories";
+"cats_unused"            = "Unused";
+"cats_note"              = "Deleting a category does not delete its subscriptions — they move to “Other”. Reordering will be long-press drag.";
+"cats_sheet_new"         = "Add a category";
+"cats_sheet_edit"        = "Edit category";
+"cats_name_placeholder"  = "Category name";
+"cats_color"             = "Color";
+"cats_usage_new"         = "The color is also used on the initial tiles in the list";
+"cats_usage_edit"        = "If you delete it, its subscriptions move to “Other”";
+"cats_delete"            = "Delete this category";
+
+/* payment methods */
+"pays_title"         = "Payment methods";
+"pays_breakdown"     = "Breakdown by payment method";
+"pays_privacy_title" = "Only the last 4 digits are stored";
+"pays_privacy_body"  = "Card numbers and expiry dates are never entered. This is just a label so you can tell which card a charge comes from.";
+
+/* currency & exchange rate */
+"fx_title"       = "Currency & exchange rate";
+"fx_current"     = "Rate in use";
+"fx_mode_label"  = "Rate updates";
+"fx_mode_daily"  = "Auto (daily)";
+"fx_mode_weekly" = "Auto (weekly)";
+"fx_mode_manual" = "Manual";
+"fx_mode_note"   = "The rate comes from the European Central Bank, which publishes on weekdays only. On weekends and holidays it stays at the previous business day's value.";
+"fx_items_label" = "Subscriptions in foreign currency";
+"fx_note"        = "Past records keep the rate that applied at the time and are never rewritten.";
+
+/* CSV export */
+"csv_title"             = "Export as CSV";
+"csv_range"             = "Filter by next renewal";
+"csv_range_all"         = "All";
+"csv_range_thisYear_format" = "%d";
+"csv_range_thisMonth"   = "This month";
+"csv_columns"           = "Columns to include (the service name is always included)";
+"csv_col_name"          = "Service";
+"csv_col_price"         = "Price";
+"csv_col_next"          = "Next renewal";
+"csv_col_cat"           = "Category";
+"csv_col_pay"           = "Payment method";
+"csv_encoding_note"     = "Encoded as UTF-8 with BOM, so Excel opens it directly.";
+"csv_rows_format"       = "%1$d rows · %2$d columns";
+"csv_run_format"        = "Export %@";
+"csv_done_title"        = "Exported";
+"csv_done_note"         = "Save it to the Files app, or share it";
+"csv_share"             = "Share";
+
+/* Sample data (Debug builds only) */
+"settings_section_data"                = "Data (Debug)";
+"settings_sample_add_jp"               = "Add sample data (Japanese)";
+"settings_sample_add_jp_sub"           = "10 Japanese subscriptions, dated from today";
+"settings_sample_add_en"               = "Add sample data (English)";
+"settings_sample_add_en_sub"           = "10 English subscriptions, dated from today";
+"settings_coach_reset"      = "Show the guides again";
+"settings_coach_reset_sub"  = "Clears the “seen” record on each screen";
+"settings_coach_reset_done" = "Cleared the guide records";
+"settings_sample_clear"                = "Remove sample data";
+"settings_sample_clear_sub"            = "Removes only the entries added as samples";
+"settings_sample_clear_confirm_title"  = "Remove the sample data?";
+"settings_sample_clear_confirm_message" = "Anything you added yourself is kept.";
+"settings_sample_added_summary_format" = "Added %d entries";
+"settings_sample_removed_message"      = "Sample data removed";
+"settings_delete_all"                  = "Delete all data";
+"settings_delete_all_sub"              = "Deletes every subscription and custom category";
+"settings_delete_all_confirm_title"    = "Delete all data?";
+"settings_delete_all_confirm_message"  = "This cannot be undone.";
+
+/* Entry form (shared by add and edit) */
+"form_title_edit"             = "Edit";
+"form_name_placeholder"       = "Service name";
+"form_next_renewal"           = "Next renewal";
+"form_new_total_format"       = "Saving brings this month to %@";
+"form_delete"                 = "Delete this subscription";
+"form_delete_confirm_title"   = "Delete this subscription?";
+"form_delete_confirm_message" = "This cannot be undone.";
+
+/* Stats → subscriptions in one category */
+"catlist_share"        = "Share of total";
+"catlist_count"        = "Entries";
+"catlist_next_format"  = "Next %@";
+"catlist_trial_format" = "Free · starts %@";
+"catlist_empty"        = "Nothing in this category yet";
+"catlist_add_format"   = "Add a subscription to %@";
+
+/* iCloud sync */
+"settings_icloud_toggle"        = "Sync with iCloud";
+"settings_icloud_now"           = "Sync now";
+"settings_icloud_synced_format" = "Last synced: %@";
+"settings_icloud_never"         = "Not synced yet";
+"settings_storage_value_icloud" = "This device and iCloud";
+"settings_note_icloud"          = "Your data stays on this device and in your iCloud, and is never linked to a bank or card. All trademarks belong to their respective owners; this app is not affiliated with any of these services.";
+"icloud_err_off"                = "iCloud sync is off";
+"icloud_err_unavailable"        = "iCloud is unavailable. Check that you are signed in to iCloud in Settings.";
+
+/* Screen names (used as the back button label) */
+"nav_detail" = "Details";
+"nav_cancel" = "Cancellation";
+
+/* Adding something already registered (design 3c) */
+"dup_title_format" = "%@ is already registered";
+"dup_open"         = "Open the existing one";
+"dup_add_anyway"   = "Add as a separate plan";
+
+/* Adding / editing a payment method */
+"pays_unused"            = "Not used yet";
+"pays_sheet_new"         = "Add a payment method";
+"pays_sheet_edit"        = "Edit payment method";
+"pays_name_placeholder"  = "Name (e.g. Main card)";
+"pays_last4"             = "Last 4 digits (optional)";
+"pays_last4_placeholder" = "4242";
+"pays_delete"            = "Delete this payment method";
+"pay_last4_format"       = "••••%@";
+"pay_new_default"        = "New payment method";
+
+/* Notification permission / body */
+"notif_denied_title" = "Notifications are not allowed";
+"notif_denied_body"  = "Without them we cannot tell you about renewals or trials ending. Allow notifications in the iOS Settings app.";
+"notif_denied_open"  = "Open Settings";
+"notif_body_generic" = "A renewal is coming up.";
+"msg_trial_today_format" = "%@'s free trial ends today";
+
+/* Catalog: service names that differ between ja and en */
+"svc_primevideo"       = "Prime Video";
+"svc_abema"            = "ABEMA Premium";
+"svc_danime"           = "d Anime Store";
+"svc_lemino"           = "Lemino Premium";
+"svc_fod"              = "FOD Premium";
+"svc_wowow"            = "WOWOW On Demand";
+"svc_nhk"              = "NHK On Demand";
+"svc_switch_pack"      = "Nintendo Switch Online + Expansion Pack";
+"svc_studysapuri"      = "StudySapuri";
+"svc_dmagazine"        = "d Magazine";
+"svc_rakutenmagazine"  = "Rakuten Magazine";
+"svc_rakutenmobile"    = "Rakuten Mobile";
+"svc_nuro"             = "NURO Hikari";
+"svc_docomohikari"     = "docomo Hikari";
+"svc_softbankhikari"   = "SoftBank Hikari";
+"svc_auhikari"         = "au Hikari";
+"svc_goldsgym"         = "Gold's Gym";
+"svc_konami"           = "Konami Sports Club";
+"svc_timescar"         = "Times Car";
+"svc_yahoopremium"     = "Yahoo! Premium";
+"svc_linesticker"      = "LINE Stickers Premium";
+"svc_note"             = "note Premium";
+"svc_jump"             = "Shonen Jump+";
+"pays_delete_note_format" = "Deleting moves its %d subscriptions to “Not set”. Nothing is deleted.";
+"csv_failed_title" = "Export failed";
+"csv_error"        = "Could not create the file. Check your free storage.";
+"fx_updated_format"       = "per 1 %1$@ · updated %2$@";
+"fx_never_fetched_format" = "per 1 %@ · not fetched yet";
+"fx_manual_format"        = "per 1 %@ · set by hand";
+"fx_fetching"           = "Fetching the rate…";
+"fx_error_unavailable"  = "Could not fetch the rate. Using the last known value.";
+"notif_action_snooze" = "Later";
+
+/* Usage record (self-reported) */
+"unused_note_since_format"  = "Last used %1$@ · %2$d months ago";
+"unused_note_recent_format" = "Last used %@";
+"unused_note_marked"        = "Marked as “not using”";
+"detail_last_used"          = "Last used";
+"detail_last_used_never"    = "Not recorded";
+"detail_used_today"         = "Mark as used today";

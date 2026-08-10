@@ -2,23 +2,18 @@
 //  ContentView.swift
 //  submemo
 //
-//  Created by 津田準 on 2026/08/07.
+//  ルート。デザインドキュメント 1a「動くプロトタイプ」の画面群を表示する。
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ContentViewRoot()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(iCloudSyncManager())
 }

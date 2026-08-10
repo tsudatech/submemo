@@ -1,0 +1,3 @@
+/* App display name (Home screen / App Switcher) */
+"CFBundleDisplayName" = "Submemo";
+"CFBundleName"        = "Submemo";

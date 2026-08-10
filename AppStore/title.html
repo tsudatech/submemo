@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      /* App Store の 1 枚目（紹介用）。1320×2868 でそのまま撮る。
+         端末は mockup_alpha の透過 PNG をそのまま置くだけで、傾けない。 */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1320px;
+        height: 2868px;
+        overflow: hidden;
+        font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
+        /* make_mockup.py と同じ淡い indigo のグラデーション。 */
+        background:
+          radial-gradient(circle at 16% 10%, rgba(91, 124, 250, 0.20) 0%, transparent 46%),
+          radial-gradient(circle at 88% 88%, rgba(91, 124, 250, 0.15) 0%, transparent 44%),
+          linear-gradient(180deg, #F4F6FF 0%, #E2E7FA 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .icon {
+        width: 208px;
+        height: 208px;
+        border-radius: 48px;
+        margin-top: 84px;
+        box-shadow: 0 26px 54px rgba(40, 58, 120, 0.26);
+      }
+
+      h1 {
+        margin-top: 36px;
+        font-size: 106px;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        color: #141821;
+      }
+
+      .sub {
+        margin-top: 18px;
+        font-size: 43px;
+        font-weight: 600;
+        color: #6B7280;
+        letter-spacing: 0.01em;
+      }
+
+      .pills {
+        display: flex;
+        gap: 18px;
+        margin-top: 36px;
+      }
+
+      .pills span {
+        padding: 18px 30px;
+        border-radius: 999px;
+        background: #5B7CFA;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 700;
+        box-shadow: 0 10px 26px rgba(91, 124, 250, 0.34);
+      }
+
+      /* 透過 PNG（端末＋影）をそのまま。影は画像側に入っている。 */
+      .phone {
+        width: 1124px;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="icon" src="../web/images/app-icon.png" alt="" />
+    <h1>サブメモ</h1>
+    <p class="sub">契約中のサブスクを、1画面で。</p>
+    <div class="pills">
+      <span>更新前に通知</span>
+      <span>カテゴリ別に集計</span>
+      <span>銀行に繋がない</span>
+    </div>
+    <img class="phone" src="mockup_alpha/ja/01_home.png" alt="" />
+  </body>
+</html>

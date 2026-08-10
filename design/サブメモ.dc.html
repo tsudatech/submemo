@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"><style>body{margin:0;background:#EDEBE7;font-family:'Noto Sans JP',system-ui,sans-serif}a{color:#2a78d6}a:hover{color:#1a5aa8}input{font-family:inherit}button{font-family:inherit}</style></helmet>
+
+<section id="t4" style="padding:44px 48px 40px;border-bottom:1px solid rgba(0,0,0,.09);display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;align-items:baseline;gap:10px">
+<a href="#t4" style="font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">4</a>
+<span style="font:700 13px/1.2 'Noto Sans JP',sans-serif;color:#1a1a1a">空状態 5種（並べて比較）</span>
+</div>
+<div style="max-width:760px;font:400 12.5px/1.85 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.62)">
+<p style="margin:0">プロトタイプでは全削除しないと見えないので、静止で並べています。<a href="#4a">4a</a> と <a href="#4b">4b</a> は同じ0件でも事情が違うため、文言と主ボタンを分けています。初回は何をすればいいかを教える必要があり、全削除後はすでに使い方を知っている人が意図して空にした状態です。</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start">
+
+<div id="4a" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#4a" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">4a</a>ホーム ─ 初回（オンボーディング直後）</div>
+<div style="width:393px;height:600px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 15px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:32px;height:32px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 20px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="position:absolute;inset:100px 0 84px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="width:96px;height:96px;border-radius:28px;border:1.5px dashed rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font:400 30px/1 -apple-system,system-ui;color:#5C6472">¥</div>
+<div style="font:700 19px/1.7 'Noto Sans JP',sans-serif">まず1件だけ登録してみましょう</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:#8A93A2;text-wrap:pretty">サービス名を入れるだけ。料金と更新日は候補から入ります。銀行やカードには繋ぎません。</div>
+<div style="width:100%;height:52px;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px/52px 'Noto Sans JP',sans-serif;text-align:center;margin-top:6px">最初のサブスクを登録</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(27,33,41,.92);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:10px 12px 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5B7CFA"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5B7CFA">ホーム</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:3px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">集計</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:50%;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">通知</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">設定</span></div>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(242,244,247,.32)"></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">「1件だけ」と言うことで心理的な着手コストを下げています。ここに合計 ¥0 は出しません</div>
+</div>
+
+<div id="4b" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#4b" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">4b</a>ホーム ─ 全部削除したあと</div>
+<div style="width:393px;height:600px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 15px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:32px;height:32px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 20px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="position:absolute;inset:100px 0 84px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:20px;text-align:center">
+<div style="display:flex;align-items:baseline;gap:2px;opacity:.55"><span style="font:500 22px/1 -apple-system,system-ui;color:#8A93A2">¥</span><span style="font:600 46px/1 -apple-system,'SF Pro Display',system-ui;color:#8A93A2;font-feature-settings:'tnum'">0</span></div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif">登録されているサブスクはありません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:#8A93A2;text-wrap:pretty">今月の支払いはゼロです。もし削除が間違いだったら、30日以内なら元に戻せます。</div>
+<div style="display:flex;gap:9px;width:100%;margin-top:4px">
+<div style="flex:1;height:50px;border-radius:14px;background:#5B7CFA;color:#fff;font:700 13.5px/50px 'Noto Sans JP',sans-serif;text-align:center">追加する</div>
+<div style="flex:1;height:50px;border-radius:14px;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font:500 13.5px/48px 'Noto Sans JP',sans-serif;text-align:center">削除を取り消す</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(27,33,41,.92);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:10px 12px 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5B7CFA"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5B7CFA">ホーム</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:3px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">集計</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:50%;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">通知</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">設定</span></div>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(242,244,247,.32)"></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">こちらは ¥0 を出します。意図して空にした人には達成感のある数字だから</div>
+</div>
+
+<div id="4c" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#4c" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">4c</a>集計 ─ 0件</div>
+<div style="width:393px;height:600px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif">集計と見直し</div>
+<div style="position:absolute;inset:100px 0 84px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="display:flex;align-items:flex-end;gap:7px;height:78px;opacity:.3"><span style="width:22px;height:26px;border-radius:5px;background:#8A93A2"></span><span style="width:22px;height:46px;border-radius:5px;background:#8A93A2"></span><span style="width:22px;height:66px;border-radius:5px;background:#8A93A2"></span></div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif">集計するものがまだありません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:#8A93A2;text-wrap:pretty">2件くらい登録すると、カテゴリの内訳と1日あたりの金額が出ます。</div>
+<div style="width:100%;height:52px;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px/52px 'Noto Sans JP',sans-serif;text-align:center;margin-top:6px">サブスクを登録する</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(27,33,41,.92);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:10px 12px 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">ホーム</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:3px;background:#5B7CFA"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5B7CFA">集計</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:50%;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">通知</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">設定</span></div>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(242,244,247,.32)"></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">「2件くらい」と具体的な数を出して、何をすれば表が埋まるかを示す</div>
+</div>
+
+<div id="4d" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#4d" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">4d</a>集計 ─ 無料トライアルだけ</div>
+<div style="width:393px;height:600px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif">集計と見直し</div>
+<div style="position:absolute;inset:100px 0 84px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="display:flex;align-items:flex-end;gap:7px;height:78px;opacity:.3"><span style="width:22px;height:26px;border-radius:5px;background:#8A93A2"></span><span style="width:22px;height:46px;border-radius:5px;background:#8A93A2"></span><span style="width:22px;height:66px;border-radius:5px;background:#8A93A2"></span></div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif">集計できるものがありません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:#8A93A2;text-wrap:pretty">登録されているのは無料トライアルだけです。課金が始まると、ここに内訳が出ます。</div>
+<div style="width:100%;border:1px solid rgba(255,92,92,.3);background:rgba(255,92,92,.08);border-radius:14px;padding:13px 15px;display:flex;align-items:center;gap:11px;text-align:left">
+<span style="width:8px;height:8px;border-radius:50%;background:#FF5C5C;flex:none"></span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:700 12px 'Noto Sans JP',sans-serif;color:#FF8A8A">8/9 に ¥3,000 の課金がはじまります</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:#8A93A2">Perplexity Pro ・ あと3日</span></span>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(27,33,41,.92);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:10px 12px 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">ホーム</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:3px;background:#5B7CFA"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5B7CFA">集計</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:50%;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">通知</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">設定</span></div>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(242,244,247,.32)"></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">合計 ¥0 でも危険は迫っている状態。登録を促すより、その事実を出す</div>
+</div>
+
+<div id="4e" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#4e" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">4e</a>通知 ─ 予定なし</div>
+<div style="width:393px;height:600px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif">これからの予定</div>
+<div style="position:absolute;inset:100px 0 84px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="display:flex;flex-direction:column;gap:9px;width:132px;opacity:.3"><span style="height:11px;border-radius:6px;background:#8A93A2"></span><span style="height:11px;border-radius:6px;background:#8A93A2;width:78%"></span><span style="height:11px;border-radius:6px;background:#8A93A2;width:52%"></span></div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif">予定されている更新はありません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:#8A93A2;text-wrap:pretty">サブスクを登録すると、次の更新日と無料トライアルの終了日がここに並びます。通知はその予定にあわせて届きます。</div>
+<div style="width:100%;height:52px;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px/52px 'Noto Sans JP',sans-serif;text-align:center;margin-top:6px">サブスクを登録する</div>
+<div style="font:400 12px 'Noto Sans JP',sans-serif;color:#8A93A2">先に通知の設定を見ておく</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(27,33,41,.92);border-top:1px solid rgba(255,255,255,.06);display:flex;padding:10px 12px 0">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">ホーム</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:3px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">集計</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:50%;background:#5B7CFA"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5B7CFA">通知</span></div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px"><span style="width:18px;height:18px;border-radius:6px;background:#5C6472"></span><span style="font:500 10px 'Noto Sans JP',sans-serif;color:#5C6472">設定</span></div>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(242,244,247,.32)"></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">通知は登録があって初めて意味を持つので、設定への導線は副次に置く</div>
+</div>
+
+</div>
+<p style="margin:6px 0 0;font:400 12px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);max-width:760px">次に試せること：「<a href="#4b">4b</a> の『削除を取り消す』を <a href="#1a">1a</a> にも入れる」／「<a href="#4a">4a</a> の点線タイルをやめて、登録の候補リストをそのまま出す案」</p>
+</section>
+
+<section id="t3" style="padding:44px 48px 40px;border-bottom:1px solid rgba(0,0,0,.09);display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;align-items:baseline;gap:10px">
+<a href="#t3" style="font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">3</a>
+<span style="font:700 13px/1.2 'Noto Sans JP',sans-serif;color:#1a1a1a">エラー・限界の状態 と アクセシビリティ</span>
+</div>
+<div style="max-width:760px;font:400 12.5px/1.85 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.62)">
+<p style="margin:0">いずれも「何が起きたか」より「いま表示されている数字は信用できるのか」を先に伝える形にしています。<a href="#3e">3e</a> は Dynamic Type 最大時。¥19,140 を折り返さずに収めるため、この段階では数字を右寄せ1行に切り替え、金額と日付以外を段組みから外しています。</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start">
+
+<div id="3a" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#3a" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">3a</a>為替レートが取れなかった</div>
+<div style="width:393px;height:400px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 15px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:32px;height:32px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 20px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="padding:26px 20px 20px"><div style="font:500 12px 'Noto Sans JP',sans-serif;color:#8A93A2;letter-spacing:.06em">今月の請求額</div><div style="display:flex;align-items:baseline;gap:2px;margin-top:8px"><span style="font:500 26px/1 -apple-system,system-ui">¥</span><span style="font:600 50px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">19,140</span><span style="font:400 20px/1 -apple-system,system-ui;color:#F5A623;margin-left:8px">＊</span></div></div>
+<div style="padding:0 20px"><div style="border:1px solid rgba(245,166,35,.35);background:rgba(245,166,35,.08);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+<span style="font:700 12.5px 'Noto Sans JP',sans-serif;color:#F5A623">＊ 8月4日のレートで計算しています</span>
+<span style="font:400 11.5px/1.8 'Noto Sans JP',sans-serif;color:#8A93A2">最新のレートを取得できませんでした。オフラインか、提供元が応答していません。外貨のサブスク1件（1$ = ¥153.2）だけが影響します。</span>
+<div style="display:flex;gap:8px;margin-top:4px"><span style="height:38px;padding:0 14px;border-radius:11px;background:#F5A623;color:#241A05;font:700 12px/38px 'Noto Sans JP',sans-serif">再取得</span><span style="height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font:500 12px/36px 'Noto Sans JP',sans-serif">手動で入れる</span></div>
+</div></div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">円だけのサブスクには影響しないため、他の金額に ＊ は付きません。</div>
+</div>
+
+<div id="3b" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#3b" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">3b</a>通知が許可されていない</div>
+<div style="width:393px;height:400px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><span style="color:#8A93A2;font:400 14px 'Noto Sans JP',sans-serif">‹ 通知</span><span style="font:500 14px 'Noto Sans JP',sans-serif">通知の設定</span><span style="width:44px"></span></div>
+<div style="margin:22px 20px 0;border:1px solid rgba(255,92,92,.35);background:rgba(255,92,92,.08);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px">
+<span style="font:700 13px 'Noto Sans JP',sans-serif;color:#FF8A8A">通知がオフのままです</span>
+<span style="font:400 11.5px/1.8 'Noto Sans JP',sans-serif;color:#8A93A2">この設定は保存されますが、いまは何も届きません。解約忘れを防ぐ機能はすべて通知に依存しています。</span>
+<span style="height:44px;border-radius:13px;background:#FF5C5C;color:#fff;font:700 13px/44px 'Noto Sans JP',sans-serif;text-align:center;margin-top:4px">iOSの設定をひらく</span>
+</div>
+<div style="padding:24px 20px 0;opacity:.4">
+<div style="font:500 11.5px 'Noto Sans JP',sans-serif;color:#8A93A2;letter-spacing:.05em;margin-bottom:11px">更新の何日前に知らせるか</div>
+<div style="display:flex;gap:8px"><span style="flex:1;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);color:#8A93A2;font:500 12.5px/40px 'Noto Sans JP',sans-serif;text-align:center">7日前</span><span style="flex:1;height:42px;border-radius:12px;border:1px solid rgba(91,124,250,.6);background:rgba(91,124,250,.16);color:#8FA8FF;font:500 12.5px/40px 'Noto Sans JP',sans-serif;text-align:center">3日前</span><span style="flex:1;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.1);color:#8A93A2;font:500 12.5px/40px 'Noto Sans JP',sans-serif;text-align:center">前日</span><span style="flex:1;height:42px;border-radius:12px;border:1px solid rgba(91,124,250,.6);background:rgba(91,124,250,.16);color:#8FA8FF;font:500 12.5px/40px 'Noto Sans JP',sans-serif;text-align:center">当日</span></div>
+</div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">設定は触れるまま残します。許可した瞬間に有効になるほうが、入力を捨てさせるより親切です。</div>
+</div>
+
+<div id="3c" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#3c" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">3c</a>すでに登録済みのものを追加しようとした</div>
+<div style="width:393px;height:400px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><span style="color:#8A93A2;font:400 14px 'Noto Sans JP',sans-serif">閉じる</span><span style="font:500 14px 'Noto Sans JP',sans-serif">サブスクを追加</span><span style="width:44px"></span></div>
+<div style="padding:22px 20px 14px"><div style="height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:#262C36;color:#F2F4F7;font:400 15px/48px 'Noto Sans JP',sans-serif;padding:0 16px">Netflix</div></div>
+<div style="margin:0 20px;border:1px solid rgba(245,166,35,.35);background:rgba(245,166,35,.08);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+<span style="font:700 12.5px 'Noto Sans JP',sans-serif;color:#F5A623">Netflix はすでに登録されています</span>
+<div style="display:flex;align-items:center;gap:11px;padding:4px 0">
+<span style="width:34px;height:34px;border-radius:11px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff">N</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 13px 'Noto Sans JP',sans-serif">Netflix</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:#8A93A2;font-feature-settings:'tnum'">¥1,590 / 月 ・ 次回 8/12</span></span>
+</div>
+<div style="display:flex;gap:8px;margin-top:2px"><span style="flex:1;height:40px;border-radius:12px;background:#F5A623;color:#241A05;font:700 12px/40px 'Noto Sans JP',sans-serif;text-align:center">登録済みを開く</span><span style="flex:1;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font:500 12px/38px 'Noto Sans JP',sans-serif;text-align:center">別プランとして追加</span></div>
+</div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">家族で別々に契約している場合があるため、追加は禁止せず選ばせます。</div>
+</div>
+
+<div id="3d" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#3d" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">3d</a>無料の上限（10件）に当たった</div>
+<div style="width:393px;height:400px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="position:absolute;inset:54px 0 0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end">
+<div style="width:100%;background:#262C36;border-radius:26px 26px 0 0;padding:24px 20px 30px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font:700 16px 'Noto Sans JP',sans-serif">11件目からはプレミアムです</span><span style="color:#8A93A2;font:400 18px/1 -apple-system,system-ui">✕</span></div>
+<div style="font:400 12px/2 'Noto Sans JP',sans-serif;color:#8A93A2">いま登録されている10件は、このまま無料で使い続けられます。消える機能はありません。</div>
+<div style="display:flex;gap:9px;padding:4px 0"><div style="flex:1;background:#1B2129;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:#8A93A2">いま</span><span style="font:600 20px/1 -apple-system,system-ui;font-feature-settings:'tnum'">10 / 10</span></div><div style="flex:1;background:#1B2129;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:#8A93A2">プレミアム</span><span style="font:600 20px/1 'Noto Sans JP',sans-serif;color:#5B7CFA">無制限</span></div></div>
+<div style="display:flex;gap:9px"><span style="flex:1;height:50px;border-radius:14px;background:#5B7CFA;color:#fff;font:700 13.5px/50px 'Noto Sans JP',sans-serif;text-align:center;font-feature-settings:'tnum'">年 ¥1,200</span><span style="flex:1;height:50px;border-radius:14px;border:1px solid rgba(255,255,255,.14);color:#F2F4F7;font:500 13.5px/48px 'Noto Sans JP',sans-serif;text-align:center;font-feature-settings:'tnum'">買い切り ¥2,800</span></div>
+<div style="text-align:center;font:400 11px 'Noto Sans JP',sans-serif;color:#8A93A2">使っていない1件を解約して枠を空ける</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="3e" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#3e" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">3e</a>Dynamic Type 最大（AX5）</div>
+<div style="width:393px;height:560px;background:#1B2129;border-radius:46px 46px 18px 18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:#F2F4F7">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 22px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:44px;height:44px;border-radius:13px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 26px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="padding:24px 20px 22px"><div style="font:500 17px 'Noto Sans JP',sans-serif;color:#8A93A2">今月の請求額</div><div style="display:flex;align-items:baseline;gap:2px;margin-top:10px"><span style="font:500 26px/1 -apple-system,system-ui">¥</span><span style="font:600 48px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">19,140</span></div><div style="display:flex;flex-direction:column;gap:6px;margin-top:14px;font:400 16px/1.6 'Noto Sans JP',sans-serif;color:#8A93A2;font-feature-settings:'tnum'"><span>月割りなら ¥17,007</span><span>年 ¥204,084</span></div></div>
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:14px;padding:14px;background:#262C36;border-radius:16px"><span style="width:52px;height:52px;border-radius:15px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 22px 'Noto Sans JP',sans-serif;color:#fff;flex:none">N</span><span style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font:500 19px/1.4 'Noto Sans JP',sans-serif">Netflix</span><span style="font:400 15px 'Noto Sans JP',sans-serif;color:#8A93A2;font-feature-settings:'tnum'">¥1,590 ・ 8/12</span></span></div>
+<div style="display:flex;align-items:center;gap:14px;padding:14px;background:#262C36;border-radius:16px"><span style="width:52px;height:52px;border-radius:15px;background:#F2A93B;display:flex;align-items:center;justify-content:center;font:700 22px 'Noto Sans JP',sans-serif;color:#fff;flex:none">C</span><span style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font:500 19px/1.4 'Noto Sans JP',sans-serif">ChatGPT Plus</span><span style="font:400 15px 'Noto Sans JP',sans-serif;color:#8A93A2;font-feature-settings:'tnum'">¥3,080 ・ 8/15</span></span></div>
+</div>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:393px">この段階では金額と日付を縦に積み、行の右端の数字列をやめています。ヒット領域は52px以上。</div>
+</div>
+
+</div>
+<p style="margin:6px 0 0;font:400 12px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);max-width:760px">次に試せること：「<a href="#3d">3d</a> を本気のペイウォールに作り込む」／「<a href="#3e">3e</a> の考え方を <a href="#1a">1a</a> のプロトタイプにも入れて、文字サイズを切り替えられるようにする」</p>
+</section>
+
+<section id="t2" style="padding:44px 48px 40px;border-bottom:1px solid rgba(0,0,0,.09);display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;align-items:baseline;gap:10px">
+<a href="#t2" style="font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">2</a>
+<span style="font:700 13px/1.2 'Noto Sans JP',sans-serif;color:#1a1a1a">アプリアイコン案（§12）</span>
+</div>
+<div style="max-width:760px;font:400 12.5px/1.85 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.62)">
+<p style="margin:0">§12の方針どおり「太い1モチーフ＋深い地＋単色アクセント」に寄せています。各案とも 180 / 60 / 32px を並べているので、ホーム画面とSpotlightで潰れないかをそのまま見比べられます。曲線の作り込みが要るモチーフ（ループ矢印の矢尻など）はラフです。最終形は描き起こしが必要になります。</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start">
+
+<div id="2a" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2a" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2a</a>太い ¥ ／ インディゴ</div>
+<div style="width:180px;height:180px;border-radius:40px;background:linear-gradient(150deg,#5B7CFA,#7C6CFF);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.18)"><span style="font:700 104px/1 -apple-system,'SF Pro Display',system-ui;color:#fff;letter-spacing:-.04em">¥</span></div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(150deg,#5B7CFA,#7C6CFF);display:flex;align-items:center;justify-content:center"><span style="font:700 35px/1 -apple-system,system-ui;color:#fff">¥</span></div>
+<div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(150deg,#5B7CFA,#7C6CFF);display:flex;align-items:center;justify-content:center"><span style="font:700 19px/1 -apple-system,system-ui;color:#fff">¥</span></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">最小サイズでも一撃で読める。ただし金融アプリ全般とかぶりやすい</div>
+</div>
+
+<div id="2b" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2b" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2b</a>太い ¥ ／ 深い地＋ミント（推し）</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#0E1116;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.18)"><span style="font:700 104px/1 -apple-system,'SF Pro Display',system-ui;color:#3DDC97;letter-spacing:-.04em">¥</span></div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center"><span style="font:700 35px/1 -apple-system,system-ui;color:#3DDC97">¥</span></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#0E1116;display:flex;align-items:center;justify-content:center"><span style="font:700 19px/1 -apple-system,system-ui;color:#3DDC97">¥</span></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">多色で賑やかな競合の中でいちばん沈んで目立つ。ホーム画面で黒が締まる</div>
+</div>
+
+<div id="2c" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2c" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2c</a>リングゲージ＋¥</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#0E1116;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.18)">
+<div style="width:112px;height:112px;border-radius:50%;background:conic-gradient(#5B7CFA 0deg 250deg,rgba(255,255,255,.1) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:78px;height:78px;border-radius:50%;background:#0E1116;display:flex;align-items:center;justify-content:center"><span style="font:700 44px/1 -apple-system,system-ui;color:#fff">¥</span></div></div>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:50%;background:conic-gradient(#5B7CFA 0deg 250deg,rgba(255,255,255,.1) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border-radius:50%;background:#0E1116;display:flex;align-items:center;justify-content:center"><span style="font:700 15px/1 -apple-system,system-ui;color:#fff">¥</span></div></div></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#0E1116;display:flex;align-items:center;justify-content:center"><div style="width:21px;height:21px;border-radius:50%;background:conic-gradient(#5B7CFA 0deg 250deg,rgba(255,255,255,.1) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:14px;height:14px;border-radius:50%;background:#0E1116"></div></div></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">「今月の使用量」の含意が出る。32pxでは中の¥が消えるので要調整</div>
+</div>
+
+<div id="2c2" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2c2" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2c2</a>リングゲージ＋¥ ／ 地がインディゴ</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.18)">
+<div style="width:112px;height:112px;border-radius:50%;background:conic-gradient(#fff 0deg 250deg,rgba(255,255,255,.28) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:78px;height:78px;border-radius:50%;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><span style="font:700 44px/1 -apple-system,system-ui;color:#fff">¥</span></div></div>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:50%;background:conic-gradient(#fff 0deg 250deg,rgba(255,255,255,.28) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border-radius:50%;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><span style="font:700 15px/1 -apple-system,system-ui;color:#fff">¥</span></div></div></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><div style="width:21px;height:21px;border-radius:50%;background:conic-gradient(#fff 0deg 250deg,rgba(255,255,255,.28) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:14px;height:14px;border-radius:50%;background:#5B7CFA"></div></div></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">白いリングで <a href="#2c">2c</a> よりコントラストが強い。ダークな壁紙でも沈まない反面、黒地の静けさは失う</div>
+</div>
+
+<div id="2c3" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2c3" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2c3</a>同上 ／ リングをミント</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.18)">
+<div style="width:112px;height:112px;border-radius:50%;background:conic-gradient(#3DDC97 0deg 250deg,rgba(255,255,255,.24) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:78px;height:78px;border-radius:50%;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><span style="font:700 44px/1 -apple-system,system-ui;color:#fff">¥</span></div></div>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><div style="width:38px;height:38px;border-radius:50%;background:conic-gradient(#3DDC97 0deg 250deg,rgba(255,255,255,.24) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border-radius:50%;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><span style="font:700 15px/1 -apple-system,system-ui;color:#fff">¥</span></div></div></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#5B7CFA;display:flex;align-items:center;justify-content:center"><div style="width:21px;height:21px;border-radius:50%;background:conic-gradient(#3DDC97 0deg 250deg,rgba(255,255,255,.24) 250deg 360deg);display:flex;align-items:center;justify-content:center"><div style="width:14px;height:14px;border-radius:50%;background:#5B7CFA"></div></div></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">アプリ内の「節約グリーン」と対応する。ただし32pxでは2色が混ざって濁りやすい</div>
+</div>
+
+<div id="2d" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2d" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2d</a>重なるカード</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.18)">
+<div style="position:absolute;width:96px;height:62px;border-radius:12px;background:rgba(91,124,250,.35);transform:translate(-14px,-20px) rotate(-9deg)"></div>
+<div style="position:absolute;width:96px;height:62px;border-radius:12px;background:#5B7CFA;transform:translate(10px,14px) rotate(6deg);display:flex;align-items:flex-end;padding:10px;box-sizing:border-box"><span style="width:34px;height:7px;border-radius:4px;background:rgba(255,255,255,.75);display:block"></span></div>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#0E1116;position:relative;overflow:hidden"><div style="position:absolute;left:9px;top:12px;width:34px;height:22px;border-radius:5px;background:rgba(91,124,250,.35);transform:rotate(-9deg)"></div><div style="position:absolute;left:17px;top:26px;width:34px;height:22px;border-radius:5px;background:#5B7CFA;transform:rotate(6deg)"></div></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#0E1116;position:relative;overflow:hidden"><div style="position:absolute;left:5px;top:6px;width:18px;height:12px;border-radius:3px;background:rgba(91,124,250,.35);transform:rotate(-9deg)"></div><div style="position:absolute;left:9px;top:14px;width:18px;height:12px;border-radius:3px;background:#5B7CFA;transform:rotate(6deg)"></div></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">「束ねて管理」が伝わる。ただしウォレット／決済アプリと読み違えられやすい</div>
+</div>
+
+<div id="2e" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2e" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2e</a>更新の輪＋¥（ラフ）</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 8px 22px rgba(0,0,0,.18)">
+<div style="width:108px;height:108px;border-radius:50%;border:15px solid #3DDC97;border-right-color:transparent;transform:rotate(45deg);position:relative"><span style="position:absolute;right:-13px;top:-6px;width:0;height:0;border-left:16px solid #3DDC97;border-top:12px solid transparent;border-bottom:12px solid transparent;transform:rotate(30deg);display:block"></span></div>
+<span style="position:absolute;font:700 46px/1 -apple-system,system-ui;color:#fff">¥</span>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative"><div style="width:38px;height:38px;border-radius:50%;border:6px solid #3DDC97;border-right-color:transparent;transform:rotate(45deg)"></div><span style="position:absolute;font:700 16px/1 -apple-system,system-ui;color:#fff">¥</span></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative"><div style="width:22px;height:22px;border-radius:50%;border:4px solid #3DDC97;border-right-color:transparent;transform:rotate(45deg)"></div><span style="position:absolute;font:700 9px/1 -apple-system,system-ui;color:#fff">¥</span></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">「繰り返し課金」を直接言える唯一の案。矢尻は要描き起こし、小サイズで詰まりやすい</div>
+</div>
+
+<div id="2f" style="display:flex;flex-direction:column;gap:9px;width:196px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#2f" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">2f</a>頭文字タイルの延長「サ」</div>
+<div style="width:180px;height:180px;border-radius:40px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.18)"><span style="font:700 88px/1 'Noto Sans JP',sans-serif;color:#F2F4F7">サ</span><span style="position:absolute;left:0;right:0;bottom:0;height:16px;background:#5B7CFA"></span></div>
+<div style="display:flex;align-items:flex-end;gap:12px;margin-top:4px">
+<div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden"><span style="font:700 30px/1 'Noto Sans JP',sans-serif;color:#F2F4F7">サ</span><span style="position:absolute;left:0;right:0;bottom:0;height:6px;background:#5B7CFA"></span></div>
+<div style="width:32px;height:32px;border-radius:8px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden"><span style="font:700 16px/1 'Noto Sans JP',sans-serif;color:#F2F4F7">サ</span><span style="position:absolute;left:0;right:0;bottom:0;height:3px;background:#5B7CFA"></span></div>
+<span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.4);padding-bottom:4px">サブメモ</span>
+</div>
+<div style="font:400 10.5px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">アプリ内の頭文字タイルとアイコンが同じ言語になる。ブランドの一貫性は最も高い</div>
+</div>
+
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+<div style="font:500 11.5px 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5)">ホーム画面での並び（60px）</div>
+<div style="display:flex;gap:22px;align-items:flex-start;padding:20px 24px;background:#1C2029;border-radius:20px;width:max-content">
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(150deg,#5B7CFA,#7C6CFF);display:flex;align-items:center;justify-content:center"><span style="font:700 35px/1 -apple-system,system-ui;color:#fff">¥</span></div><span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.8)">サブメモ</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center"><span style="font:700 35px/1 -apple-system,system-ui;color:#3DDC97">¥</span></div><span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.8)">サブメモ</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:60px;height:60px;border-radius:14px;background:#0E1116;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden"><span style="font:700 30px/1 'Noto Sans JP',sans-serif;color:#F2F4F7">サ</span><span style="position:absolute;left:0;right:0;bottom:0;height:6px;background:#5B7CFA"></span></div><span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.8)">サブメモ</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(150deg,#F5A623,#E5484D);display:flex;align-items:center;justify-content:center"><span style="font:700 26px/1 'Noto Sans JP',sans-serif;color:#fff">◎</span></div><span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.55)">競合A</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:60px;height:60px;border-radius:14px;background:linear-gradient(150deg,#39C1F3,#3DDC97);display:flex;align-items:center;justify-content:center"><span style="font:700 26px/1 'Noto Sans JP',sans-serif;color:#fff">□</span></div><span style="font:400 10px 'Noto Sans JP',sans-serif;color:rgba(255,255,255,.55)">競合B</span></div>
+</div>
+</div>
+<p style="margin:6px 0 0;font:400 12px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);max-width:760px">次に試せること：「<a href="#2b">2b</a> の地をもう少し明るく、¥をさらに太く」／「<a href="#2f">2f</a> の帯をカテゴリ8色のグラデにして」／「<a href="#2b">2b</a> と <a href="#2e">2e</a> を掛け合わせた案を3つ」</p>
+</section>
+
+<section id="t1" style="padding:44px 48px 40px;display:flex;flex-direction:column;gap:26px">
+<div style="display:flex;align-items:baseline;gap:10px">
+<a href="#t1" style="font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none">1</a>
+<span style="font:700 13px/1.2 'Noto Sans JP',sans-serif;color:#1a1a1a">サブメモ ─ 初回探索</span>
+</div>
+
+<div style="max-width:760px;display:flex;flex-direction:column;gap:14px;font:400 12.5px/1.85 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.62)">
+<p style="margin:0"><b style="color:#1a1a1a">前提</b>：既存アセットなしのためゼロから。§11–12の方針（数字ファースト／1画面1メッセージ／色は意味でだけ使う／頭文字タイル）をそのまま骨格にしています。ダーク基調 <code style="font-family:ui-monospace,Menlo,monospace">#1B2129</code>、カード <code style="font-family:ui-monospace,Menlo,monospace">#262C36</code>、日本語 Noto Sans JP、数字は等幅数字（tnum）。</p>
+<p style="margin:0"><b style="color:#1a1a1a">ヒーローの数字</b>：「おまかせ」でしたので<b style="color:#1a1a1a">今月の合計</b>を主役にしました。年額・1日あたりは真下に小さく添えるだけ。理由は、把握できていない不安を最短で解消するのが月合計で、年額は「見直しの動機」として2番手が効くためです（1b/1cで別解も出しています）。</p>
+<p style="margin:0"><b style="color:#1a1a1a">データ</b>：<a href="#1a">1a</a> は実名テキスト＋頭文字タイル（ロゴなし）で現実感を、<a href="#1f">1f</a> にストア掲載用のダミー名版を置いています。§6の方針どおり実ロゴは一切使っていません。</p>
+<p style="margin:0"><b style="color:#1a1a1a">未確定</b>：アクセントは <a href="#1e">1e</a> で3案比較。まず色を決めていただければ、以降は1色に統一して詰めます。</p>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+
+<div id="1a" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1a" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1a</a>動くプロトタイプ（ダーク／ライト切替つき） ─ オンボーディング → ホーム（月切替・スワイプ編集・空状態）→ 登録（外貨対応）→ 詳細 → 解約シミュ → 集計 / 通知設定 / カテゴリ / 支払い方法 / 為替</div>
+
+<div style="width:393px;height:852px;--bg:{{ th.bg }};--card:{{ th.card }};--fg:{{ th.fg }};--sub:{{ th.sub }};--dim:{{ th.dim }};--line:{{ th.line }};--line2:{{ th.line2 }};--border:{{ th.border }};--border2:{{ th.border2 }};--border3:{{ th.border3 }};--tabbg:{{ th.tabbg }};--fg85:{{ th.fg85 }};--fg50:{{ th.fg50 }};--fg32:{{ th.fg32 }};--sub35:{{ th.sub35 }};--red:{{ th.red }};--green:{{ th.green }};--indigoFg:{{ th.indigoFg }};background:var(--bg,#1B2129);border-radius:46px;border:1px solid var(--border,rgba(255,255,255,.1));overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:var(--fg,#F2F4F7)">
+<div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui,sans-serif;font-feature-settings:'tnum';color:var(--fg,#F2F4F7);position:relative;z-index:5"><span>9:41</span><span style="display:flex;gap:5px;align-items:center"><span style="width:16px;height:10px;border-radius:2px;background:var(--fg85,rgba(242,244,247,.85));display:inline-block"></span><span style="width:22px;height:11px;border-radius:3px;border:1px solid var(--fg50,rgba(242,244,247,.5));display:inline-block"></span></span></div>
+
+<sc-if value="{{ isOnboard }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:54px 0 0;display:flex;flex-direction:column;padding:0 32px 40px">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px">
+<div style="width:64px;height:64px;border-radius:19px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 32px/1 -apple-system,system-ui,sans-serif;color:#fff">¥</div>
+<div style="font:700 30px/1.5 'Noto Sans JP',sans-serif;letter-spacing:.01em;text-wrap:pretty">{{ ob.title }}</div>
+<div style="font:400 14px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);text-wrap:pretty">{{ ob.body }}</div>
+</div>
+<div style="display:flex;gap:6px;margin-bottom:26px">
+<sc-for list="{{ obDots }}" as="d" hint-placeholder-count="3"><span style="width:{{ d.w }}px;height:5px;border-radius:3px;background:{{ d.c }}"></span></sc-for>
+</div>
+<button onClick="{{ obNext }}" style="height:54px;border:none;border-radius:16px;background:#5B7CFA;color:#fff;font:700 15px 'Noto Sans JP',sans-serif;cursor:pointer">{{ ob.cta }}</button>
+<button onClick="{{ goHome }}" style="height:44px;border:none;background:none;color:var(--sub,#8A93A2);font:400 13px 'Noto Sans JP',sans-serif;cursor:pointer">スキップ</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:54px 0 84px;overflow:auto">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0">
+<div style="font:700 15px 'Noto Sans JP',sans-serif;letter-spacing:.02em">サブメモ</div>
+<div style="display:flex;gap:8px;align-items:center">
+<button onClick="{{ toggleMonth }}" style="height:32px;padding:0 12px;border:none;border-radius:10px;background:var(--card,#262C36);display:flex;align-items:center;gap:6px;font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);cursor:pointer">{{ monthLabel }} ⌄</button>
+<button onClick="{{ toggleTheme }}" style="width:32px;height:32px;border:1px solid var(--border,rgba(255,255,255,.1));border-radius:10px;background:none;color:var(--sub,#8A93A2);font:400 13px/1 'Noto Sans JP',sans-serif;cursor:pointer">{{ themeGlyph }}</button>
+<button onClick="{{ goAdd }}" style="width:32px;height:32px;border:none;border-radius:10px;background:#5B7CFA;color:#fff;font:400 20px/1 -apple-system,system-ui;cursor:pointer">+</button>
+</div>
+</div>
+
+<sc-if value="{{ monthOpen }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;padding:14px 20px 0;overflow:auto">
+<sc-for list="{{ monthChips }}" as="mc" hint-placeholder-count="6"><button onClick="{{ mc.pick }}" style="flex:none;height:34px;padding:0 14px;border-radius:11px;border:1px solid {{ mc.border }};background:{{ mc.bg }};color:{{ mc.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer;font-feature-settings:'tnum'">{{ mc.label }}</button></sc-for>
+</div>
+</sc-if>
+<div style="padding:34px 20px 26px">
+<div style="font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.06em">{{ heroLabel }}</div>
+<div style="display:flex;align-items:baseline;gap:2px;margin-top:8px">
+<span style="font:500 30px/1 -apple-system,system-ui,sans-serif;color:var(--fg,#F2F4F7)">¥</span>
+<span style="font:600 58px/1 -apple-system,'SF Pro Display',system-ui,sans-serif;font-feature-settings:'tnum';letter-spacing:-.02em">{{ heroValue }}</span>
+</div>
+<div style="display:flex;gap:18px;margin-top:14px;font:400 12.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">
+<span>{{ subA }}</span><span style="color:var(--sub35,rgba(138,147,162,.35))">/</span><span>{{ subB }}</span>
+</div>
+<sc-if value="{{ hasAnnual }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:12px;font:400 11px/1.7 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">{{ billedNote }}</div>
+</sc-if>
+<sc-if value="{{ isPast }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:14px;display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:9px;background:var(--card,#262C36);font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">過去の月 ・ 記録の表示のみ</div>
+</sc-if>
+</div>
+
+<sc-if value="{{ hasTrial }}" hint-placeholder-val="{{ true }}">
+<div style="padding:0 20px">
+<button onClick="{{ openTrial }}" style="width:100%;text-align:left;border:1px solid rgba(255,92,92,.28);background:rgba(255,92,92,.08);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="width:8px;height:8px;border-radius:50%;background:#FF5C5C;flex:none"></span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px">
+<span style="font:700 12.5px 'Noto Sans JP',sans-serif;color:var(--red,#FF8A8A)">{{ trialTitle }}</span>
+<span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ trialLine }}</span>
+</span>
+<span style="color:var(--sub,#8A93A2);font:400 15px/1 -apple-system,system-ui">›</span>
+</button>
+</div>
+</sc-if>
+
+<div style="display:flex;align-items:center;justify-content:space-between;padding:26px 20px 10px">
+<div style="font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">契約中 {{ count }}件</div>
+<button onClick="{{ toggleSort }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:500 12px 'Noto Sans JP',sans-serif;cursor:pointer">{{ sortLabel }} ⇅</button>
+</div>
+
+<div style="padding:0 20px 24px;display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+<div style="position:relative;border-radius:14px;overflow:hidden">
+<div style="position:absolute;top:0;right:0;bottom:0;width:152px;display:flex;gap:2px">
+<button onClick="{{ it.edit }}" style="flex:1;border:none;background:#3A4150;color:#fff;font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">編集</button>
+<button onClick="{{ it.del }}" style="flex:1;border:none;background:#FF5C5C;color:#fff;font:700 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">削除</button>
+</div>
+<button onClick="{{ it.open }}" onPointerDown="{{ it.down }}" onPointerMove="{{ it.move }}" onPointerUp="{{ it.up }}" style="position:relative;width:100%;box-sizing:border-box;transform:translateX({{ it.dx }}px);transition:transform .16s ease;display:flex;align-items:center;gap:13px;padding:11px 8px;border:none;background:var(--bg,#1B2129);border-radius:14px;cursor:pointer;text-align:left;touch-action:pan-y" style-hover="background:var(--card,#262C36)">
+<span style="width:42px;height:42px;border-radius:13px;background:{{ it.color }};display:flex;align-items:center;justify-content:center;font:700 17px/1 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ it.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px;min-width:0">
+<span style="display:flex;align-items:center;gap:7px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ it.name }}</span><sc-if value="{{ it.flag }}" hint-placeholder-val="{{ false }}"><span style="font:500 9.5px 'Noto Sans JP',sans-serif;color:{{ it.flagColor }};border:1px solid {{ it.flagColor }};border-radius:5px;padding:1.5px 5px;flex:none">{{ it.flag }}</span></sc-if></span>
+<span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ it.meta }}</span>
+</span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none">
+<span style="font:500 14.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">{{ it.priceLabel }}</span>
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:{{ it.nextColor }};font-feature-settings:'tnum'">{{ it.nextLabel }}</span>
+</span>
+</button>
+</div>
+</sc-for>
+</div>
+<div style="padding:0 28px 10px;font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">行を左にドラッグすると編集・削除</div>
+
+<sc-if value="{{ hasUnused }}" hint-placeholder-val="{{ true }}">
+<button onClick="{{ goCancelAll }}" style="margin:0 20px 30px;width:calc(100% - 40px);border:1px solid rgba(47,191,113,.3);background:rgba(47,191,113,.07);border-radius:16px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left">
+<span style="flex:1;display:flex;flex-direction:column;gap:5px">
+<span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ unusedLabel }}</span>
+<span style="font:700 19px 'Noto Sans JP',sans-serif;color:var(--green,#2FBF71);font-feature-settings:'tnum'">{{ unusedSave }}</span>
+</span>
+<span style="color:var(--green,#2FBF71);font:400 15px/1 -apple-system,system-ui">›</span>
+</button>
+</sc-if>
+</div>
+<sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 84px;background:var(--bg,#1B2129);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="width:96px;height:96px;border-radius:28px;border:1.5px dashed var(--border2,rgba(255,255,255,.12));display:flex;align-items:center;justify-content:center;font:400 30px/1 -apple-system,system-ui;color:var(--dim,#5C6472)">¥</div>
+<div style="font:700 19px/1.7 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">まだ何も登録されていません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">サービス名を入れるだけ。料金と更新日は候補から入ります。銀行やカードには繋ぎません。</div>
+<button onClick="{{ goAdd }}" style="width:100%;height:52px;border:none;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px 'Noto Sans JP',sans-serif;cursor:pointer;margin-top:6px">最初のサブスクを登録</button>
+<button onClick="{{ restore }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 12px 'Noto Sans JP',sans-serif;cursor:pointer">サンプルデータを戻す</button>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="padding:6px 20px 0"><button onClick="{{ back }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 戻る</button></div>
+<sc-if value="{{ fromNotif }}" hint-placeholder-val="{{ false }}">
+<div style="margin:14px 20px 0;border:1px solid rgba(255,92,92,.3);background:rgba(255,92,92,.08);border-radius:14px;padding:13px 15px;display:flex;flex-direction:column;gap:11px">
+<span style="font:700 12px 'Noto Sans JP',sans-serif;color:var(--red,#FF8A8A)">ロック画面の通知から開きました</span>
+<span style="font:400 11.5px/1.7 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">無料期間の終了まであと3日。ここで解約するか、あとで思い出すかを選べます。</span>
+<div style="display:flex;gap:8px">
+<button onClick="{{ goCancel }}" style="flex:1;height:42px;border:none;border-radius:12px;background:#FF5C5C;color:#fff;font:700 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">解約の手順を見る</button>
+<button onClick="{{ back }}" style="flex:1;height:42px;border:1px solid var(--border2,rgba(255,255,255,.12));border-radius:12px;background:none;color:var(--fg,#F2F4F7);font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ snoozeNote }}に再通知</button>
+</div>
+</div>
+</sc-if>
+<div style="padding:26px 24px 0;display:flex;flex-direction:column;align-items:center;gap:16px">
+<div style="width:72px;height:72px;border-radius:22px;background:{{ sel.color }};display:flex;align-items:center;justify-content:center;font:700 30px/1 'Noto Sans JP',sans-serif;color:#fff">{{ sel.initial }}</div>
+<div style="font:500 18px 'Noto Sans JP',sans-serif">{{ sel.name }}</div>
+<div style="display:flex;align-items:baseline;gap:3px"><span style="font:500 20px/1 -apple-system,system-ui">¥</span><span style="font:600 44px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">{{ sel.priceNum }}</span><span style="font:400 14px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">/ {{ sel.cycle }}</span></div>
+</div>
+<div style="display:flex;gap:10px;padding:26px 20px 0">
+<div style="flex:1;background:var(--card,#262C36);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">年額換算</span><span style="font:500 16px -apple-system,system-ui;font-feature-settings:'tnum'">¥{{ sel.year }}</span></div>
+<div style="flex:1;background:var(--card,#262C36);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">1日あたり</span><span style="font:500 16px -apple-system,system-ui;font-feature-settings:'tnum'">¥{{ sel.perDay }}</span></div>
+<div style="flex:1;background:var(--card,#262C36);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">カテゴリ</span><span style="font:500 13px 'Noto Sans JP',sans-serif">{{ sel.cat }}</span></div>
+</div>
+<div style="margin:20px;background:var(--card,#262C36);border-radius:16px;overflow:hidden">
+<div style="display:flex;justify-content:space-between;padding:15px 16px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">次回更新</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:{{ sel.nextColor }};font-feature-settings:'tnum'">{{ sel.nextFull }}</span></div>
+<div style="display:flex;justify-content:space-between;padding:15px 16px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">更新サイクル</span><span style="font:500 13px 'Noto Sans JP',sans-serif">{{ sel.cycleFull }}</span></div>
+<div style="display:flex;justify-content:space-between;padding:15px 16px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">支払い方法</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">{{ sel.pay }}</span></div>
+<div style="display:flex;justify-content:space-between;padding:15px 16px"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">価格の記録</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:#F5A623;font-feature-settings:'tnum'">{{ sel.hist }}</span></div>
+</div>
+<div style="padding:0 20px 40px;display:flex;flex-direction:column;gap:10px">
+<button onClick="{{ goCancel }}" style="height:52px;border:1px solid rgba(47,191,113,.32);background:rgba(47,191,113,.08);border-radius:15px;color:var(--green,#2FBF71);font:700 14px 'Noto Sans JP',sans-serif;cursor:pointer">解約したら年間いくら浮く？</button>
+<button onClick="{{ toggleUnused }}" style="height:52px;border:1px solid {{ unusedBtnBorder }};background:none;border-radius:15px;color:{{ unusedBtnColor }};font:500 14px 'Noto Sans JP',sans-serif;cursor:pointer">{{ unusedBtn }}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCancel }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="padding:6px 20px 0"><button onClick="{{ back }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 戻る</button></div>
+<div style="padding:40px 24px 0;text-align:center">
+<div style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ cancelWho }} を解約すると</div>
+<div style="display:flex;align-items:baseline;justify-content:center;gap:3px;margin-top:18px;color:var(--green,#2FBF71)"><span style="font:500 24px/1 -apple-system,system-ui">¥</span><span style="font:600 56px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">{{ cancelYear }}</span></div>
+<div style="font:500 13px 'Noto Sans JP',sans-serif;color:var(--green,#2FBF71);margin-top:10px">1年で浮きます</div>
+<div style="font:400 12px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin-top:16px;font-feature-settings:'tnum'">月 ¥{{ cancelMonth }} ・ 1日 ¥{{ cancelDay }}<br>3年つづけると ¥{{ cancel3y }}</div>
+</div>
+<div style="margin:32px 20px 0;display:flex;flex-direction:column;gap:8px">
+<div style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding:0 4px 6px">対象（タップで切り替え）</div>
+<sc-for list="{{ cancelList }}" as="c" hint-placeholder-count="2">
+<button onClick="{{ c.toggle }}" style="display:flex;align-items:center;gap:12px;background:var(--card,#262C36);border:1px solid {{ c.border }};border-radius:14px;padding:13px 14px;cursor:pointer;text-align:left">
+<span style="width:22px;height:22px;border-radius:7px;background:{{ c.boxBg }};border:1px solid {{ c.border }};flex:none;display:flex;align-items:center;justify-content:center;font:700 12px -apple-system,system-ui;color:#06210F">{{ c.mark }}</span>
+<span style="width:34px;height:34px;border-radius:11px;background:{{ c.color }};display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ c.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ c.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ c.note }}</span></span>
+<span style="font:500 13px 'Noto Sans JP',sans-serif;color:var(--green,#2FBF71);font-feature-settings:'tnum'">{{ c.save }}</span>
+</button>
+</sc-for>
+</div>
+<div style="padding:26px 20px 40px"><button style="width:100%;height:52px;border:none;border-radius:15px;background:#2FBF71;color:#06210F;font:700 14px 'Noto Sans JP',sans-serif;cursor:pointer">解約ページを開く手順を見る</button>
+<div style="font:400 10.5px/1.8 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472);text-align:center;margin-top:14px">各商標は各社に帰属します。本アプリは各サービスと提携していません。</div></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAdd1 }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;background:var(--bg,#1B2129);display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ back }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">閉じる</button><span style="font:500 14px 'Noto Sans JP',sans-serif">サブスクを追加</span><span style="width:44px"></span></div>
+<div style="padding:22px 20px 14px"><input value="{{ query }}" onChange="{{ onQuery }}" placeholder="サービス名を入力（例：ね）" style="width:100%;box-sizing:border-box;height:48px;border-radius:14px;border:1px solid var(--border,rgba(255,255,255,.1));background:var(--card,#262C36);color:var(--fg,#F2F4F7);font:400 15px 'Noto Sans JP',sans-serif;padding:0 16px;outline:none"></div>
+<div style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding:6px 24px 8px">{{ suggestLabel }}</div>
+<div style="flex:1;overflow:auto;padding:0 20px 20px;display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="6">
+<button onClick="{{ s.pick }}" style="display:flex;align-items:center;gap:13px;padding:11px 8px;border:none;background:none;border-radius:13px;cursor:pointer;text-align:left" style-hover="background:var(--card,#262C36)">
+<span style="width:40px;height:40px;border-radius:12px;background:{{ s.color }};display:flex;align-items:center;justify-content:center;font:700 16px/1 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ s.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ s.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ s.cat }}</span></span>
+<span style="font:400 12.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ s.priceLabel }}</span>
+</button>
+</sc-for>
+<button onClick="{{ pickManual }}" style="margin-top:10px;height:48px;border:1px dashed var(--border3,rgba(255,255,255,.16));background:none;border-radius:14px;color:var(--sub,#8A93A2);font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">一覧にないものを手で追加</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAdd2 }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;background:var(--bg,#1B2129);display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goAdd }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 戻る</button><span style="font:500 14px 'Noto Sans JP',sans-serif">内容の確認</span><span style="width:44px"></span></div>
+<div style="flex:1;overflow:auto;padding:26px 20px 0">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+<span style="width:56px;height:56px;border-radius:17px;background:{{ draft.color }};display:flex;align-items:center;justify-content:center;font:700 23px/1 'Noto Sans JP',sans-serif;color:#fff">{{ draft.initial }}</span>
+<span style="display:flex;flex-direction:column;gap:5px"><span style="font:500 17px 'Noto Sans JP',sans-serif">{{ draft.name }}</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">候補から自動入力しました。違えば上書きできます</span></span>
+</div>
+<div style="background:var(--card,#262C36);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">料金</span>
+<div style="display:flex;gap:6px">
+<sc-for list="{{ curChips }}" as="cu" hint-placeholder-count="3"><button onClick="{{ cu.pick }}" style="height:28px;padding:0 10px;border-radius:9px;border:1px solid {{ cu.border }};background:{{ cu.bg }};color:{{ cu.fg }};font:500 11px 'Noto Sans JP',sans-serif;cursor:pointer">{{ cu.label }}</button></sc-for>
+</div></div>
+<div style="display:flex;align-items:center;gap:14px;margin-top:4px">
+<button onClick="{{ decPrice }}" style="width:36px;height:36px;border-radius:11px;border:1px solid var(--border2,rgba(255,255,255,.12));background:none;color:var(--fg,#F2F4F7);font:400 18px/1 -apple-system,system-ui;cursor:pointer">−</button>
+<span style="flex:1;text-align:center;font:600 30px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">{{ draft.sym }}{{ draft.price }}</span>
+<button onClick="{{ incPrice }}" style="width:36px;height:36px;border-radius:11px;border:1px solid var(--border2,rgba(255,255,255,.12));background:none;color:var(--fg,#F2F4F7);font:400 18px/1 -apple-system,system-ui;cursor:pointer">＋</button>
+</div>
+<sc-if value="{{ draft.isFx }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:4px;text-align:center;font:500 12.5px 'Noto Sans JP',sans-serif;color:var(--indigoFg,#8FA8FF);font-feature-settings:'tnum'">{{ draft.fxLine }}</div>
+</sc-if>
+</div>
+<div style="margin-top:18px;display:flex;flex-direction:column;gap:9px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding-left:2px">更新サイクル</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ cycles }}" as="cy" hint-placeholder-count="4"><button onClick="{{ cy.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ cy.border }};background:{{ cy.bg }};color:{{ cy.fg }};font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">{{ cy.label }}</button></sc-for>
+</div>
+</div>
+<div style="margin-top:18px;display:flex;flex-direction:column;gap:9px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding-left:2px">カテゴリ</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ cats }}" as="ct" hint-placeholder-count="8"><button onClick="{{ ct.pick }}" style="height:36px;padding:0 14px;border-radius:11px;border:1px solid {{ ct.border }};background:{{ ct.bg }};color:{{ ct.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ ct.label }}</button></sc-for>
+</div>
+</div>
+<button onClick="{{ toggleTrial }}" style="margin-top:18px;width:100%;box-sizing:border-box;background:var(--card,#262C36);border:1px solid {{ trialBorder }};border-radius:16px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left">
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">無料トライアル中</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">終了3日前に最優先で通知します</span></span>
+<span style="width:46px;height:28px;border-radius:15px;background:{{ trialTrack }};position:relative;flex:none;display:block"><span style="position:absolute;top:3px;left:{{ trialKnob }}px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .18s ease"></span></span>
+</button>
+<div style="font:400 11.5px/1.9 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin:18px 2px 0;font-feature-settings:'tnum'">月 ¥{{ draft.month }} ／ 年 ¥{{ draft.year }} ／ 1日 ¥{{ draft.day }}<br>追加すると今月の合計は <span style="color:var(--fg,#F2F4F7)">¥{{ draft.newTotal }}</span> になります</div>
+</div>
+<div style="padding:16px 20px 30px"><button onClick="{{ save }}" style="width:100%;height:54px;border:none;border-radius:16px;background:#5B7CFA;color:#fff;font:700 15px 'Noto Sans JP',sans-serif;cursor:pointer">追加する</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isStats }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 84px;overflow:auto">
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">集計と見直し</div>
+<sc-if value="{{ statsEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:44px 0 0;background:var(--bg,#1B2129);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="display:flex;align-items:flex-end;gap:7px;height:78px;opacity:.3">
+<span style="width:22px;height:26px;border-radius:5px;background:var(--sub,#8A93A2)"></span>
+<span style="width:22px;height:46px;border-radius:5px;background:var(--sub,#8A93A2)"></span>
+<span style="width:22px;height:66px;border-radius:5px;background:var(--sub,#8A93A2)"></span>
+</div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);text-wrap:pretty">{{ statsEmptyTitle }}</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);text-wrap:pretty">{{ statsEmptyBody }}</div>
+<button onClick="{{ goAdd }}" style="width:100%;height:52px;border:none;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px 'Noto Sans JP',sans-serif;cursor:pointer;margin-top:6px">サブスクを登録する</button>
+<button onClick="{{ restore }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 12px 'Noto Sans JP',sans-serif;cursor:pointer">サンプルデータを戻す</button>
+</div>
+</sc-if>
+<div style="padding:28px 20px 0">
+<div style="font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.06em">年額換算</div>
+<div style="display:flex;align-items:baseline;gap:2px;margin-top:8px"><span style="font:500 26px/1 -apple-system,system-ui">¥</span><span style="font:600 50px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">{{ totalYear }}</span></div>
+<div style="font:400 12.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin-top:12px;font-feature-settings:'tnum'">1日あたり ¥{{ perDay }} ・ 前月比 +¥1,180</div>
+</div>
+<div style="padding:26px 20px 0">
+<div style="display:flex;height:10px;border-radius:6px;overflow:hidden;gap:2px">
+<sc-for list="{{ catStats }}" as="cs" hint-placeholder-count="5"><span style="width:{{ cs.pct }}%;background:{{ cs.color }};display:block"></span></sc-for>
+</div>
+<div style="display:flex;flex-direction:column;margin-top:18px">
+<sc-for list="{{ catStats }}" as="cs" hint-placeholder-count="5">
+<button onClick="{{ cs.open }}" style="width:100%;box-sizing:border-box;border:none;border-bottom:1px solid var(--line,rgba(255,255,255,.05));background:none;display:flex;align-items:center;gap:11px;padding:11px 2px;cursor:pointer;text-align:left">
+<span style="width:9px;height:9px;border-radius:3px;background:{{ cs.color }};flex:none"></span>
+<span style="flex:1;font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ cs.name }}</span>
+<span style="font:400 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ cs.pctLabel }}</span>
+<span style="width:78px;text-align:right;font:500 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">¥{{ cs.yen }}</span>
+<span style="color:var(--sub,#8A93A2);font:400 14px/1 -apple-system,system-ui">›</span>
+</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{ hasUnused }}" hint-placeholder-val="{{ true }}">
+<div style="padding:28px 20px 0">
+<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px"><span style="font:500 12px 'Noto Sans JP',sans-serif;color:#F5A623;letter-spacing:.06em">使っていない印がついたもの</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ unusedCount }} ・ 年 {{ unusedTotal }}</span></div>
+<div style="border:1px solid rgba(245,166,35,.28);border-radius:16px;overflow:hidden">
+<sc-for list="{{ unusedRows }}" as="ur" hint-placeholder-count="2">
+<button onClick="{{ ur.open }}" style="width:100%;box-sizing:border-box;border:none;border-bottom:1px solid var(--line,rgba(255,255,255,.05));background:rgba(245,166,35,.05);display:flex;align-items:center;gap:12px;padding:13px 14px;cursor:pointer;text-align:left">
+<span style="width:34px;height:34px;border-radius:11px;background:{{ ur.color }};display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ ur.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ ur.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ ur.note }}</span></span>
+<span style="font:500 12.5px 'Noto Sans JP',sans-serif;color:#F5A623;font-feature-settings:'tnum'">{{ ur.save }}</span>
+</button>
+</sc-for>
+<button onClick="{{ goCancelAll }}" style="width:100%;box-sizing:border-box;border:none;background:rgba(47,191,113,.09);color:var(--green,#2FBF71);font:700 12.5px 'Noto Sans JP',sans-serif;padding:14px;cursor:pointer">まとめて解約シミュレーション</button>
+</div>
+</div>
+</sc-if>
+<div style="padding:28px 20px 0"><div style="font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.06em;margin-bottom:14px">支払い方法別</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ payRows }}" as="pr" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;gap:11px">
+<span style="width:30px;height:20px;border-radius:5px;background:{{ pr.color }};flex:none"></span>
+<span style="flex:1;font:400 12.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ pr.name }}</span>
+<span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ pr.pctLabel }}</span>
+<span style="width:86px;text-align:right;font:500 12.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">{{ pr.yen }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:28px 20px 0"><div style="font:500 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.06em;margin-bottom:14px">高い順（1日あたり）</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{ ranking }}" as="r" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:7px">
+<div style="display:flex;align-items:baseline;gap:8px"><span style="font:500 13px 'Noto Sans JP',sans-serif;flex:1">{{ r.name }}</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥{{ r.perDay }}</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥{{ r.year }}/年</span></div>
+<div style="height:6px;border-radius:4px;background:var(--line2,rgba(255,255,255,.06))"><div style="height:6px;border-radius:4px;width:{{ r.pct }}%;background:{{ r.color }}"></div></div>
+</div>
+</sc-for>
+</div></div>
+<div style="height:40px"></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isNotif }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 84px;overflow:auto">
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">これからの予定</div>
+<sc-if value="{{ notifEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:44px 0 0;background:var(--bg,#1B2129);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:22px;text-align:center">
+<div style="display:flex;flex-direction:column;gap:9px;width:132px;opacity:.3">
+<span style="height:11px;border-radius:6px;background:var(--sub,#8A93A2)"></span>
+<span style="height:11px;border-radius:6px;background:var(--sub,#8A93A2);width:78%"></span>
+<span style="height:11px;border-radius:6px;background:var(--sub,#8A93A2);width:52%"></span>
+</div>
+<div style="font:700 18px/1.7 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">予定されている更新はありません</div>
+<div style="font:400 12.5px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);text-wrap:pretty">サブスクを登録すると、次の更新日と無料トライアルの終了日がここに並びます。通知はその予定にあわせて届きます。</div>
+<button onClick="{{ goAdd }}" style="width:100%;height:52px;border:none;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14.5px 'Noto Sans JP',sans-serif;cursor:pointer;margin-top:6px">サブスクを登録する</button>
+<button onClick="{{ goNotifSet }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 12px 'Noto Sans JP',sans-serif;cursor:pointer">先に通知の設定を見ておく</button>
+</div>
+</sc-if>
+<div style="padding:24px 20px 0;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
+<div style="display:flex;gap:14px;align-items:stretch">
+<div style="width:52px;flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding-top:12px"><span style="font:600 17px/1 -apple-system,system-ui;font-feature-settings:'tnum';color:{{ t.dayColor }}">{{ t.day }}</span><span style="font:400 10px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ t.month }}</span></div>
+<div style="flex:1;background:var(--card,#262C36);border-radius:15px;padding:14px 15px;border-left:2px solid {{ t.dayColor }};display:flex;align-items:center;gap:12px">
+<span style="width:34px;height:34px;border-radius:11px;background:{{ t.color }};display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ t.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif">{{ t.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:{{ t.dayColor }}">{{ t.note }}</span></span>
+<span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">{{ t.price }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="padding:26px 20px 0;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">届く通知（プレビュー）</div>
+<button onClick="{{ openFromNotif }}" style="margin:12px 20px 0;width:calc(100% - 40px);background:var(--card,#262C36);border:1px solid var(--border,rgba(255,255,255,.1));border-radius:18px;padding:14px;display:flex;gap:11px;align-items:flex-start;cursor:pointer;text-align:left">
+<span style="width:34px;height:34px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff;flex:none">¥</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="display:flex;justify-content:space-between"><span style="font:700 12px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">サブメモ</span><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">いま</span></span><span style="font:400 11.5px/1.6 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">Perplexity Pro の無料期間が3日後に終わります。解約はいまのうちに。</span><span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:#5B7CFA;margin-top:2px">タップして開いた後の画面を見る ›</span></span>
+</button>
+<button onClick="{{ goNotifSet }}" style="margin:20px 20px 40px;width:calc(100% - 40px);background:var(--card,#262C36);border:none;border-radius:16px;overflow:hidden;padding:0;cursor:pointer;display:flex;flex-direction:column">
+<span style="display:flex;justify-content:space-between;align-items:center;padding:16px;width:100%;box-sizing:border-box"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">更新の◯日前に通知</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:#5B7CFA">{{ notifSummary }}</span></span>
+<span style="display:flex;justify-content:space-between;align-items:center;padding:16px;width:100%;box-sizing:border-box;border-top:1px solid var(--line,rgba(255,255,255,.05))"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">トライアル終了の通知</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:#FF5C5C">最優先・ロック画面</span></span>
+<span style="display:flex;justify-content:space-between;align-items:center;padding:16px;width:100%;box-sizing:border-box;border-top:1px solid var(--line,rgba(255,255,255,.05))"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">通知設定をひらく</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">›</span></span>
+</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 84px;overflow:auto">
+<div style="padding:8px 20px 0;font:700 15px 'Noto Sans JP',sans-serif">設定</div>
+<div style="margin:22px 20px 0;border-radius:18px;padding:20px;background:var(--card,#262C36);border:1px solid rgba(91,124,250,.3);display:flex;flex-direction:column;gap:10px">
+<span style="font:700 15px 'Noto Sans JP',sans-serif;color:#5B7CFA">サブメモ プレミアム</span>
+<span style="font:400 12px/1.9 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">登録無制限・トライアル通知・円換算・ウィジェット・CSV書き出し</span>
+<div style="display:flex;gap:9px;margin-top:6px">
+<button style="flex:1;height:46px;border-radius:13px;border:none;background:#5B7CFA;color:#fff;font:700 13px 'Noto Sans JP',sans-serif;cursor:pointer">年 ¥1,200</button>
+<button style="flex:1;height:46px;border-radius:13px;border:1px solid var(--border2,rgba(255,255,255,.12));background:none;color:var(--fg,#F2F4F7);font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">買い切り ¥2,800</button>
+</div>
+</div>
+<div style="margin:20px;background:var(--card,#262C36);border-radius:16px;overflow:hidden">
+<sc-for list="{{ settingRows }}" as="sr" hint-placeholder-count="6">
+<button onClick="{{ sr.act }}" style="width:100%;box-sizing:border-box;background:none;border:none;border-bottom:1px solid var(--line,rgba(255,255,255,.05));display:flex;justify-content:space-between;align-items:center;padding:16px;cursor:pointer;text-align:left"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ sr.label }}</span><span style="font:500 13px 'Noto Sans JP',sans-serif;color:{{ sr.color }}">{{ sr.value }}</span></button>
+</sc-for>
+</div>
+<div style="margin:0 24px 40px;font:400 10.5px/2 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">データは端末内にのみ保存され、銀行・カードとは一切連携しません。各商標は各社に帰属します。本アプリは各サービスと提携していません。</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCatList }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 84px;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goStats }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 集計</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ clName }}</span><span style="width:44px"></span></div>
+
+<div style="padding:26px 20px 0;display:flex;align-items:center;gap:14px">
+<span style="width:52px;height:52px;border-radius:16px;background:{{ clColor }};display:flex;align-items:center;justify-content:center;font:700 21px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ clInitial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:6px">
+<span style="display:flex;align-items:baseline;gap:2px"><span style="font:500 18px/1 -apple-system,system-ui;color:var(--fg,#F2F4F7)">¥</span><span style="font:600 34px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em;color:var(--fg,#F2F4F7)">{{ clMonth }}</span><span style="font:400 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin-left:6px">/ 月</span></span>
+<span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ clYear }} ・ {{ clDay }}</span>
+</span>
+</div>
+<div style="padding:18px 20px 0;display:flex;gap:10px">
+<div style="flex:1;background:var(--card,#262C36);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">全体に占める割合</span><span style="font:500 16px -apple-system,system-ui;font-feature-settings:'tnum';color:var(--fg,#F2F4F7)">{{ clShare }}</span></div>
+<div style="flex:1;background:var(--card,#262C36);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">件数</span><span style="font:500 16px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ clCount }}</span></div>
+</div>
+
+<div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ clItems }}" as="ci" hint-placeholder-count="3">
+<button onClick="{{ ci.open }}" style="width:100%;box-sizing:border-box;border:none;background:none;padding:0;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:9px">
+<span style="display:flex;align-items:center;gap:13px;width:100%">
+<span style="width:40px;height:40px;border-radius:13px;background:{{ ci.color }};display:flex;align-items:center;justify-content:center;font:700 16px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ ci.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px;min-width:0">
+<span style="display:flex;align-items:center;gap:7px"><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ci.name }}</span><sc-if value="{{ ci.flag }}" hint-placeholder-val="{{ false }}"><span style="font:500 9.5px 'Noto Sans JP',sans-serif;color:{{ ci.flagColor }};border:1px solid {{ ci.flagColor }};border-radius:5px;padding:1.5px 5px;flex:none">{{ ci.flag }}</span></sc-if></span>
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ ci.sub }}</span>
+</span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none">
+<span style="font:500 14.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">{{ ci.priceLabel }}</span>
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:{{ ci.nextColor }};font-feature-settings:'tnum'">{{ ci.nextLabel }}</span>
+</span>
+</span>
+<span style="display:block;width:100%;height:5px;border-radius:3px;background:var(--line2,rgba(255,255,255,.06))"><span style="display:block;height:5px;border-radius:3px;width:{{ ci.bar }}%;background:{{ ci.color }}"></span></span>
+</button>
+</sc-for>
+</div>
+
+<sc-if value="{{ clEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="padding:60px 40px;text-align:center;font:400 12.5px/2 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">このカテゴリにはまだ何もありません</div>
+</sc-if>
+
+<button onClick="{{ goAdd }}" style="margin:26px 20px 40px;width:calc(100% - 40px);height:48px;border:1px dashed var(--border3,rgba(255,255,255,.16));background:none;border-radius:14px;color:var(--sub,#8A93A2);font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">{{ clAddNote }}</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMsgs }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goSettings }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 設定</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">通知の文面</span><span style="width:44px"></span></div>
+<div style="padding:22px 24px 0;font:400 11.5px/1.9 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">金額と日付を必ず本文に入れます。通知を開かずに判断できることが目的です。</div>
+<div style="padding:20px 20px 40px;display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ msgs }}" as="m" hint-placeholder-count="5">
+<div style="background:var(--card,#262C36);border-radius:18px;padding:15px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:9px"><span style="font:500 9.5px 'Noto Sans JP',sans-serif;color:{{ m.color }};border:1px solid {{ m.color }};border-radius:5px;padding:2px 6px">{{ m.tag }}</span><span style="font:700 11.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">サブメモ</span><span style="flex:1"></span><span style="font:400 10px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">9:00</span></div>
+<div style="font:700 13px/1.6 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);text-wrap:pretty">{{ m.title }}</div>
+<div style="font:400 11.5px/1.8 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);text-wrap:pretty">{{ m.body }}</div>
+<div style="font:500 10.5px 'Noto Sans JP',sans-serif;color:#5B7CFA;padding-top:2px">{{ m.act }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isNotifSet }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goNotif }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 通知</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">通知の設定</span><span style="width:44px"></span></div>
+
+<div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:11px">
+<span style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">更新の何日前に知らせるか（複数可）</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ beforeChips }}" as="bc" hint-placeholder-count="4"><button onClick="{{ bc.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ bc.border }};background:{{ bc.bg }};color:{{ bc.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ bc.label }}</button></sc-for>
+</div>
+</div>
+
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:11px">
+<span style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">通知する時刻</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ timeChips }}" as="tc" hint-placeholder-count="4"><button onClick="{{ tc.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ tc.border }};background:{{ tc.bg }};color:{{ tc.fg }};font:500 12.5px -apple-system,system-ui;font-feature-settings:'tnum';cursor:pointer">{{ tc.label }}</button></sc-for>
+</div>
+</div>
+
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:11px">
+<span style="font:500 11.5px 'Noto Sans JP',sans-serif;color:#FF8A8A;letter-spacing:.05em">無料トライアル終了（最優先）</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ trialChips }}" as="tr" hint-placeholder-count="3"><button onClick="{{ tr.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ tr.border }};background:{{ tr.bg }};color:{{ tr.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ tr.label }}</button></sc-for>
+</div>
+</div>
+
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:11px">
+<span style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">「あとで」を押したときの再通知</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ snoozeChips }}" as="sn" hint-placeholder-count="3"><button onClick="{{ sn.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ sn.border }};background:{{ sn.bg }};color:{{ sn.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ sn.label }}</button></sc-for>
+</div>
+</div>
+
+<div style="margin:24px 20px 0;background:var(--card,#262C36);border-radius:16px;overflow:hidden">
+<button onClick="{{ toggleLock }}" style="width:100%;box-sizing:border-box;border:none;background:none;display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;text-align:left">
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">ロック画面に金額を表示</span><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">オフにすると「更新が近づいています」だけ表示</span></span>
+<span style="width:46px;height:28px;border-radius:15px;background:{{ lockTrack }};position:relative;flex:none;display:block"><span style="position:absolute;top:3px;left:{{ lockKnob }}px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .18s ease"></span></span>
+</button>
+<button onClick="{{ toggleQuiet }}" style="width:100%;box-sizing:border-box;border:none;border-top:1px solid var(--line,rgba(255,255,255,.05));background:none;display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;text-align:left">
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:400 13px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">夜間は鳴らさない</span><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">22:00 – 8:00 は翌朝にまとめて通知</span></span>
+<span style="width:46px;height:28px;border-radius:15px;background:{{ quietTrack }};position:relative;flex:none;display:block"><span style="position:absolute;top:3px;left:{{ quietKnob }}px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .18s ease"></span></span>
+</button>
+</div>
+<button onClick="{{ goMsgs }}" style="margin:16px 20px 0;width:calc(100% - 40px);height:48px;border:1px solid var(--border,rgba(255,255,255,.1));background:none;border-radius:14px;color:var(--fg,#F2F4F7);font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">実際に届く文面を見る（5種）</button>
+<div style="margin:20px 24px 40px;font:400 10.5px/2 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">通知はすべて端末内のスケジュールで動きます。サーバーには何も送りません。</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPays }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goSettings }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 設定</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">支払い方法</span><span style="color:#5B7CFA;font:500 13px 'Noto Sans JP',sans-serif">＋ 追加</span></div>
+<div style="padding:26px 20px 8px;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">支払い方法別の内訳</div>
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:16px">
+<sc-for list="{{ payRows }}" as="pr" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:center;gap:12px">
+<span style="width:38px;height:26px;border-radius:6px;background:{{ pr.color }};display:flex;align-items:center;justify-content:center;font:700 11px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ pr.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ pr.name }}</span><span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ pr.sub }} ・ {{ pr.count }}</span></span>
+<span style="font:500 13px 'Noto Sans JP',sans-serif;color:{{ pr.yenColor }};font-feature-settings:'tnum'">{{ pr.yen }}</span>
+</div>
+<div style="height:6px;border-radius:4px;background:var(--line2,rgba(255,255,255,.06))"><div style="height:6px;border-radius:4px;width:{{ pr.pct }}%;background:{{ pr.color }}"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="margin:26px 20px 0;background:var(--card,#262C36);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px">
+<span style="font:500 12.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">カードの下4桁だけを記録します</span>
+<span style="font:400 11px/1.8 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">カード番号・有効期限は入力しません。どのカードから引かれるかを自分で見分けるためのラベルです。</span>
+</div>
+<div style="height:40px"></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isFx }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goSettings }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 設定</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">通貨と為替レート</span><span style="width:44px"></span></div>
+<div style="padding:30px 20px 0;text-align:center">
+<div style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">現在の適用レート</div>
+<div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px">
+<button onClick="{{ fxDown }}" style="width:40px;height:40px;border-radius:12px;border:1px solid var(--border2,rgba(255,255,255,.12));background:none;color:var(--fg,#F2F4F7);font:400 18px/1 -apple-system,system-ui;cursor:pointer">−</button>
+<span style="font:600 40px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';color:var(--fg,#F2F4F7)">¥{{ fxRate }}</span>
+<button onClick="{{ fxUp }}" style="width:40px;height:40px;border-radius:12px;border:1px solid var(--border2,rgba(255,255,255,.12));background:none;color:var(--fg,#F2F4F7);font:400 18px/1 -apple-system,system-ui;cursor:pointer">＋</button>
+</div>
+<div style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin-top:12px">1 USD あたり ・ 8/6 6:00 更新</div>
+</div>
+<div style="padding:26px 20px 0;display:flex;flex-direction:column;gap:11px">
+<span style="font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">レートの更新</span>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ fxModes }}" as="fm" hint-placeholder-count="3"><button onClick="{{ fm.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ fm.border }};background:{{ fm.bg }};color:{{ fm.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ fm.label }}</button></sc-for>
+</div>
+</div>
+<div style="padding:26px 20px 8px;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">外貨で登録しているサブスク</div>
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ fxItems }}" as="fi" hint-placeholder-count="1">
+<div style="display:flex;align-items:center;gap:13px;padding:11px 8px">
+<span style="width:38px;height:38px;border-radius:12px;background:{{ fi.color }};display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ fi.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:500 13.5px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ fi.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">{{ fi.foreign }}</span></span>
+<span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">{{ fi.yen }}</span>
+</div>
+</sc-for>
+</div>
+<div style="margin:22px 24px 40px;font:400 10.5px/2 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">{{ fxNote }}</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCats }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:54px 0 0;overflow:auto;background:var(--bg,#1B2129)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0"><button onClick="{{ goSettings }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 14px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">‹ 設定</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">カテゴリ</span><button onClick="{{ addCat }}" style="border:none;background:none;color:#5B7CFA;font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">＋ 追加</button></div>
+<div style="padding:26px 20px 8px;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">{{ catTotalLabel }}</div>
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:2px">
+<sc-for list="{{ catRows }}" as="cr" hint-placeholder-count="8">
+<button onClick="{{ cr.open }}" style="display:flex;align-items:center;gap:13px;padding:11px 8px;border:none;background:none;border-radius:14px;cursor:pointer;text-align:left" style-hover="background:var(--card,#262C36)">
+<span style="width:38px;height:38px;border-radius:12px;background:{{ cr.color }};display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ cr.initial }}</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ cr.name }}</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">{{ cr.count }}</span></span>
+<span style="font:500 12.5px 'Noto Sans JP',sans-serif;color:{{ cr.yenColor }};font-feature-settings:'tnum'">{{ cr.yen }}</span>
+<span style="color:var(--sub,#8A93A2);font:400 15px/1 -apple-system,system-ui">›</span>
+</button>
+</sc-for>
+</div>
+<div style="margin:22px 24px 40px;font:400 10.5px/2 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">カテゴリを削除しても、サブスクは消えません。「その他」に移ります。並べ替えは長押しドラッグ（実装時）。</div>
+</div>
+<sc-if value="{{ catSheet }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end">
+<div style="width:100%;background:var(--card,#262C36);border-radius:26px 26px 0 0;padding:22px 20px 34px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;justify-content:space-between"><button onClick="{{ closeCat }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 13px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">キャンセル</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">{{ catTitle }}</span><button onClick="{{ saveCat }}" style="border:none;background:none;color:#5B7CFA;font:700 13px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">保存</button></div>
+<div style="display:flex;align-items:center;gap:14px">
+<span style="width:52px;height:52px;border-radius:16px;background:{{ catColor }};display:flex;align-items:center;justify-content:center;font:700 21px 'Noto Sans JP',sans-serif;color:#fff;flex:none">{{ catInitial }}</span>
+<input value="{{ catName }}" onChange="{{ onCatName }}" placeholder="カテゴリ名" style="flex:1;min-width:0;height:48px;border-radius:13px;border:1px solid var(--border,rgba(255,255,255,.1));background:var(--bg,#1B2129);color:var(--fg,#F2F4F7);font:400 15px 'Noto Sans JP',sans-serif;padding:0 14px;outline:none">
+</div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding-left:2px">色</span>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
+<sc-for list="{{ palette }}" as="p" hint-placeholder-count="12"><button onClick="{{ p.pick }}" style="width:36px;height:36px;border-radius:12px;border:none;background:{{ p.color }};box-shadow:{{ p.ring }};cursor:pointer"></button></sc-for>
+</div>
+</div>
+<div style="font:400 10.5px/1.9 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">{{ catUsage }}</div>
+<sc-if value="{{ catCanDelete }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ deleteCat }}" style="height:48px;border:1px solid rgba(255,92,92,.35);background:rgba(255,92,92,.08);border-radius:14px;color:#FF5C5C;font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">このカテゴリを削除</button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ csvOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;z-index:8">
+<div style="width:100%;background:var(--card,#262C36);border-radius:26px 26px 0 0;padding:22px 20px 34px;display:flex;flex-direction:column;gap:20px">
+<sc-if value="{{ csvDone }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:10px 0 0">
+<div style="width:56px;height:56px;border-radius:18px;background:rgba(47,191,113,.14);display:flex;align-items:center;justify-content:center;font:400 24px/1 -apple-system,system-ui;color:var(--green,#2FBF71)">✓</div>
+<div style="font:700 15px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">書き出しました</div>
+<div style="font:400 11.5px/1.8 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);text-align:center;font-feature-settings:'tnum'">{{ csvFile }} ・ {{ csvRows }}<br>「ファイル」アプリに保存、または共有できます</div>
+<div style="display:flex;gap:9px;width:100%;margin-top:4px">
+<button style="flex:1;height:48px;border:none;border-radius:14px;background:#5B7CFA;color:#fff;font:700 13px 'Noto Sans JP',sans-serif;cursor:pointer">共有</button>
+<button onClick="{{ closeCsv }}" style="flex:1;height:48px;border:1px solid var(--border2,rgba(255,255,255,.12));border-radius:14px;background:none;color:var(--fg,#F2F4F7);font:500 13px 'Noto Sans JP',sans-serif;cursor:pointer">閉じる</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ csvNotDone }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;align-items:center;justify-content:space-between"><button onClick="{{ closeCsv }}" style="border:none;background:none;color:var(--sub,#8A93A2);font:400 13px 'Noto Sans JP',sans-serif;cursor:pointer;padding:0">キャンセル</button><span style="font:500 14px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">CSVで書き出す</span><span style="width:56px"></span></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding-left:2px">期間</span>
+<div style="display:flex;gap:8px"><sc-for list="{{ csvRanges }}" as="cr2" hint-placeholder-count="3"><button onClick="{{ cr2.pick }}" style="flex:1;height:42px;border-radius:12px;border:1px solid {{ cr2.border }};background:{{ cr2.bg }};color:{{ cr2.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ cr2.label }}</button></sc-for></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:11px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);padding-left:2px">含める列（サービス名は常に含みます）</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ csvCols }}" as="cc" hint-placeholder-count="4"><button onClick="{{ cc.pick }}" style="height:38px;padding:0 14px;border-radius:11px;border:1px solid {{ cc.border }};background:{{ cc.bg }};color:{{ cc.fg }};font:500 12.5px 'Noto Sans JP',sans-serif;cursor:pointer">{{ cc.label }}</button></sc-for></div>
+</div>
+<div style="background:var(--bg,#1B2129);border-radius:14px;padding:14px;font:400 10.5px/1.9 ui-monospace,Menlo,monospace;color:var(--sub,#8A93A2);overflow:hidden;white-space:nowrap">{{ csvPreview1 }}<br>{{ csvPreview2 }}</div>
+<div style="font:400 10.5px/1.9 'Noto Sans JP',sans-serif;color:var(--dim,#5C6472)">文字コードはUTF-8（BOMつき）。Excelでそのまま開けます。</div>
+<button onClick="{{ runCsv }}" style="height:52px;border:none;border-radius:15px;background:#5B7CFA;color:#fff;font:700 14px 'Noto Sans JP',sans-serif;cursor:pointer">{{ csvRows }} を書き出す</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ showTabs }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;left:0;right:0;bottom:0;height:84px;background:var(--tabbg,rgba(14,17,22,.92));backdrop-filter:blur(18px);border-top:1px solid var(--line2,rgba(255,255,255,.06));display:flex;padding:10px 12px 0">
+<sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4">
+<button onClick="{{ tb.go }}" style="flex:1;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:8px">
+<span style="width:18px;height:18px;border-radius:{{ tb.radius }};background:{{ tb.color }};display:block"></span>
+<span style="font:500 10px 'Noto Sans JP',sans-serif;color:{{ tb.color }}">{{ tb.label }}</span>
+</button>
+</sc-for>
+</div>
+<div style="position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:var(--fg32,rgba(242,244,247,.32))"></div>
+</sc-if>
+</div>
+</div>
+
+<div id="1b" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1b" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1b</a>ホームB ─ カード型・カレンダー先頭</div>
+<div style="width:393px;height:660px;background:var(--bg,#1B2129);border-radius:46px 46px 18px 18px;border:1px solid var(--border,rgba(255,255,255,.1));overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:var(--fg,#F2F4F7)">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 15px 'Noto Sans JP',sans-serif">8月の支払い</span><span style="width:32px;height:32px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 20px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="margin:20px 20px 0;background:var(--card,#262C36);border-radius:20px;padding:20px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">年 ¥204,084</span></div>
+<div style="display:flex;align-items:baseline;gap:2px;margin-top:6px"><span style="font:500 22px/1 -apple-system,system-ui">¥</span><span style="font:600 44px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">17,007</span></div>
+<div style="display:flex;gap:5px;margin-top:20px">
+<div style="flex:2.1;height:7px;border-radius:4px;background:#E5484D"></div><div style="flex:1.4;height:7px;border-radius:4px;background:#E06B9B"></div><div style="flex:1.1;height:7px;border-radius:4px;background:#F2A93B"></div><div style="flex:.7;height:7px;border-radius:4px;background:#30A46C"></div><div style="flex:.5;height:7px;border-radius:4px;background:#5B7CFA"></div>
+</div>
+</div>
+<div style="padding:26px 20px 10px;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">今週の更新</div>
+<div style="display:flex;gap:10px;padding:0 20px;overflow:hidden">
+<div style="width:120px;flex:none;background:var(--card,#262C36);border-radius:16px;padding:14px;border:1px solid rgba(255,92,92,.35);display:flex;flex-direction:column;gap:10px"><span style="font:600 11px 'Noto Sans JP',sans-serif;color:#FF5C5C">あと3日</span><span style="width:36px;height:36px;border-radius:12px;background:#F2A93B;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">P</span><span style="font:500 12.5px 'Noto Sans JP',sans-serif">Perplexity</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">¥3,000 / 月</span></div>
+<div style="width:120px;flex:none;background:var(--card,#262C36);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px"><span style="font:600 11px 'Noto Sans JP',sans-serif;color:#F5A623">あと3日</span><span style="width:36px;height:36px;border-radius:12px;background:#30A46C;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">S</span><span style="font:500 12.5px 'Noto Sans JP',sans-serif">Spotify</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">¥1,080 / 月</span></div>
+<div style="width:120px;flex:none;background:var(--card,#262C36);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px"><span style="font:600 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">あと6日</span><span style="width:36px;height:36px;border-radius:12px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">N</span><span style="font:500 12.5px 'Noto Sans JP',sans-serif">Netflix</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">¥1,590 / 月</span></div>
+</div>
+<div style="padding:26px 20px 10px;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">すべて</div>
+<div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:var(--card,#262C36);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:9px"><span style="width:34px;height:34px;border-radius:11px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff">i</span><span style="font:500 13px 'Noto Sans JP',sans-serif">iCloud+</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">¥450 ・ 8/28</span></div>
+<div style="background:var(--card,#262C36);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:9px"><span style="width:34px;height:34px;border-radius:11px;background:#E06B9B;display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans JP',sans-serif;color:#fff">エ</span><span style="font:500 13px 'Noto Sans JP',sans-serif">エニタイム</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">¥7,480 ・ 8/25</span></div>
+</div>
+</div>
+</div>
+
+<div id="1c" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1c" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1c</a>ホームC ─ 1日あたりを主役／密なリスト行</div>
+<div style="width:393px;height:660px;background:var(--bg,#1B2129);border-radius:46px 46px 18px 18px;border:1px solid var(--border,rgba(255,255,255,.1));overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:var(--fg,#F2F4F7)">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:26px 24px 0;text-align:center">
+<div style="font:400 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">あなたは1日あたり</div>
+<div style="display:flex;align-items:baseline;justify-content:center;gap:2px;margin-top:10px"><span style="font:500 26px/1 -apple-system,system-ui">¥</span><span style="font:600 62px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.03em">559</span></div>
+<div style="font:400 12px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);margin-top:12px">サブスクに払っています</div>
+<div style="display:inline-flex;gap:14px;margin-top:20px;padding:10px 18px;border-radius:12px;background:var(--card,#262C36);font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'"><span>月 ¥17,007</span><span style="color:rgba(138,147,162,.3)">/</span><span>年 ¥204,084</span></div>
+</div>
+<div style="margin-top:30px;border-top:1px solid var(--line2,rgba(255,255,255,.06))">
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="width:30px;height:30px;border-radius:9px;background:#E06B9B;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">エ</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">エニタイムフィットネス</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥246</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥7,480</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="width:30px;height:30px;border-radius:9px;background:#F2A93B;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">C</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">ChatGPT Plus</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥101</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥3,080</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="width:30px;height:30px;border-radius:9px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">N</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">Netflix</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥52</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,590</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="width:30px;height:30px;border-radius:9px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">Y</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">YouTube Premium</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥42</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,280</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line,rgba(255,255,255,.05))"><span style="width:30px;height:30px;border-radius:9px;background:#30A46C;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">S</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">Spotify</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥35</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,080</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:13px 20px"><span style="width:30px;height:30px;border-radius:9px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 13px 'Noto Sans JP',sans-serif;color:#fff">i</span><span style="flex:1;font:400 13.5px 'Noto Sans JP',sans-serif">iCloud+ 200GB</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">1日 ¥15</span><span style="width:66px;text-align:right;font:500 13.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥450</span></div>
+</div>
+</div>
+</div>
+
+<div id="1d" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1d" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1d</a>集計ビジュアライズ 別案 ─ リングゲージ＋カレンダー</div>
+<div style="width:393px;height:660px;background:var(--bg,#1B2129);border-radius:46px 46px 18px 18px;border:1px solid var(--border,rgba(255,255,255,.1));overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:var(--fg,#F2F4F7)">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:22px 0 0;display:flex;flex-direction:column;align-items:center">
+<div style="width:212px;height:212px;border-radius:50%;background:conic-gradient(#E5484D 0deg 61deg,#E06B9B 61deg 229deg,#F2A93B 229deg 300deg,#30A46C 300deg 323deg,#5B7CFA 323deg 341deg,#8E4EC6 341deg 352deg,#8B93A2 352deg 360deg);display:flex;align-items:center;justify-content:center">
+<div style="width:164px;height:164px;border-radius:50%;background:var(--bg,#1B2129);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+<span style="font:400 11px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</span>
+<span style="font:600 33px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥17,007</span>
+<span style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">年 ¥204,084</span>
+</div>
+</div>
+</div>
+<div style="padding:26px 20px 0;font:500 11.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);letter-spacing:.05em">8月の更新カレンダー</div>
+<div style="padding:14px 20px 0;display:grid;grid-template-columns:repeat(7,1fr);gap:7px">
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">3</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">4</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">5</div>
+<div style="aspect-ratio:1;border-radius:9px;background:var(--card,#262C36);border:1px solid rgba(242,244,247,.35);display:flex;align-items:center;justify-content:center;font:600 11px -apple-system,system-ui;color:var(--fg,#F2F4F7);font-feature-settings:'tnum'">6</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">7</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">8</div>
+<div style="aspect-ratio:1;border-radius:9px;background:rgba(255,92,92,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-feature-settings:'tnum'"><span style="font:600 11px -apple-system,system-ui;color:var(--red,#FF8A8A)">9</span><span style="width:4px;height:4px;border-radius:50%;background:#FF5C5C"></span></div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">10</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">11</div>
+<div style="aspect-ratio:1;border-radius:9px;background:rgba(229,72,77,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-feature-settings:'tnum'"><span style="font:600 11px -apple-system,system-ui;color:var(--fg,#F2F4F7)">12</span><span style="width:4px;height:4px;border-radius:50%;background:#E5484D"></span></div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">13</div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">14</div>
+<div style="aspect-ratio:1;border-radius:9px;background:rgba(242,169,59,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-feature-settings:'tnum'"><span style="font:600 11px -apple-system,system-ui;color:var(--fg,#F2F4F7)">15</span><span style="width:4px;height:4px;border-radius:50%;background:#F2A93B"></span></div>
+<div style="aspect-ratio:1;border-radius:9px;background:#20262F;display:flex;align-items:center;justify-content:center;font:400 11px -apple-system,system-ui;color:#4C5464;font-feature-settings:'tnum'">16</div>
+</div>
+<div style="margin:24px 20px 0;background:var(--card,#262C36);border-radius:16px;padding:16px;display:flex;align-items:center;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:#FF5C5C"></span><span style="flex:1;font:400 12.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">8/9 トライアル終了 ・ 8/12 Netflix ・ 8/15 ChatGPT</span></div>
+</div>
+</div>
+
+<div id="1e" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1e" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1e</a>アクセント3案の比較（同一レイアウト）</div>
+<div style="display:flex;gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="width:250px;background:var(--bg,#1B2129);border-radius:26px;border:1px solid var(--border,rgba(255,255,255,.1));padding:22px 18px;display:flex;flex-direction:column;gap:16px;color:var(--fg,#F2F4F7)">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font:700 13px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:28px;height:28px;border-radius:9px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 18px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div><div style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</div><div style="font:600 36px/1.1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥17,007</div></div>
+<div style="border:1px solid rgba(47,191,113,.3);background:rgba(47,191,113,.07);border-radius:12px;padding:12px;font:700 13px 'Noto Sans JP',sans-serif;color:var(--green,#2FBF71);font-feature-settings:'tnum'">年間 ¥94,260 節約</div>
+<div style="height:40px;border-radius:12px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 12.5px 'Noto Sans JP',sans-serif;color:#fff">プレミアムを見る</div>
+</div>
+<div style="font:400 10.5px/1.6 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:250px">案A インディゴ #5B7CFA ＋ 節約グリーン<br>推し。信頼寄り、色数が最少で数字が立つ</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="width:250px;background:var(--bg,#1B2129);border-radius:26px;border:1px solid var(--border,rgba(255,255,255,.1));padding:22px 18px;display:flex;flex-direction:column;gap:16px;color:var(--fg,#F2F4F7)">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font:700 13px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:28px;height:28px;border-radius:9px;background:#3DDC97;display:flex;align-items:center;justify-content:center;font:400 18px/1 -apple-system,system-ui;color:#06210F">+</span></div>
+<div><div style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</div><div style="font:600 36px/1.1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥17,007</div></div>
+<div style="border:1px solid rgba(61,220,151,.3);background:rgba(61,220,151,.08);border-radius:12px;padding:12px;font:700 13px 'Noto Sans JP',sans-serif;color:#3DDC97;font-feature-settings:'tnum'">年間 ¥94,260 節約</div>
+<div style="height:40px;border-radius:12px;background:#3DDC97;display:flex;align-items:center;justify-content:center;font:700 12.5px 'Noto Sans JP',sans-serif;color:#06210F">プレミアムを見る</div>
+</div>
+<div style="font:400 10.5px/1.6 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:250px">案B ミント #3DDC97 主体<br>お得さは直球。ただ「節約＝緑」の意味色と衝突する</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="width:250px;background:var(--bg,#1B2129);border-radius:26px;border:1px solid var(--border,rgba(255,255,255,.1));padding:22px 18px;display:flex;flex-direction:column;gap:16px;color:var(--fg,#F2F4F7)">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font:700 13px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:28px;height:28px;border-radius:9px;background:#7C6CFF;display:flex;align-items:center;justify-content:center;font:400 18px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div><div style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</div><div style="font:600 36px/1.1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥17,007</div></div>
+<div style="border:1px solid rgba(47,191,113,.3);background:rgba(47,191,113,.07);border-radius:12px;padding:12px;font:700 13px 'Noto Sans JP',sans-serif;color:var(--green,#2FBF71);font-feature-settings:'tnum'">年間 ¥94,260 節約</div>
+<div style="height:40px;border-radius:12px;background:#7C6CFF;display:flex;align-items:center;justify-content:center;font:700 12.5px 'Noto Sans JP',sans-serif;color:#fff">プレミアムを見る</div>
+</div>
+<div style="font:400 10.5px/1.6 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:250px">案C パープル #7C6CFF<br>今っぽく上質。金融の信頼感はAより一歩弱い</div>
+</div>
+</div>
+</div>
+
+<div id="1f" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1f" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1f</a>頭文字タイル4案 ＋ ストア用ダミー名版</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="width:300px;background:var(--bg,#1B2129);border-radius:26px;border:1px solid var(--border,rgba(255,255,255,.1));padding:22px 20px;display:flex;flex-direction:column;gap:22px;color:var(--fg,#F2F4F7)">
+<div style="display:flex;flex-direction:column;gap:11px"><span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">① ベタ塗り（採用案）</span><div style="display:flex;gap:10px"><span style="width:44px;height:44px;border-radius:14px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#fff">N</span><span style="width:44px;height:44px;border-radius:14px;background:#30A46C;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#fff">S</span><span style="width:44px;height:44px;border-radius:14px;background:#8E4EC6;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#fff">ゲ</span><span style="width:44px;height:44px;border-radius:14px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#fff">i</span></div></div>
+<div style="display:flex;flex-direction:column;gap:11px"><span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">② 淡いティント＋色文字（静か）</span><div style="display:flex;gap:10px"><span style="width:44px;height:44px;border-radius:14px;background:rgba(229,72,77,.16);display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#E5484D">N</span><span style="width:44px;height:44px;border-radius:14px;background:rgba(48,164,108,.16);display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#30A46C">S</span><span style="width:44px;height:44px;border-radius:14px;background:rgba(142,78,198,.16);display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#8E4EC6">ゲ</span><span style="width:44px;height:44px;border-radius:14px;background:rgba(91,124,250,.16);display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:#5B7CFA">i</span></div></div>
+<div style="display:flex;flex-direction:column;gap:11px"><span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">③ 輪郭のみ（最も静か・情報量最少）</span><div style="display:flex;gap:10px"><span style="width:44px;height:44px;border-radius:14px;border:1.5px solid #E5484D;display:flex;align-items:center;justify-content:center;font:500 18px 'Noto Sans JP',sans-serif;color:#E5484D">N</span><span style="width:44px;height:44px;border-radius:14px;border:1.5px solid #30A46C;display:flex;align-items:center;justify-content:center;font:500 18px 'Noto Sans JP',sans-serif;color:#30A46C">S</span><span style="width:44px;height:44px;border-radius:14px;border:1.5px solid #8E4EC6;display:flex;align-items:center;justify-content:center;font:500 18px 'Noto Sans JP',sans-serif;color:#8E4EC6">ゲ</span><span style="width:44px;height:44px;border-radius:14px;border:1.5px solid #5B7CFA;display:flex;align-items:center;justify-content:center;font:500 18px 'Noto Sans JP',sans-serif;color:#5B7CFA">i</span></div></div>
+<div style="display:flex;flex-direction:column;gap:11px"><span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">④ 下1/3にカテゴリ色の帯（識別を色に寄せる）</span><div style="display:flex;gap:10px"><span style="width:44px;height:44px;border-radius:14px;background:var(--card,#262C36);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">N<span style="position:absolute;left:0;right:0;bottom:0;height:5px;background:#E5484D"></span></span><span style="width:44px;height:44px;border-radius:14px;background:var(--card,#262C36);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">S<span style="position:absolute;left:0;right:0;bottom:0;height:5px;background:#30A46C"></span></span><span style="width:44px;height:44px;border-radius:14px;background:var(--card,#262C36);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">ゲ<span style="position:absolute;left:0;right:0;bottom:0;height:5px;background:#8E4EC6"></span></span><span style="width:44px;height:44px;border-radius:14px;background:var(--card,#262C36);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font:700 18px 'Noto Sans JP',sans-serif;color:var(--fg,#F2F4F7)">i<span style="position:absolute;left:0;right:0;bottom:0;height:5px;background:#5B7CFA"></span></span></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="width:300px;background:var(--bg,#1B2129);border-radius:26px;border:1px solid var(--border,rgba(255,255,255,.1));padding:22px 20px;display:flex;flex-direction:column;gap:14px;color:var(--fg,#F2F4F7)">
+<span style="font:500 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">ストア掲載スクショ用（ダミー名）</span>
+<div><div style="font:400 10.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">あなたのサブスク、毎月</div><div style="font:600 34px/1.2 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥12,480</div></div>
+<div style="display:flex;flex-direction:column;gap:3px">
+<div style="display:flex;align-items:center;gap:11px;padding:8px 0"><span style="width:36px;height:36px;border-radius:12px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">ム</span><span style="flex:1;font:400 13px 'Noto Sans JP',sans-serif">ムービーワン</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,590</span></div>
+<div style="display:flex;align-items:center;gap:11px;padding:8px 0"><span style="width:36px;height:36px;border-radius:12px;background:#30A46C;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">サ</span><span style="flex:1;font:400 13px 'Noto Sans JP',sans-serif">サウンドパス</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,080</span></div>
+<div style="display:flex;align-items:center;gap:11px;padding:8px 0"><span style="width:36px;height:36px;border-radius:12px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">ク</span><span style="flex:1;font:400 13px 'Noto Sans JP',sans-serif">クラウドボックス</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥450</span></div>
+<div style="display:flex;align-items:center;gap:11px;padding:8px 0"><span style="width:36px;height:36px;border-radius:12px;background:#E06B9B;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">フ</span><span style="flex:1;font:400 13px 'Noto Sans JP',sans-serif">フィットジム24</span><span style="font:500 13px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥7,480</span></div>
+</div>
+</div>
+<div style="font:400 10.5px/1.6 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);width:300px">§6の方針。審査5.2を避けるため掲載画像は全てダミー名で作る前提の見え方確認</div>
+</div>
+</div>
+</div>
+
+<div id="1g" style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.55)"><a href="#1g" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none">1g</a>ライトモード ＋ ウィジェット／ロック画面</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="width:393px;height:560px;background:#F6F7F9;border-radius:46px 46px 18px 18px;border:1px solid rgba(0,0,0,.1);overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.18);color:#141821">
+<div style="height:54px;display:flex;align-items:flex-end;padding:0 30px 8px;font:500 14px/1 -apple-system,system-ui;font-feature-settings:'tnum'">9:41</div>
+<div style="padding:14px 20px 0;display:flex;align-items:center;justify-content:space-between"><span style="font:700 15px 'Noto Sans JP',sans-serif">サブメモ</span><span style="width:32px;height:32px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:400 20px/1 -apple-system,system-ui;color:#fff">+</span></div>
+<div style="padding:30px 20px 24px"><div style="font:500 12px 'Noto Sans JP',sans-serif;color:#6B7280;letter-spacing:.06em">今月の合計</div><div style="display:flex;align-items:baseline;gap:2px;margin-top:8px"><span style="font:500 30px/1 -apple-system,system-ui">¥</span><span style="font:600 58px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">17,007</span></div><div style="display:flex;gap:18px;margin-top:14px;font:400 12.5px 'Noto Sans JP',sans-serif;color:#6B7280;font-feature-settings:'tnum'"><span>年 ¥204,084</span><span style="color:rgba(107,114,128,.35)">/</span><span>1日 ¥559</span></div></div>
+<div style="padding:0 20px"><div style="border:1px solid rgba(255,92,92,.35);background:rgba(255,92,92,.07);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:#FF5C5C;flex:none"></span><span style="flex:1;display:flex;flex-direction:column;gap:3px"><span style="font:700 12.5px 'Noto Sans JP',sans-serif;color:#D93A3A">無料トライアル終了まで あと3日</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:#6B7280">Perplexity Pro ・ 8/9に ¥3,000 の課金</span></span></div></div>
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;align-items:center;gap:13px;padding:10px 8px;background:#FFFFFF;border-radius:14px"><span style="width:42px;height:42px;border-radius:13px;background:#E5484D;display:flex;align-items:center;justify-content:center;font:700 17px 'Noto Sans JP',sans-serif;color:#fff">N</span><span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif">Netflix</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:#6B7280">動画 ・ 毎月</span></span><span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,590</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:#6B7280;font-feature-settings:'tnum'">8/12</span></span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:10px 8px;background:#FFFFFF;border-radius:14px"><span style="width:42px;height:42px;border-radius:13px;background:#30A46C;display:flex;align-items:center;justify-content:center;font:700 17px 'Noto Sans JP',sans-serif;color:#fff">S</span><span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif">Spotify</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:#6B7280">音楽 ・ 毎月</span></span><span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥1,080</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:#F5A623;font-feature-settings:'tnum'">あと3日</span></span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:10px 8px;background:#FFFFFF;border-radius:14px"><span style="width:42px;height:42px;border-radius:13px;background:#F2A93B;display:flex;align-items:center;justify-content:center;font:700 17px 'Noto Sans JP',sans-serif;color:#fff">C</span><span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif">ChatGPT Plus</span><span style="font:400 11.5px 'Noto Sans JP',sans-serif;color:#6B7280">学習 ・ $20 → 円換算</span></span><span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font:500 14.5px 'Noto Sans JP',sans-serif;font-feature-settings:'tnum'">¥3,080</span><span style="font:400 11px 'Noto Sans JP',sans-serif;color:#6B7280;font-feature-settings:'tnum'">8/15</span></span></div>
+</div>
+</div>
+<div style="width:300px;height:560px;background:linear-gradient(170deg,#151A2E,#0B0D14 60%);border-radius:46px 46px 18px 18px;border:1px solid var(--border,rgba(255,255,255,.1));overflow:hidden;position:relative;box-shadow:0 26px 70px rgba(0,0,0,.42);color:var(--fg,#F2F4F7);display:flex;flex-direction:column;align-items:center;padding-top:60px;gap:22px">
+<div style="font:400 13px 'Noto Sans JP',sans-serif;color:rgba(242,244,247,.7)">8月6日 木曜日</div>
+<div style="font:200 74px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum';letter-spacing:-.02em">9:41</div>
+<div style="display:flex;gap:12px;margin-top:6px">
+<div style="width:118px;height:118px;border-radius:22px;background:rgba(23,27,34,.85);backdrop-filter:blur(10px);padding:14px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between"><span style="font:400 10px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">今月の合計</span><span style="font:600 24px/1 -apple-system,'SF Pro Display',system-ui;font-feature-settings:'tnum'">¥17,007</span><span style="font:400 9.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">年 ¥204,084</span></div>
+<div style="width:118px;height:118px;border-radius:22px;background:rgba(23,27,34,.85);backdrop-filter:blur(10px);padding:14px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between"><span style="font:400 10px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2)">次の更新</span><span style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:26px;border-radius:9px;background:#F2A93B;display:flex;align-items:center;justify-content:center;font:700 11px 'Noto Sans JP',sans-serif;color:#fff">P</span><span style="font:600 15px 'Noto Sans JP',sans-serif;color:var(--red,#FF8A8A)">あと3日</span></span><span style="font:400 9.5px 'Noto Sans JP',sans-serif;color:var(--sub,#8A93A2);font-feature-settings:'tnum'">8/9 ¥3,000</span></div>
+</div>
+<div style="width:252px;background:rgba(23,27,34,.9);border-radius:18px;padding:14px;display:flex;gap:11px;align-items:flex-start;margin-top:4px">
+<span style="width:34px;height:34px;border-radius:10px;background:#5B7CFA;display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans JP',sans-serif;color:#fff">¥</span>
+<span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font:700 12px 'Noto Sans JP',sans-serif">サブメモ</span><span style="font:400 11.5px/1.6 'Noto Sans JP',sans-serif;color:#C7CCD6">Perplexity Pro の無料期間が3日後に終わります。解約はいまのうちに。</span></span>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<p style="margin:6px 0 0;font:400 12px/1.7 'Noto Sans JP',sans-serif;color:rgba(0,0,0,.5);max-width:760px">次に試せること：「アクセントは <a href="#1e">1e</a> の案Aで確定、全画面に反映して」／「ホームは <a href="#1c">1c</a> の1日あたり主役でいくが、リストは <a href="#1a">1a</a> の余白で」／「<a href="#1a">1a</a> にウィジェット設定とオンボーディングの続きを足して」</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:1100},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;プロトタイプ 1a&quot;},&quot;heroMetric&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;month&quot;,&quot;year&quot;,&quot;day&quot;],&quot;default&quot;:&quot;month&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;プロトタイプ 1a&quot;},&quot;dummyNames&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;プロトタイプ 1a&quot;},&quot;showUnusedFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;プロトタイプ 1a&quot;}}">
+const CAT = {動画:'#E5484D',音楽:'#30A46C',クラウド:'#5B7CFA',ゲーム:'#8E4EC6',学習:'#F2A93B',通信:'#00A2C7',生活:'#E06B9B',その他:'#8B93A2'};
+const YEN = n => Math.round(n).toLocaleString('ja-JP');
+
+const BASE = [
+  {id:1,name:'Netflix',dummy:'ムービーワン',cat:'動画',price:1590,cycle:'月',next:'8/12',days:6,pay:'カード ・・・4242',hist:'2024/8 ¥1,490 → ¥1,590'},
+  {id:2,name:'Spotify Premium',dummy:'サウンドパス',cat:'音楽',price:1080,cycle:'月',next:'8/9',days:3,pay:'App Store 決済',hist:'変更なし'},
+  {id:3,name:'YouTube Premium',dummy:'チューブプラス',cat:'動画',price:1280,cycle:'月',next:'8/21',days:15,pay:'カード ・・・4242',hist:'2023/8 ¥1,180 → ¥1,280'},
+  {id:4,name:'iCloud+ 200GB',dummy:'クラウドボックス',cat:'クラウド',price:450,cycle:'月',next:'8/28',days:22,pay:'App Store 決済',hist:'変更なし'},
+  {id:5,name:'ChatGPT Plus',dummy:'アスクAI',cat:'学習',price:3080,cycle:'月',next:'8/15',days:9,pay:'カード ・・・1881',hist:'$20 ・ 154.0円/$',cur:'USD',amt:20},
+  {id:6,name:'Adobe フォトプラン',dummy:'フォトスタジオ',cat:'その他',price:1180,cycle:'月',next:'9/1',days:26,pay:'カード ・・・4242',hist:'変更なし'},
+  {id:7,name:'Amazon プライム',dummy:'ワンデイ配送',cat:'生活',price:492,cycle:'年',next:'2027/3/14',days:220,raw:'¥5,900 / 年',pay:'カード ・・・4242',hist:'2023 ¥4,900 → ¥5,900'},
+  {id:8,name:'エニタイムフィットネス',dummy:'フィットジム24',cat:'生活',price:7480,cycle:'月',next:'8/25',days:19,unused:true,pay:'口座振替',hist:'変更なし'},
+  {id:9,name:'Nintendo Switch Online',dummy:'ゲームパス',cat:'ゲーム',price:375,cycle:'年',next:'2027/1/20',days:167,raw:'¥4,500 / 年',unused:true,pay:'App Store 決済',hist:'変更なし'},
+  {id:10,name:'Perplexity Pro',dummy:'サーチAI',cat:'学習',price:3000,cycle:'月',next:'8/9',days:3,trial:true,pay:'カード ・・・1881',hist:'無料期間中'}
+];
+
+const SEED = [
+  {name:'Netflix',r:'ねっとふりっくす ネットフリックス netflix',price:1590,cat:'動画'},
+  {name:'Nintendo Switch Online',r:'にんてんどう ニンテンドー nintendo',price:4500,cat:'ゲーム',cycle:'年'},
+  {name:'日経電子版',r:'にっけい ニッケイ nikkei にほんけいざい',price:4277,cat:'その他'},
+  {name:'Spotify Premium',r:'すぽてぃふぁい スポティファイ spotify',price:1080,cat:'音楽'},
+  {name:'Hulu',r:'ふーるー フールー hulu',price:1026,cat:'動画'},
+  {name:'Disney+',r:'でぃずにー ディズニー disney',price:1140,cat:'動画'},
+  {name:'Apple Music',r:'あっぷるみゅーじっく アップル apple music',price:1080,cat:'音楽'},
+  {name:'Google One 100GB',r:'ぐーぐるわん グーグル google one',price:250,cat:'クラウド'},
+  {name:'Kindle Unlimited',r:'きんどる キンドル kindle',price:980,cat:'その他'},
+  {name:'DAZN',r:'だぞーん ダゾーン dazn',price:4200,cat:'動画'},
+  {name:'PlayStation Plus',r:'ぷれすて プレステ playstation psplus',price:850,cat:'ゲーム'},
+  {name:'Notion Plus',r:'のーしょん ノーション notion',price:1500,cat:'その他'}
+];
+
+const MONTHS = [
+  {label:'2026年8月',total:null},{label:'2026年7月',total:15827},{label:'2026年6月',total:15827},
+  {label:'2026年5月',total:14647},{label:'2026年4月',total:14647},{label:'2026年3月',total:14197}
+];
+const PAYS = [
+  {key:'カード ・・・4242',name:'メインカード',sub:'Visa ・・・4242',color:'#5B7CFA'},
+  {key:'カード ・・・1881',name:'サブカード',sub:'Mastercard ・・・1881',color:'#8E4EC6'},
+  {key:'App Store 決済',name:'App Store',sub:'Apple ID 決済',color:'#8B93A2'},
+  {key:'口座振替',name:'口座振替',sub:'みずほ銀行',color:'#00A2C7'},
+  {key:'未設定',name:'未設定',sub:'支払い方法を選んでいません',color:'#6E7C99'}
+];
+const CURS = {JPY:{sym:'¥',rate:1},USD:{sym:'$',rate:154},EUR:{sym:'€',rate:168}};
+
+const PAL = ['#E5484D','#D9822B','#F2A93B','#30A46C','#2EC4B6','#00A2C7','#5B7CFA','#7C6CFF','#8E4EC6','#E06B9B','#6E7C99','#8B93A2'];
+
+const OB = [
+  {title:'銀行にもカードにも、\n繋ぎません。',body:'手で登録するだけ。データは端末の中だけに保存されます。ログインも不要です。',cta:'次へ'},
+  {title:'月いくら払っているか、\n1画面で。',body:'月合計・年額換算・1日あたりを自動で計算。カテゴリの内訳も見えます。',cta:'次へ'},
+  {title:'解約忘れは、\n通知でゼロに。',body:'無料トライアルの終了3日前に最優先で通知。ロック画面にも表示します。',cta:'はじめる'}
+];
+
+class Component extends DCLogic {
+  state = {screen:'onboard',ob:0,sel:null,sortHigh:true,query:'',draft:null,extra:[],off:{},anim:0,light:null,
+    catList:Object.keys(CAT).map(k=>({key:k,name:k,color:CAT[k]})), catEdit:null,
+    monthIdx:0, monthOpen:false, removed:[], swId:null, swDx:0, swStart:0, fromNotif:false,
+    fx:{rate:154, mode:'自動（毎日）', manual:false},
+    nset:{b7:false,b3:true,b1:false,b0:true,time:'9:00',trial:3,snooze:'1日後',lock:true,quiet:true},
+    uo:{}, csv:{open:false,done:false,range:'すべて',cols:{price:true,next:true,cat:true,pay:false}}};
+
+  componentDidMount(){
+    this.t = setInterval(()=>{
+      this.setState(s => s.anim >= 1 ? s : {anim: Math.min(1, s.anim + .09)});
+    },26);
+  }
+  componentWillUnmount(){ clearInterval(this.t); }
+
+  all(){
+    const r = this.state.fx.rate, rm = this.state.removed, uo = this.state.uo;
+    return BASE.concat(this.state.extra).filter(x=>rm.indexOf(x.id)<0).map(x=>{
+      const o = Object.assign({}, x, {unused: uo[x.id]!==undefined ? uo[x.id] : !!x.unused});
+      if (x.cur) { o.price = Math.round(x.amt*(x.cur==='USD'?r:CURS.EUR.rate)); o.raw = CURS[x.cur].sym+x.amt+' / 月'; }
+      return o;
+    });
+  }
+  live(){ return this.all().filter(x=>!x.trial); }
+  total(){ return this.live().reduce((a,b)=>a+b.price,0); }
+  nm(x){ return this.props.dummyNames ? x.dummy || x.name : x.name; }
+  ini(x){ return this.nm(x).trim().charAt(0); }
+  go(s){ return ()=>this.setState({screen:s}); }
+
+  renderVals(){
+    const st = this.state, total = this.total(), year = total*12, day = year/365;
+    const light = st.light === null ? (this.props.theme === 'light') : st.light;
+    const th = light
+      ? {bg:'#F6F7F9',card:'#FFFFFF',fg:'#141821',sub:'#6B7280',dim:'#9AA1AC',
+         line:'rgba(0,0,0,.06)',line2:'rgba(0,0,0,.07)',border:'rgba(0,0,0,.1)',border2:'rgba(0,0,0,.14)',
+         border3:'rgba(0,0,0,.16)',track:'rgba(0,0,0,.14)',tabbg:'rgba(246,247,249,.92)',
+         fg85:'rgba(20,24,33,.75)',fg50:'rgba(20,24,33,.45)',fg32:'rgba(20,24,33,.28)',
+         sub35:'rgba(107,114,128,.35)',red:'#D93A3A',green:'#159A55',indigoFg:'#3457C8'}
+      : {bg:'#1B2129',card:'#262C36',fg:'#F2F4F7',sub:'#8A93A2',dim:'#5C6472',
+         line:'rgba(255,255,255,.05)',line2:'rgba(255,255,255,.06)',border:'rgba(255,255,255,.1)',
+         border2:'rgba(255,255,255,.12)',border3:'rgba(255,255,255,.16)',track:'rgba(255,255,255,.14)',
+         tabbg:'rgba(27,33,41,.92)',fg85:'rgba(242,244,247,.85)',fg50:'rgba(242,244,247,.5)',
+         fg32:'rgba(242,244,247,.32)',sub35:'rgba(138,147,162,.35)',red:'#FF8A8A',green:'#2FBF71',indigoFg:'#8FA8FF'};
+    const toggleTheme = ()=>this.setState({light:!light});
+    const cOf = k => st.catList.find(c=>c.key===k) || {key:'その他',name:'その他',color:'#8B93A2'};
+    const ce = st.catEdit;
+    const heroKey = this.props.heroMetric || 'month';
+    const mo = MONTHS[st.monthIdx], past = mo.total !== null;
+    const annual = this.all().filter(x=>x.cycle==='年');
+    const billedList = this.all().filter(x=>x.cycle!=='年');
+    const billed = billedList.reduce((a,b)=>a+b.price,0);
+    const mTotal = past ? mo.total : billed;
+    const hero = heroKey==='year' ? {label:'年額換算', v:YEN(year), a:'月割り ¥'+YEN(total), b:'1日 ¥'+YEN(day)}
+      : heroKey==='day' ? {label:'1日あたり', v:YEN(day), a:'月割り ¥'+YEN(total), b:'年 ¥'+YEN(year)}
+      : {label: past ? mo.label.replace('2026年','')+'の請求額' : '今月の請求額',
+         v:YEN(mTotal*(past?1:st.anim)), a:'月割りなら ¥'+YEN(total), b:'年 ¥'+YEN(year)};
+
+    let list = this.all().slice();
+    list.sort((a,b)=> st.sortHigh ? b.price-a.price : a.days-b.days);
+    const items = list.map(x=>({
+      name:this.nm(x), initial:this.ini(x), color:cOf(x.cat).color,
+      priceLabel:'¥'+YEN(x.price), meta:cOf(x.cat).name+' ・ '+(x.raw ? x.raw : (x.cycle==='年'?'年払い（月割）':'毎月')),
+      nextLabel: x.trial ? '終了 '+x.next : (x.days<=3 ? 'あと'+x.days+'日' : x.next),
+      nextColor: x.trial||x.days<=3 ? (x.trial?'#FF5C5C':'#F5A623') : th.sub,
+      flag: x.trial ? '無料' : (x.unused && this.props.showUnusedFlags!==false ? '未使用' : ''),
+      flagColor: x.trial ? '#FF5C5C' : th.sub,
+      dx: st.swId===x.id ? st.swDx : 0,
+      down: e=>{ e.currentTarget.setPointerCapture(e.pointerId); this.setState({swId:x.id, swStart:e.clientX, swDx: st.swId===x.id?st.swDx:0}); },
+      move: e=>{ if(this.state.swId!==x.id || !this.state.swStart) return;
+        const d = Math.max(-152, Math.min(0, e.clientX - this.state.swStart + (0)));
+        this.setState({swDx:d}); },
+      up: ()=>this.setState(s=>({swStart:0, swDx: s.swDx < -70 ? -152 : 0})),
+      open: ()=>{ if(st.swDx<0 && st.swId===x.id) return this.setState({swId:null,swDx:0});
+        this.setState({screen:'detail',sel:x.id,fromNotif:false}); },
+      edit: ()=>this.setState({screen:'detail',sel:x.id,swId:null,swDx:0,fromNotif:false}),
+      del: ()=>this.setState(s=>({removed:s.removed.concat([x.id]),swId:null,swDx:0}))
+    }));
+
+    const selRaw = this.all().find(x=>x.id===st.sel) || BASE[0];
+    const sel = {
+      name:this.nm(selRaw), initial:this.ini(selRaw), color:cOf(selRaw.cat).color, cat:cOf(selRaw.cat).name,
+      priceNum:YEN(selRaw.price), cycle:selRaw.cycle==='年'?'月（年払い）':'月',
+      year:YEN(selRaw.price*12), perDay:YEN(selRaw.price*12/365),
+      nextFull:selRaw.next+'（あと'+selRaw.days+'日）', nextColor:selRaw.days<=3?'#FF5C5C':th.fg,
+      cycleFull:selRaw.raw?selRaw.raw:'毎月 ¥'+YEN(selRaw.price), pay:selRaw.pay, hist:selRaw.hist
+    };
+    const selUnused = !!selRaw.unused;
+
+    const unused = this.all().filter(x=>x.unused);
+    const trialItem = this.all().find(x=>x.trial);
+    const cancelIds = st.cancelOne ? [st.cancelOne] : unused.map(x=>x.id);
+    const targets = this.all().filter(x=>cancelIds.indexOf(x.id)>=0 && !st.off[x.id]);
+    const cm = targets.reduce((a,b)=>a+b.price,0);
+    const cancelList = this.all().filter(x=>cancelIds.indexOf(x.id)>=0).map(x=>{
+      const on = !st.off[x.id];
+      return {name:this.nm(x), initial:this.ini(x), color:cOf(x.cat).color,
+        note:x.unused?'2か月以上ひらいていません':'解約候補',
+        save:'¥'+YEN(x.price*12)+'/年', mark:on?'✓':'', boxBg:on?'#2FBF71':'transparent',
+        border:on?'rgba(47,191,113,.55)':th.border2,
+        toggle:()=>this.setState(s=>({off:Object.assign({},s.off,{[x.id]:!s.off[x.id]})}))};
+    });
+
+    const q = st.query.trim().toLowerCase();
+    const pool = q ? SEED.filter(s=>s.name.toLowerCase().indexOf(q)>=0 || s.r.indexOf(q)>=0) : SEED.slice(0,6);
+    const suggestions = pool.slice(0,7).map(s=>({
+      name:s.name, initial:s.name.charAt(0), color:cOf(s.cat).color, cat:cOf(s.cat).name+' ・ 標準プラン',
+      priceLabel:'¥'+YEN(s.price)+(s.cycle==='年'?' /年':' /月'),
+      pick:()=>this.setState({screen:'add2',draft:{name:s.name,price:s.price,cycle:s.cycle||'月',cat:s.cat,trial:false}})
+    }));
+
+    const d = st.draft || {name:'新しいサブスク',price:1000,cycle:'月',cat:'その他',trial:false};
+    const dCur = d.cur || 'JPY', dRate = dCur==='USD' ? st.fx.rate : CURS[dCur].rate;
+    const dYen = dCur==='JPY' ? d.price : d.price*dRate;
+    const dMonth = d.cycle==='年'?dYen/12:d.cycle==='週'?dYen*52/12:dYen;
+    const draft = {name:d.name, initial:d.name.charAt(0), color:cOf(d.cat).color,
+      price: dCur==='JPY' ? YEN(d.price) : String(d.price), sym:CURS[dCur].sym, isFx: dCur!=='JPY',
+      fxLine: dCur==='JPY' ? '' : '≒ ¥'+YEN(dYen)+'（1'+CURS[dCur].sym+' = ¥'+dRate.toFixed(1)+'）',
+      month:YEN(dMonth), year:YEN(dMonth*12), day:YEN(dMonth*12/365), newTotal:YEN(total+(d.trial?0:dMonth))};
+    const setD = p => this.setState(s=>({draft:Object.assign({},d,p)}));
+
+    const cycles = ['月','年','週','隔月'].map(c=>({label:c==='隔月'?'隔月':c+'ごと', pick:()=>setD({cycle:c}),
+      bg:d.cycle===c?'rgba(91,124,250,.16)':'transparent', fg:d.cycle===c?th.indigoFg:th.sub,
+      border:d.cycle===c?'rgba(91,124,250,.6)':th.border}));
+    const cats = st.catList.map(c=>({label:c.name, pick:()=>setD({cat:c.key}),
+      bg:d.cat===c.key?c.color:'transparent', fg:d.cat===c.key?'#fff':th.sub,
+      border:d.cat===c.key?c.color:th.border}));
+
+    const byCat = {};
+    this.live().forEach(x=>{ byCat[x.cat]=(byCat[x.cat]||0)+x.price; });
+    const catStats = Object.keys(byCat).sort((a,b)=>byCat[b]-byCat[a]).map(k=>({
+      name:cOf(k).name, color:cOf(k).color, yen:YEN(byCat[k]), pct:(byCat[k]/total*100).toFixed(1),
+      pctLabel:Math.round(byCat[k]/total*100)+'%',
+      open:()=>this.setState({screen:'catlist',catKey:k})}));
+
+    const ck = st.catKey || Object.keys(byCat)[0] || 'その他';
+    const cInfo = cOf(ck);
+    const cItems = this.all().filter(x=>x.cat===ck);
+    const cLive = cItems.filter(x=>!x.trial);
+    const cSum = cLive.reduce((a,b)=>a+b.price,0);
+    const max = Math.max.apply(null, this.live().map(x=>x.price));
+    const ranking = this.live().sort((a,b)=>b.price-a.price).slice(0,5).map(x=>({
+      name:this.nm(x), color:cOf(x.cat).color, perDay:YEN(x.price*12/365), year:YEN(x.price*12), pct:x.price/max*100}));
+
+    const timeline = this.all().slice().sort((a,b)=>a.days-b.days).slice(0,5).map(x=>({
+      day:x.next.split('/').pop(), month:'8月', initial:this.ini(x), color:cOf(x.cat).color, name:this.nm(x),
+      price:'¥'+YEN(x.price), note:x.trial?'無料期間が終了・課金開始':'更新（あと'+x.days+'日）',
+      dayColor:x.trial?'#FF5C5C':(x.days<=6?'#F5A623':'#8A93A2')}));
+
+    const tab = (k,label)=>({label, go:this.go(k), radius:k==='home'?'6px':k==='stats'?'3px':k==='notif'?'50%':'6px',
+      color:(st.screen==='catlist'?'stats':st.screen)===k?'#5B7CFA':th.dim});
+
+    return {
+      isOnboard:st.screen==='onboard', isHome:st.screen==='home', isDetail:st.screen==='detail',
+      isCancel:st.screen==='cancel', isAdd1:st.screen==='add1', isAdd2:st.screen==='add2',
+      isStats:st.screen==='stats', isNotif:st.screen==='notif', isSettings:st.screen==='settings',
+      showTabs:['home','stats','notif','settings','catlist'].indexOf(st.screen)>=0,
+      ob:OB[st.ob], obDots:[0,1,2].map(i=>({w:i===st.ob?20:5, c:i===st.ob?'#5B7CFA':'rgba(242,244,247,.2)'})),
+      obNext:()=> st.ob<2 ? this.setState({ob:st.ob+1}) : this.setState({screen:'home'}),
+      goHome:this.go('home'), back:this.go('home'), goAdd:()=>this.setState({screen:'add1',query:''}),
+      heroLabel:hero.label, heroValue:hero.v, subA:hero.a, subB:hero.b,
+      hasTrial: !!trialItem, trialName: trialItem ? this.nm(trialItem) : '',
+      trialTitle: trialItem ? '無料トライアル終了まで あと'+trialItem.days+'日' : '',
+      trialLine: trialItem ? this.nm(trialItem)+' ・ '+trialItem.next+'に ¥'+YEN(trialItem.price)+' の課金がはじまります' : '',
+      hasUnused: unused.length > 0,
+      unusedLabel: 'あまり使っていない '+unused.length+'件を解約すると',
+      unusedSave: '年間 ¥'+YEN(unused.reduce((a,b)=>a+b.price,0)*12)+' 節約',
+      count:this.all().length,
+      sortLabel:st.sortHigh?'高い順':'更新が近い順', toggleSort:()=>this.setState({sortHigh:!st.sortHigh}),
+      openTrial:()=>trialItem && this.setState({screen:'detail',sel:trialItem.id,fromNotif:false}),
+      items, sel,
+      goCancel:()=>this.setState({screen:'cancel',cancelOne:st.sel,off:{}}),
+      goCancelAll:()=>this.setState({screen:'cancel',cancelOne:null,off:{}}),
+      cancelWho: st.cancelOne ? this.nm(selRaw) : 'あまり使っていない '+unused.length+'件',
+      cancelYear:YEN(cm*12), cancelMonth:YEN(cm), cancelDay:YEN(cm*12/365), cancel3y:YEN(cm*36),
+      cancelList,
+      query:st.query, onQuery:e=>this.setState({query:e.target.value}),
+      suggestLabel:q?'検索結果':'よく使われているサービス', suggestions,
+      pickManual:()=>this.setState({screen:'add2',draft:{name:'新しいサブスク',price:1000,cycle:'月',cat:'その他',trial:false}}),
+      draft, cycles, cats,
+      curChips: ['JPY','USD','EUR'].map(c=>({label:CURS[c].sym+' '+c, pick:()=>setD({cur:c, price: c==='JPY'?1000:20}),
+        bg: dCur===c ? 'rgba(91,124,250,.16)' : 'transparent', fg: dCur===c ? th.indigoFg : th.sub,
+        border: dCur===c ? 'rgba(91,124,250,.6)' : th.border})),
+      incPrice:()=>setD({price:d.price+(dCur==='JPY'?100:1)}),
+      decPrice:()=>setD({price:Math.max(0,d.price-(dCur==='JPY'?100:1))}),
+      toggleTrial:()=>setD({trial:!d.trial}),
+      trialBorder:d.trial?'rgba(255,92,92,.5)':'rgba(255,255,255,.06)',
+      trialTrack:d.trial?'#FF5C5C':th.track, trialKnob:d.trial?21:3,
+      save:()=>this.setState(s=>({screen:'home',
+        extra:s.extra.concat([{id:100+s.extra.length,name:d.name,dummy:d.name,cat:d.cat,price:Math.round(dMonth),
+          cur:(dCur!=='JPY'&&d.cycle==='月')?dCur:null, amt:d.price,
+          cycle:d.cycle,next:'9/6',days:31,trial:d.trial,raw:d.cycle==='年'?'¥'+YEN(dYen)+' / 年':null,
+          pay:'未設定',hist:'変更なし'}])})),
+      totalYear:YEN(year), perDay:YEN(day), catStats, ranking, timeline,
+      th, toggleTheme, themeGlyph: light ? '☾' : '☀',
+      statsEmpty: this.live().length === 0,
+      statsEmptyTitle: this.all().length === 0 ? '集計するものがまだありません' : '集計できるものがありません',
+      statsEmptyBody: this.all().length === 0
+        ? '2件くらい登録すると、カテゴリの内訳と1日あたりの金額が出ます。'
+        : '登録されているのは無料トライアルだけです。課金が始まると、ここに内訳が出ます。',
+      notifEmpty: this.all().length === 0,
+      isCatList: st.screen==='catlist', goStats:this.go('stats'),
+      clName: cInfo.name, clColor: cInfo.color, clInitial: cInfo.name.charAt(0),
+      clMonth: YEN(cSum), clYear: '年 ¥'+YEN(cSum*12), clDay: '1日 ¥'+YEN(cSum*12/365),
+      clShare: total ? Math.round(cSum/total*100)+'%' : '0%',
+      clCount: cItems.length+'件',
+      clEmpty: cItems.length === 0,
+      clItems: cItems.slice().sort((a,b)=>b.price-a.price).map(x=>({
+        name:this.nm(x), initial:this.ini(x), color:cInfo.color,
+        priceLabel:'¥'+YEN(x.price), sub:(x.raw?x.raw:'毎月')+' ・ '+x.pay,
+        bar: cSum ? Math.max(3, x.price/cSum*100) : 3,
+        nextLabel: x.trial ? '無料 ・ '+x.next+'に開始' : '次回 '+x.next,
+        nextColor: x.trial ? '#FF5C5C' : (x.unused ? '#F5A623' : th.sub),
+        flag: x.trial ? '無料' : (x.unused ? '未使用' : ''),
+        flagColor: x.trial ? '#FF5C5C' : '#F5A623',
+        open:()=>this.setState({screen:'detail',sel:x.id,fromNotif:false})})),
+      clAddNote: '「'+cInfo.name+'」にサブスクを追加',
+      billedNote: annual.length ? '年払い '+annual.length+'件（月割り ¥'+YEN(annual.reduce((a,b)=>a+b.price,0))+'）は今月の請求に入りません' : '',
+      hasAnnual: annual.length > 0,
+      selUnused, unusedBtn: selUnused ? '「使っていない」印を外す' : '「使っていない」印をつける',
+      unusedBtnColor: selUnused ? '#F5A623' : th.sub,
+      unusedBtnBorder: selUnused ? 'rgba(245,166,35,.45)' : th.border,
+      toggleUnused:()=>this.setState(s=>({uo:Object.assign({},s.uo,{[selRaw.id]: !selRaw.unused})})),
+      unusedRows: unused.map(x=>({name:this.nm(x), initial:this.ini(x), color:cOf(x.cat).color,
+        note:'2か月以上ひらいていません', save:'¥'+YEN(x.price*12)+' / 年',
+        open:()=>this.setState({screen:'detail',sel:x.id,fromNotif:false})})),
+      unusedCount: unused.length+'件',
+      unusedTotal: '¥'+YEN(unused.reduce((a,b)=>a+b.price,0)*12),
+      isMsgs: st.screen==='msgs', goMsgs:this.go('msgs'),
+      msgs: [
+        {tag:'更新前',color:'#5B7CFA',title:'Netflix が3日後に更新されます',body:'8/12 に ¥1,590。続けるならこのまま、やめるなら今日が期限です。',act:'解約の手順 ／ あとで'},
+        {tag:'トライアル',color:'#FF5C5C',title:'Perplexity Pro の無料期間が3日後に終わります',body:'8/9 から ¥3,000 / 月。解約はいまのうちに。',act:'解約の手順 ／ 1日後に再通知'},
+        {tag:'値上げ検知',color:'#F5A623',title:'YouTube Premium が ¥100 値上がりしました',body:'¥1,180 → ¥1,280。年 ¥1,200 の増加です。',act:'記録を見る ／ 金額を直す'},
+        {tag:'当日',color:'#8B93A2',title:'今日 ChatGPT Plus が更新されます',body:'¥3,080（$20 ・ 1$=¥154.0）がサブカードから引かれます。',act:'詳細を開く'},
+        {tag:'月初',color:'#2FBF71',title:'8月の請求は ¥19,140 です',body:'先月より ¥1,180 増えました。増えた分は ChatGPT Plus の為替です。',act:'集計を開く'}
+      ],
+      csvOpen: st.csv.open, csvDone: st.csv.done,
+      openCsv:()=>this.setState(s=>({csv:Object.assign({},s.csv,{open:true,done:false})})),
+      closeCsv:()=>this.setState(s=>({csv:Object.assign({},s.csv,{open:false,done:false})})),
+      runCsv:()=>this.setState(s=>({csv:Object.assign({},s.csv,{done:true})})),
+      csvRanges: ['すべて','2026年','今月のみ'].map(r=>({label:r, pick:()=>this.setState(s=>({csv:Object.assign({},s.csv,{range:r})})),
+        bg: st.csv.range===r ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.csv.range===r ? th.indigoFg : th.sub,
+        border: st.csv.range===r ? 'rgba(91,124,250,.6)' : th.border})),
+      csvCols: [['price','料金'],['next','次回更新日'],['cat','カテゴリ'],['pay','支払い方法']].map(([k,label])=>({
+        label, pick:()=>this.setState(s=>({csv:Object.assign({},s.csv,{cols:Object.assign({},s.csv.cols,{[k]:!s.csv.cols[k]})})})),
+        bg: st.csv.cols[k] ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.csv.cols[k] ? th.indigoFg : th.sub,
+        border: st.csv.cols[k] ? 'rgba(91,124,250,.6)' : th.border})),
+      csvNotDone: !st.csv.done,
+      csvPreview1: ['サービス名', st.csv.cols.price&&'料金', st.csv.cols.next&&'次回更新日', st.csv.cols.cat&&'カテゴリ', st.csv.cols.pay&&'支払い方法'].filter(Boolean).join(','),
+      csvPreview2: ['Netflix', st.csv.cols.price&&'1590', st.csv.cols.next&&'2026-08-12', st.csv.cols.cat&&'動画', st.csv.cols.pay&&'カード4242'].filter(Boolean).join(','),
+      csvFile: 'submemo-'+st.csv.range.replace('すべて','all').replace('2026年','2026').replace('今月のみ','2026-08')+'.csv',
+      csvRows: this.all().length+'行 ・ '+(1+[st.csv.cols.price,st.csv.cols.next,st.csv.cols.cat,st.csv.cols.pay].filter(Boolean).length)+'列',
+      monthLabel: mo.label, isPast: past,
+      monthOpen: st.monthOpen, toggleMonth:()=>this.setState(s=>({monthOpen:!s.monthOpen})),
+      monthChips: MONTHS.map((m,i)=>({label:m.label.replace('2026年',''), pick:()=>this.setState({monthIdx:i,monthOpen:false}),
+        bg: i===st.monthIdx ? '#5B7CFA' : 'transparent', fg: i===st.monthIdx ? '#fff' : th.sub,
+        border: i===st.monthIdx ? '#5B7CFA' : th.border})),
+      isEmpty: this.all().length === 0,
+      restore:()=>this.setState({removed:[],extra:[]}),
+      isNotifSet: st.screen==='notifset', goNotifSet:this.go('notifset'), goNotif:this.go('notif'),
+      beforeChips: [[7,'b7','7日前'],[3,'b3','3日前'],[1,'b1','前日'],[0,'b0','当日']].map(([n,k,label])=>({
+        label, pick:()=>this.setState(s=>({nset:Object.assign({},s.nset,{[k]:!s.nset[k]})})),
+        bg: st.nset[k] ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.nset[k] ? th.indigoFg : th.sub,
+        border: st.nset[k] ? 'rgba(91,124,250,.6)' : th.border})),
+      timeChips: ['8:00','9:00','12:00','20:00'].map(t=>({label:t, pick:()=>this.setState(s=>({nset:Object.assign({},s.nset,{time:t})})),
+        bg: st.nset.time===t ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.nset.time===t ? th.indigoFg : th.sub,
+        border: st.nset.time===t ? 'rgba(91,124,250,.6)' : th.border})),
+      trialChips: [7,3,1].map(n=>({label:n+'日前', pick:()=>this.setState(s=>({nset:Object.assign({},s.nset,{trial:n})})),
+        bg: st.nset.trial===n ? 'rgba(255,92,92,.14)' : 'transparent', fg: st.nset.trial===n ? '#FF8A8A' : th.sub,
+        border: st.nset.trial===n ? 'rgba(255,92,92,.55)' : th.border})),
+      snoozeChips: ['1時間後','1日後','更新前日'].map(s2=>({label:s2, pick:()=>this.setState(s=>({nset:Object.assign({},s.nset,{snooze:s2})})),
+        bg: st.nset.snooze===s2 ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.nset.snooze===s2 ? th.indigoFg : th.sub,
+        border: st.nset.snooze===s2 ? 'rgba(91,124,250,.6)' : th.border})),
+      lockOn: st.nset.lock, lockTrack: st.nset.lock?'#5B7CFA':th.track, lockKnob: st.nset.lock?21:3,
+      toggleLock:()=>this.setState(s=>({nset:Object.assign({},s.nset,{lock:!s.nset.lock})})),
+      quietOn: st.nset.quiet, quietTrack: st.nset.quiet?'#5B7CFA':th.track, quietKnob: st.nset.quiet?21:3,
+      toggleQuiet:()=>this.setState(s=>({nset:Object.assign({},s.nset,{quiet:!s.nset.quiet})})),
+      notifSummary: [st.nset.b7&&'7日前',st.nset.b3&&'3日前',st.nset.b1&&'前日',st.nset.b0&&'当日'].filter(Boolean).join('・')||'オフ',
+      openFromNotif:()=>this.setState({screen:'detail',sel:trialItem?trialItem.id:(this.all()[0]||{}).id,fromNotif:true}),
+      fromNotif: st.fromNotif,
+      snoozeNote: st.nset.snooze,
+      isPays: st.screen==='pays', goPays:this.go('pays'),
+      payRows: PAYS.map(p=>{
+        const inP = this.live().filter(x=>x.pay===p.key);
+        const sum = inP.reduce((a,b)=>a+b.price,0);
+        return {name:p.name, sub:p.sub, color:p.color, initial:p.name.charAt(0), count:inP.length+'件',
+          yen: sum? '¥'+YEN(sum)+' / 月':'—', yenColor: sum?th.fg:th.dim,
+          pct: total? (sum/total*100):0, pctLabel: total? Math.round(sum/total*100)+'%':'0%'};
+      }).filter(p=>p.count!=='0件'),
+      isFx: st.screen==='fx', goFx:this.go('fx'),
+      fxRate: st.fx.rate.toFixed(1), fxMode: st.fx.mode,
+      fxModes: ['自動（毎日）','自動（週1）','手動'].map(m=>({label:m, pick:()=>this.setState(s=>({fx:Object.assign({},s.fx,{mode:m})})),
+        bg: st.fx.mode===m ? 'rgba(91,124,250,.16)' : 'transparent', fg: st.fx.mode===m ? th.indigoFg : th.sub,
+        border: st.fx.mode===m ? 'rgba(91,124,250,.6)' : th.border})),
+      fxUp:()=>this.setState(s=>({fx:Object.assign({},s.fx,{rate:Math.round((s.fx.rate+0.5)*10)/10})})),
+      fxDown:()=>this.setState(s=>({fx:Object.assign({},s.fx,{rate:Math.round((s.fx.rate-0.5)*10)/10})})),
+      fxItems: this.all().filter(x=>x.cur).map(x=>({name:this.nm(x), initial:this.ini(x), color:cOf(x.cat).color,
+        foreign:CURS[x.cur].sym+x.amt+' / 月', yen:'¥'+YEN(x.price)})),
+      fxNote: '過去の記録は当時のレートで保存され、あとから書き換わりません。',
+      isCats:st.screen==='cats', goSettings:this.go('settings'),
+      catRows: st.catList.map(c=>{
+        const inCat = this.all().filter(x=>x.cat===c.key);
+        const sum = inCat.reduce((a,b)=>a+b.price,0);
+        return {name:c.name, color:c.color, initial:c.name.charAt(0),
+          count:inCat.length+'件', yen: sum? '¥'+YEN(sum)+' / 月' : '未使用',
+          yenColor: sum? th.fg : th.dim,
+          open:()=>this.setState({catEdit:{key:c.key,name:c.name,color:c.color,isNew:false}})};
+      }),
+      catTotalLabel: st.catList.length+'カテゴリ',
+      addCat:()=>this.setState({catEdit:{key:'c'+Date.now(),name:'',color:PAL[6],isNew:true}}),
+      catSheet: !!ce,
+      catTitle: ce && ce.isNew ? 'カテゴリを追加' : 'カテゴリを編集',
+      catName: ce ? ce.name : '',
+      catColor: ce ? ce.color : PAL[6],
+      catInitial: ce && ce.name ? ce.name.charAt(0) : '＋',
+      catCanDelete: !!(ce && !ce.isNew && ce.key !== 'その他'),
+      catUsage: ce && !ce.isNew ? '削除すると、このカテゴリのサブスクは「その他」に移ります' : '色は一覧の頭文字タイルにも使われます',
+      onCatName: e=>{ const v=e.target.value; this.setState(s=>({catEdit:Object.assign({},s.catEdit,{name:v})})); },
+      palette: PAL.map(p=>({color:p, pick:()=>this.setState(s=>({catEdit:Object.assign({},s.catEdit,{color:p})})),
+        ring: ce && ce.color===p ? '0 0 0 2px '+th.card+',0 0 0 4px '+p : 'none'})),
+      closeCat:()=>this.setState({catEdit:null}),
+      saveCat:()=>this.setState(s=>{
+        const e2 = s.catEdit, nm = (e2.name||'').trim() || '新しいカテゴリ';
+        const list = e2.isNew ? s.catList.concat([{key:e2.key,name:nm,color:e2.color}])
+          : s.catList.map(c=>c.key===e2.key?{key:c.key,name:nm,color:e2.color}:c);
+        return {catList:list, catEdit:null};
+      }),
+      deleteCat:()=>this.setState(s=>({catList:s.catList.filter(c=>c.key!==s.catEdit.key), catEdit:null})),
+      settingRows:[
+        {label:'通知',value:'カスタム',color:'#5B7CFA',act:this.go('notifset')},
+        {label:'カテゴリ',value:st.catList.length+'件',color:'#5B7CFA',act:this.go('cats')},
+        {label:'支払い方法',value:'4件',color:'#5B7CFA',act:this.go('pays')},
+        {label:'テーマ',value:light?'ライト':'ダーク',color:'#5B7CFA',act:toggleTheme},
+        {label:'通貨と為替レート',value:'JPY ・ 1$='+st.fx.rate.toFixed(1),color:'#5B7CFA',act:this.go('fx')},
+        {label:'データの保存先',value:'この端末のみ',color:th.green},
+        {label:'バックアップ',value:'iCloud',color:th.fg},
+        {label:'通知の文面一覧',value:'5種',color:'#5B7CFA',act:this.go('msgs')},
+        {label:'CSV書き出し',value:'プレミアム',color:'#5B7CFA',act:()=>this.setState(s=>({csv:Object.assign({},s.csv,{open:true,done:false})}))}
+      ],
+      tabs:[tab('home','ホーム'),tab('stats','集計'),tab('notif','通知'),tab('settings','設定')]
+    };
+  }
+}
+</script>
+</body>
+</html>
