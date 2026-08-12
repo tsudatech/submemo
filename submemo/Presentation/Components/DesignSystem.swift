@@ -233,7 +233,7 @@ struct CountUpNumber: View {
     @State private var didAnimate = false
 
     var body: some View {
-        Text(verbatim: Yen.num(shown))
+        Text(verbatim: Money.num(shown))
             .font(font)
             .kerning(-1)
             .foregroundStyle(SM.fg)

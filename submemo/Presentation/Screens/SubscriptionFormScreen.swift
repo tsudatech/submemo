@@ -10,6 +10,10 @@ import SwiftUI
 
 struct SubscriptionFormScreen: View {
     @EnvironmentObject private var store: AppStore
+    /// 金額欄にカーソルがあるか。± を押したときに外して、打ち替えと衝突させない。
+    @FocusState private var priceFocused: Bool
+    /// 金額欄に出している文字。編集中は桁区切りを外し、離れたら整形して戻す。
+    @State private var priceText = ""
     @State private var confirmDelete = false
     @FocusState private var nameFocused: Bool
 
@@ -120,18 +124,32 @@ struct SubscriptionFormScreen: View {
             }
 
             HStack(spacing: 14) {
-                stepper("minus") { store.stepPrice(-1) }
-                Text(verbatim: store.draft.currency.symbol + Yen.num(store.draft.price))
-                    .font(SM.n(30, .semibold))
-                    .foregroundStyle(SM.fg)
-                    .frame(maxWidth: .infinity)
-                    .lineLimit(1).minimumScaleFactor(0.6)
-                stepper("plus") { store.stepPrice(1) }
+                stepper("minus") { priceFocused = false; store.stepPrice(-1) }
+                // 数字はそのまま打ち替えられる。± だけだと桁の大きい額が遠い。
+                HStack(spacing: 1) {
+                    Text(verbatim: store.draft.currency.symbol)
+                        .font(SM.n(30, .semibold))
+                    // フォントは TextField に直接あてる。まわりの .font() は
+                    // 入力欄には届かず、既定サイズのまま小さく出てしまう。
+                    TextField("", text: $priceText)
+                        .font(SM.n(30, .semibold))
+                        .keyboardType(store.draft.currency == .JPY ? .numberPad : .decimalPad)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize()
+                        .focused($priceFocused)
+                }
+                .foregroundStyle(SM.fg)
+                .frame(maxWidth: .infinity)
+                .lineLimit(1)
+                // ± の内側ならどこを触っても編集に入れる。数字だけだと的が小さい。
+                .contentShape(Rectangle())
+                .onTapGesture { priceFocused = true }
+                stepper("plus") { priceFocused = false; store.stepPrice(1) }
             }
             .padding(.top, 4)
 
             if store.draft.currency != .JPY {
-                Text(verbatim: TRF("add_fx_line_format", Yen.text(store.draftYen),
+                Text(verbatim: TRF("add_fx_line_format", Money.text(store.draftYen),
                                    store.draft.currency.symbol,
                                    String(format: "%.1f", store.draftRate)))
                     .font(SM.n(12.5, .medium))
@@ -142,6 +160,22 @@ struct SubscriptionFormScreen: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 18)
+        .onAppear { priceText = Self.display(store.draft.price) }
+        .onChange(of: priceFocused) { _, focused in
+            // 編集に入ったら桁区切りを外し、離れたら整形して戻す。
+            priceText = focused ? Self.plain(store.draft.price)
+                                : Self.display(store.draft.price)
+        }
+        .onChange(of: priceText) { _, text in
+            // 打っているあいだも要約に反映させる。
+            guard priceFocused else { return }
+            store.setDraftPrice(Self.parse(text))
+        }
+        .onChange(of: store.draft.price) { _, value in
+            // ±・通貨・サイクルの変更を欄に反映する（編集中は邪魔しない）。
+            guard !priceFocused else { return }
+            priceText = Self.display(value)
+        }
         .smCard()
     }
 
@@ -180,15 +214,44 @@ struct SubscriptionFormScreen: View {
     }
 
     private var nextRenewalCard: some View {
-        HStack {
-            Text("form_next_renewal".loc).font(SM.f(13)).foregroundStyle(SM.fg)
-            Spacer(minLength: 12)
-            DatePicker("", selection: dateBinding, displayedComponents: .date)
-                .labelsHidden()
-                .tint(SM.indigo)
+        VStack(spacing: 0) {
+            Button {
+                withAnimation(.easeInOut(duration: 0.18)) {
+                    store.draft.hasRenewalDate.toggle()
+                }
+            } label: {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("form_next_renewal".loc).font(SM.f(13)).foregroundStyle(SM.fg)
+                        // オンにすると何が変わるかを書いておく。
+                        // 入れないと通知が組めず、今月の請求額にも入らない。
+                        Text("form_next_renewal_note".loc)
+                            .font(SM.f(10.5)).lineSpacing(4).foregroundStyle(SM.sub)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer(minLength: 12)
+                    SMSwitch(isOn: store.draft.hasRenewalDate)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            if store.draft.hasRenewalDate {
+                Rectangle().fill(SM.line).frame(height: 1)
+                HStack {
+                    Text("form_next_renewal_date".loc).font(SM.f(13)).foregroundStyle(SM.fg)
+                    Spacer(minLength: 12)
+                    DatePicker("", selection: dateBinding, displayedComponents: .date)
+                        .labelsHidden()
+                        .tint(SM.indigo)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+            }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
         .smCard()
     }
 
@@ -204,6 +267,8 @@ struct SubscriptionFormScreen: View {
                         store.draft.categoryID = c.id
                     }
                 }
+                // 入力の途中で足せるように。作ったものはそのまま選ばれる。
+                addChip { store.addCategory() }
             }
         }
     }
@@ -219,8 +284,42 @@ struct SubscriptionFormScreen: View {
                         store.draft.paymentMethodID = p.id
                     }
                 }
+                addChip { store.addPayment() }
             }
         }
+    }
+
+    /// 表示用（"1,590"）。
+    private static func display(_ v: Double) -> String { Yen.num(v) }
+
+    /// 編集用。桁区切りを入れず、端数が無ければ整数で出す。
+    private static func plain(_ v: Double) -> String {
+        v == v.rounded() ? String(Int(v)) : String(format: "%.2f", v)
+    }
+
+    /// 入力文字を金額に。区切りや余計な文字は落とす。
+    private static func parse(_ text: String) -> Double {
+        let cleaned = text.filter { $0.isNumber || $0 == "." }
+        return Double(cleaned) ?? 0
+    }
+
+    /// カテゴリ・支払い方法の末尾に置く「＋ 追加」。
+    private func addChip(action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 5) {
+                Image(systemName: "plus").font(.system(size: 11, weight: .semibold))
+                Text("add_new_chip".loc).font(SM.f(12.5, .medium))
+            }
+            .foregroundStyle(SM.sub)
+            .padding(.horizontal, 14)
+            .frame(height: 36)
+            .overlay(
+                RoundedRectangle(cornerRadius: 11, style: .continuous)
+                    .stroke(SM.border2, style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - トライアル・要約・削除
@@ -250,11 +349,11 @@ struct SubscriptionFormScreen: View {
         // 編集中は自分自身の分を入れ替えた合計を出す。
         let others = store.totalMonthly - (store.sub(store.draft.editingID).map { store.monthly($0) } ?? 0)
         return VStack(alignment: .leading, spacing: 6) {
-            Text(verbatim: TRF("add_summary_format", Yen.text(m), Yen.text(m * 12), Yen.text(m * 12 / 365)))
+            Text(verbatim: TRF("add_summary_format", Money.text(m), Money.text(m * 12), Money.text(m * 12 / 365)))
                 .font(SM.n(11.5, .regular))
                 .foregroundStyle(SM.sub)
             Text(verbatim: TRF(isEditing ? "form_new_total_format" : "add_new_total_format",
-                               Yen.text(others + (store.draft.trial ? 0 : m))))
+                               Money.text(others + (store.draft.trial ? 0 : m))))
                 .font(SM.n(11.5, .regular))
                 .foregroundStyle(SM.sub)
         }

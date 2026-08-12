@@ -36,8 +36,8 @@ struct CategoryListScreen: View {
                         size: 52, radius: 16, fontSize: 21)
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .firstTextBaseline, spacing: 2) {
-                    Text(verbatim: "¥").font(SM.f(18, .medium))
-                    Text(verbatim: Yen.num(store.catListMonthly))
+                    Text(verbatim: store.baseCurrency.symbol).font(SM.f(18, .medium))
+                    Text(verbatim: Money.num(store.catListMonthly))
                         .font(SM.n(34, .semibold)).kerning(-0.7)
                     Text("detail_per_month".loc)
                         .font(SM.f(12)).foregroundStyle(SM.sub)
@@ -46,9 +46,9 @@ struct CategoryListScreen: View {
                 .foregroundStyle(SM.fg)
                 .lineLimit(1).minimumScaleFactor(0.6)
 
-                Text(verbatim: TRF("hero_sub_year", Yen.text(store.catListMonthly * 12))
+                Text(verbatim: TRF("hero_sub_year", Money.text(store.catListMonthly * 12))
                      + Sep.mid
-                     + TRF("hero_sub_day", Yen.text(store.catListMonthly * 12 / 365)))
+                     + TRF("hero_sub_day", Money.text(store.catListMonthly * 12 / 365)))
                     .font(SM.n(11.5, .regular))
                     .foregroundStyle(SM.sub)
             }
@@ -133,7 +133,7 @@ struct CategoryListScreen: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             VStack(alignment: .trailing, spacing: 4) {
-                Text(verbatim: Yen.text(store.monthly(sub)))
+                Text(verbatim: Money.text(store.monthly(sub)))
                     .font(SM.n(14.5, .medium)).foregroundStyle(SM.fg)
                 Text(verbatim: nextLabel(sub))
                     .font(SM.n(11, .regular)).foregroundStyle(nextColor(sub))
@@ -151,7 +151,7 @@ struct CategoryListScreen: View {
     private func nextLabel(_ sub: Subscription) -> String {
         sub.isTrial
             ? TRF("catlist_trial_format", DateText.short(sub.nextRenewal))
-            : TRF("catlist_next_format", DateText.short(sub.nextRenewal))
+            : sub.hasRenewalDate ? TRF("catlist_next_format", DateText.short(sub.nextRenewal)) : ""
     }
 
     private func nextColor(_ sub: Subscription) -> Color {

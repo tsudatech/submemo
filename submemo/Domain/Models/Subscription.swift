@@ -104,7 +104,11 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
     var price: Double
     var currency: Currency
     var cycle: Cycle
+    /// 次回更新日を持っているか。入れるかどうかは登録時に選べる。
+    /// 持たないものは通知が組めず、今月の請求額にも数えられない（いつ引かれるか分からないため）。
+    var hasRenewalDate: Bool
     /// 次回更新日。過去になったら読み込み時にサイクル分だけ先送りする。
+    /// hasRenewalDate が false のときは既定値が入っているだけで、意味を持たない。
     var nextRenewal: Date
     var paymentMethodID: String
     var isTrial: Bool
@@ -126,6 +130,7 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
          price: Double,
          currency: Currency = .JPY,
          cycle: Cycle = .month,
+         hasRenewalDate: Bool = true,
          nextRenewal: Date,
          paymentMethodID: String = PaymentMethod.unsetID,
          isTrial: Bool = false,
@@ -142,6 +147,7 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
         self.price = price
         self.currency = currency
         self.cycle = cycle
+        self.hasRenewalDate = hasRenewalDate
         self.nextRenewal = nextRenewal
         self.paymentMethodID = paymentMethodID
         self.isTrial = isTrial
@@ -169,6 +175,8 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
         currency = try c.decodeIfPresent(Currency.self, forKey: .currency) ?? .JPY
         cycle = try c.decodeIfPresent(Cycle.self, forKey: .cycle) ?? .month
         nextRenewal = try c.decodeIfPresent(Date.self, forKey: .nextRenewal) ?? Date()
+        // 旧データは必ず更新日を持っていたので、無ければ true。
+        hasRenewalDate = try c.decodeIfPresent(Bool.self, forKey: .hasRenewalDate) ?? true
         // 旧データは PayKey の rawValue が入っている。ID をそのまま引き継いでいるので読める。
         let legacy = try? decoder.container(keyedBy: LegacyKeys.self)
         paymentMethodID = try c.decodeIfPresent(String.self, forKey: .paymentMethodID)
@@ -204,6 +212,7 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
 
     /// 次回更新日が過去になっていたら、サイクル分だけ先送りしたコピーを返す。
     func rolledForward(to today: Date = Date()) -> Subscription {
+        guard hasRenewalDate else { return self }
         let cal = Calendar.current
         let start = cal.startOfDay(for: today)
         guard cal.startOfDay(for: nextRenewal) < start else { return self }
@@ -220,6 +229,7 @@ nonisolated struct Subscription: Identifiable, Codable, Equatable, Hashable {
 
     /// 指定期間に何回請求が発生するか（月の請求額の集計に使う）。
     func renewalCount(in interval: DateInterval) -> Int {
+        guard hasRenewalDate else { return 0 }
         let cal = Calendar.current
         let step = cycle.step
         var date = nextRenewal

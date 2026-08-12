@@ -185,6 +185,7 @@ struct ContentViewRoot: View {
         case .catlist:  CategoryListScreen()
         case .pays:     PaymentsScreen()
         case .fx:       FxScreen()
+        case .base:     BaseCurrencyScreen()
         }
     }
 }

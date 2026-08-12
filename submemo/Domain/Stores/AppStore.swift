@@ -19,7 +19,7 @@ final class AppStore: ObservableObject {
     enum Screen: Hashable {
         case onboard, home, detail, cancel, add1, form
         case stats, notif, settings
-        case msgs, notifset, pays, fx, cats, catlist
+        case msgs, notifset, pays, fx, base, cats, catlist
     }
 
     /// タブバーに並べる4画面。
@@ -122,6 +122,11 @@ final class AppStore: ObservableObject {
     /// 集計のヒーローで見せている単位。タップで切り替える。
     @Published var statsMetric: StatsMetric = .year
 
+    /// ホームの月表示に、年払いを月割りして含めるか。
+    /// 既定はオフ（実際に今月引き落とされる額を出す）。
+    @Published private(set) var splitsAnnual = false
+    private static let splitsAnnualKey = "submemo.splitsAnnual"
+
     // 画面ごとのガイド
     /// いま出しているガイドの段階。none なら出していない。
     @Published var coachStep: CoachStep = .none
@@ -155,7 +160,9 @@ final class AppStore: ObservableObject {
     /// 手で決めたレート（通貨コード → 1通貨あたりの円）。入っている通貨は取得値より優先する。
     @Published private(set) var manualRates: [String: Double] = [:]
     /// 為替画面でいま調整している通貨。
-    @Published var fxSelected: Currency = .USD
+    @Published var fxSelected: DisplayCurrency = .USD
+    /// 合計や一覧をどの通貨で出すか。計算はすべて円で行い、表示のときだけ直す。
+    @Published private(set) var baseCurrency: DisplayCurrency = .JPY
     @Published private(set) var fxMode: FxMode = .daily
     /// 最後に取得できたレートと時刻。未取得なら nil。
     @Published private(set) var fxRates: ExchangeRates?
@@ -164,6 +171,7 @@ final class AppStore: ObservableObject {
     /// 取得に失敗した理由。成功したら消す。
     @Published private(set) var fxError: String?
 
+    private static let baseCurrencyKey = "submemo.baseCurrency"
     private static let fxModeKey = "submemo.fxMode"
     private static let fxManualRatesKey = "submemo.fxManualRates"
     /// 旧版の手動レート（USD の値ひとつ）。読み込み時に新しい形へ移す。
@@ -194,6 +202,8 @@ final class AppStore: ObservableObject {
         var paymentMethodID: String = PaymentMethod.unsetID
         var trial = false
         var currency: Currency = .JPY
+        /// 次回更新日を入れるか。既定はオフ（あとから詳細で足せる）。
+        var hasRenewalDate = false
         var nextRenewal: Date = Date()
         /// 更新日を手で触ったか。触るまではサイクル変更に追従させる。
         var dateTouched = false
@@ -308,6 +318,11 @@ final class AppStore: ObservableObject {
         fxMode = FxMode(rawValue: defaults.string(forKey: Self.fxModeKey) ?? "") ?? .daily
         fxRates = ExchangeRateService.loadCached()
         manualRates = Self.loadManualRates(from: defaults)
+        splitsAnnual = defaults.bool(forKey: Self.splitsAnnualKey)
+        // 保存が無い＝初回。そのときだけ端末の地域から推す。
+        baseCurrency = defaults.string(forKey: Self.baseCurrencyKey)
+            .flatMap(DisplayCurrency.init(rawValue:))
+            ?? .deviceDefault
         if let data = UserDefaults.standard.data(forKey: Self.notifSettingsKey),
            let saved = try? JSONDecoder().decode(NotifSettings.self, from: data) {
             nset = saved
@@ -317,6 +332,8 @@ final class AppStore: ObservableObject {
         let rolled = loaded.map { $0.rolledForward() }
         subscriptions = rolled
         if rolled != loaded { subscriptionRepository.save(rolled) }
+
+        syncMoney()
 
         // 登録が1件でもあれば、オンボーディングは飛ばして本編から始める。
         if !subscriptions.isEmpty { screen = .home }
@@ -343,12 +360,18 @@ final class AppStore: ObservableObject {
         fxMode = FxMode(rawValue: defaults.string(forKey: Self.fxModeKey) ?? "") ?? .daily
         fxRates = ExchangeRateService.loadCached()
         manualRates = Self.loadManualRates(from: defaults)
+        splitsAnnual = defaults.bool(forKey: Self.splitsAnnualKey)
+        // 保存が無い＝初回。そのときだけ端末の地域から推す。
+        baseCurrency = defaults.string(forKey: Self.baseCurrencyKey)
+            .flatMap(DisplayCurrency.init(rawValue:))
+            ?? .deviceDefault
         hiddenPaymentIDs = paymentRepository.loadHidden()
         if let data = UserDefaults.standard.data(forKey: Self.notifSettingsKey),
            let saved = try? JSONDecoder().decode(NotifSettings.self, from: data) {
             nset = saved
         }
         subscriptions = subscriptionRepository.load().map { $0.rolledForward() }
+        syncMoney()
     }
 
     /// 起動時に特定の画面・データ状態から始めるフック（動作確認・スクリーンショット用）。
@@ -383,6 +406,7 @@ final class AppStore: ObservableObject {
         case "catlistempty": openCategory("telecom")
         case "pays":      screen = .pays
         case "fx":        screen = .fx
+        case "base":      screen = .base
         case "csv":       screen = .settings; csv.open = true
         case "csvdone":   screen = .settings; csv.open = true; csv.done = true
         default: break
@@ -423,6 +447,8 @@ final class AppStore: ObservableObject {
         var out: [NotificationPlan] = []
 
         for sub in subscriptions {
+            // 更新日を入れていないものは、いつ知らせるか決められない。
+            guard sub.hasRenewalDate else { continue }
             // トライアルは「N日前」に加えて当日も出す。N日前の時刻がすでに過ぎていると
             // 一度も知らせないまま課金が始まってしまうため。
             let leads: [Int]
@@ -474,13 +500,13 @@ final class AppStore: ObservableObject {
         let date = DateText.short(sub.nextRenewal)
         if sub.isTrial {
             return TRF("msg_trial_body_format", date,
-                       TRF("per_month_amount_format", Yen.text(monthly(sub))))
+                       TRF("per_month_amount_format", Money.text(monthly(sub))))
         }
         if lead == 0 {
-            return TRF("msg_today_body_format", Yen.text(billingYen(sub)),
+            return TRF("msg_today_body_format", Money.text(billingYen(sub)),
                        payment(sub.paymentMethodID).label)
         }
-        return TRF("msg_renewal_body_format", date, Yen.text(billingYen(sub)))
+        return TRF("msg_renewal_body_format", date, Money.text(billingYen(sub)))
     }
 
     // MARK: - 導出：サブスク一覧
@@ -517,9 +543,11 @@ final class AppStore: ObservableObject {
     /// 「¥5,900 / 年」「$20 / 月」「毎月」。
     func rawLabel(_ sub: Subscription) -> String {
         if sub.cycle == .year {
-            return TRF("raw_yearly_format", Yen.text(billingYen(sub)))
+            return TRF("raw_yearly_format", Money.text(billingYen(sub)))
         }
         if sub.currency != .JPY {
+            // 外貨は「実際に請求される額」をそのまま出す（右側に換算後が並ぶ）。
+            // price は登録通貨の額なので、Money には渡さない。渡すと円とみなして二重に換算する。
             return TRF("raw_monthly_format", sub.currency.symbol + Yen.num(sub.price))
         }
         return TR("raw_monthly_plain")
@@ -530,6 +558,7 @@ final class AppStore: ObservableObject {
         if sub.isTrial { return TR("hist_trial") }
         if let c = sub.priceChange {
             let sym = c.currency.symbol
+            // 記録した当時の額。登録通貨の記号を付けているので、値もそのまま出す。
             return "\(DateText.yearMonth(c.date))  \(sym)\(Yen.num(c.from)) → \(sym)\(Yen.num(c.to))"
         }
         if sub.currency != .JPY {
@@ -601,18 +630,26 @@ final class AppStore: ObservableObject {
         switch heroMetric {
         case .year:
             return Hero(label: TR("hero_year"), value: totalYearly,
-                        subA: TRF("hero_sub_split", Yen.text(totalMonthly)),
-                        subB: TRF("hero_sub_day", Yen.text(totalPerDay)),
+                        subA: TRF("hero_sub_split", Money.text(totalMonthly)),
+                        subB: TRF("hero_sub_day", Money.text(totalPerDay)),
                         animates: true)
         case .day:
             return Hero(label: TR("hero_day"), value: totalPerDay,
-                        subA: TRF("hero_sub_split", Yen.text(totalMonthly)),
-                        subB: TRF("hero_sub_year", Yen.text(totalYearly)),
+                        subA: TRF("hero_sub_split", Money.text(totalMonthly)),
+                        subB: TRF("hero_sub_year", Money.text(totalYearly)),
                         animates: true)
         case .month:
+            // 年払いを月割りで含める設定のときは、出す数字も見出しも変える。
+            // 「今月の請求額」のまま月割りを混ぜると、実際の引き落としと食い違う。
+            if splitsAnnual {
+                return Hero(label: TR("hero_month_split"), value: totalMonthly,
+                            subA: TRF("hero_sub_billed_format", Money.text(billedThisMonth)),
+                            subB: TRF("hero_sub_year", Money.text(totalYearly)),
+                            animates: true)
+            }
             return Hero(label: TR("hero_this_month"), value: billedThisMonth,
-                        subA: TRF("hero_sub_split_if", Yen.text(totalMonthly)),
-                        subB: TRF("hero_sub_year", Yen.text(totalYearly)),
+                        subA: TRF("hero_sub_split_if", Money.text(totalMonthly)),
+                        subB: TRF("hero_sub_year", Money.text(totalYearly)),
                         animates: true)
         }
     }
@@ -622,28 +659,30 @@ final class AppStore: ObservableObject {
         switch statsMetric {
         case .year:
             return Hero(label: TR("hero_year"), value: totalYearly,
-                        subA: TRF("hero_sub_split", Yen.text(totalMonthly)),
-                        subB: TRF("hero_sub_day", Yen.text(totalPerDay)),
+                        subA: TRF("hero_sub_split", Money.text(totalMonthly)),
+                        subB: TRF("hero_sub_day", Money.text(totalPerDay)),
                         animates: true)
         case .month:
             return Hero(label: TR("stats_hero_month"), value: totalMonthly,
-                        subA: TRF("hero_sub_year", Yen.text(totalYearly)),
-                        subB: TRF("hero_sub_day", Yen.text(totalPerDay)),
+                        subA: TRF("hero_sub_year", Money.text(totalYearly)),
+                        subB: TRF("hero_sub_day", Money.text(totalPerDay)),
                         animates: true)
         case .day:
             return Hero(label: TR("hero_day"), value: totalPerDay,
-                        subA: TRF("hero_sub_split", Yen.text(totalMonthly)),
-                        subB: TRF("hero_sub_year", Yen.text(totalYearly)),
+                        subA: TRF("hero_sub_split", Money.text(totalMonthly)),
+                        subB: TRF("hero_sub_year", Money.text(totalYearly)),
                         animates: true)
         }
     }
 
     /// 「年払い 2件（月割り ¥867）は今月の請求に入りません」
     var billedNote: String? {
+        // 月割りで含めているなら、除外の断り書きは要らない。
+        guard !splitsAnnual else { return nil }
         let annual = annualItems
         guard !annual.isEmpty else { return nil }
         let split = annual.reduce(0) { $0 + monthly($1) }
-        return TRF("home_annual_note_format", annual.count, Yen.text(split))
+        return TRF("home_annual_note_format", annual.count, Money.text(split))
     }
 
     // MARK: - 導出：解約シミュレーション
@@ -686,17 +725,50 @@ final class AppStore: ObservableObject {
     }
 
     /// 1 USD あたりの円。設定画面の要約など、USD だけを見たいところで使う。
-    var fxRate: Double { rate(for: .USD) }
+    var fxRate: Double { rate(for: Currency.USD) }
+
+    /// 表示通貨 1 単位あたりの円。
+    func rate(for currency: DisplayCurrency) -> Double {
+        guard currency != .JPY else { return 1 }
+        return manualRates[currency.rawValue]
+            ?? fxRates?.perYen[currency.rawValue]
+            ?? currency.defaultRate
+    }
+
+    /// 表示通貨とそのレートを金額フォーマッタに渡す。
+    /// 通貨・レートが変わるたびに呼ぶ必要がある（表示は Money 側が持つ値で決まる）。
+    private func syncMoney() {
+        var perYen: [String: Double] = [:]
+        for c in Currency.allCases { perYen[c.rawValue] = rate(for: c) }
+        Money.use(baseCurrency, rate: rate(for: baseCurrency), yenPer: perYen)
+    }
+
+    func setBaseCurrency(_ currency: DisplayCurrency) {
+        baseCurrency = currency
+        UserDefaults.standard.set(currency.rawValue, forKey: Self.baseCurrencyKey)
+        syncMoney()
+        // 選んだ通貨のレートを持っていなければ取りに行く。
+        if currency != .JPY, fxRates?.perYen[currency.rawValue] == nil,
+           manualRates[currency.rawValue] == nil, currency.isAutoFetchable {
+            Task { await refreshRates(force: true) }
+        }
+    }
+
+    /// 円で登録しているサブスクの件数。表示通貨を変える影響の説明に使う。
+    var yenOnlyCount: Int { subscriptions.filter { $0.currency == .JPY }.count }
 
     /// 為替画面で扱う通貨。外貨で登録があるものだけ出し、無ければ USD を既定で見せる。
-    var fxCurrencies: [Currency] {
-        let used = Set(subscriptions.map(\.currency)).subtracting([.JPY])
+    var fxCurrencies: [DisplayCurrency] {
+        var used = Set(subscriptions.compactMap { DisplayCurrency(rawValue: $0.currency.rawValue) })
+        used.remove(.JPY)
+        // 表示通貨のレートもここで直せるようにする。
+        if baseCurrency != .JPY { used.insert(baseCurrency) }
         guard !used.isEmpty else { return [.USD] }
-        return Currency.allCases.filter { used.contains($0) }
+        return DisplayCurrency.allCases.filter { used.contains($0) }
     }
 
     /// いま調整している通貨。登録から消えていたら先頭に寄せる。
-    var fxCurrent: Currency {
+    var fxCurrent: DisplayCurrency {
         fxCurrencies.contains(fxSelected) ? fxSelected : (fxCurrencies.first ?? .USD)
     }
     /// 入力額を円に直したもの（請求単位のまま）。
@@ -798,7 +870,10 @@ final class AppStore: ObservableObject {
 
     /// これからの予定（更新が近い順に5件）。
     var timeline: [Subscription] {
-        Array(subscriptions.sorted { $0.daysLeft() < $1.daysLeft() }.prefix(5))
+        // 更新日が無いものは「これからの予定」に置けない。
+        Array(subscriptions.filter(\.hasRenewalDate)
+                           .sorted { $0.daysLeft() < $1.daysLeft() }
+                           .prefix(5))
     }
 
     var fxItems: [Subscription] { subscriptions.filter { $0.currency != .JPY } }
@@ -962,6 +1037,7 @@ final class AppStore: ObservableObject {
         case .notifset:            return "notifset_title"
         case .pays:                return "pays_title"
         case .fx:                  return "fx_title"
+        case .base:                return "base_title"
         case .cats:                return "cats_title"
         }
     }
@@ -1059,6 +1135,11 @@ final class AppStore: ObservableObject {
         sampleSummary = TR("settings_coach_reset_done")
     }
 
+    func setSplitsAnnual(_ on: Bool) {
+        splitsAnnual = on
+        UserDefaults.standard.set(on, forKey: Self.splitsAnnualKey)
+    }
+
     /// 年額換算 → 月額換算 → 1日あたり の順に回す。
     func cycleStatsMetric() {
         let order = StatsMetric.allCases
@@ -1145,9 +1226,15 @@ final class AppStore: ObservableObject {
                       paymentMethodID: sub.paymentMethodID,
                       trial: sub.isTrial,
                       currency: sub.currency,
+                      hasRenewalDate: sub.hasRenewalDate,
                       nextRenewal: sub.nextRenewal,
                       dateTouched: true)
         go(.form)
+    }
+
+    /// 入力欄から直接入った金額。負の値は受けない。
+    func setDraftPrice(_ value: Double) {
+        draft.price = max(0, value)
     }
 
     func stepPrice(_ delta: Int) {
@@ -1163,6 +1250,19 @@ final class AppStore: ObservableObject {
     }
 
     func selectCycle(_ c: Cycle) {
+        let old = draft.cycle
+        guard old != c else { return }
+
+        // 月あたりの負担が変わらないように金額を引き直す。
+        // 年 ¥12,000 のまま「月」に変えると月 ¥12,000 になってしまい、
+        // 候補から入れた金額がそのまま12倍の意味になる。
+        if draft.price > 0 {
+            let converted = draft.price * (old.monthlyFactor / c.monthlyFactor)
+            draft.price = draft.currency == .JPY
+                ? converted.rounded()
+                : (converted * 100).rounded() / 100
+        }
+
         draft.cycle = c
         // まだ更新日を触っていなければ、新しいサイクルに合わせて引き直す。
         if !draft.dateTouched { draft.nextRenewal = Self.defaultNextRenewal(for: c) }
@@ -1185,6 +1285,7 @@ final class AppStore: ObservableObject {
             updated.price = draft.price
             updated.currency = draft.currency
             updated.cycle = draft.cycle
+            updated.hasRenewalDate = draft.hasRenewalDate
             updated.nextRenewal = draft.nextRenewal
             updated.paymentMethodID = draft.paymentMethodID
             updated.isTrial = draft.trial
@@ -1206,6 +1307,7 @@ final class AppStore: ObservableObject {
                 price: draft.price,
                 currency: draft.currency,
                 cycle: draft.cycle,
+                hasRenewalDate: draft.hasRenewalDate,
                 nextRenewal: draft.nextRenewal,
                 paymentMethodID: draft.paymentMethodID,
                 isTrial: draft.trial
@@ -1284,6 +1386,8 @@ final class AppStore: ObservableObject {
             customCategories.append(SubCategory(id: e.id, customName: name, colorHex: e.colorHex))
         }
         categoryRepository.save(customCategories)
+        // 追加画面から作ったときは、作ったものをそのまま選んでおく。
+        if screen == .form { draft.categoryID = e.id }
         catEdit = nil
     }
 
@@ -1337,6 +1441,7 @@ final class AppStore: ObservableObject {
             customPayments.append(updated)
         }
         paymentRepository.save(customPayments)
+        if screen == .form { draft.paymentMethodID = e.id }
         payEdit = nil
     }
 
@@ -1388,6 +1493,7 @@ final class AppStore: ObservableObject {
             UserDefaults.standard.set(FxMode.manual.rawValue, forKey: Self.fxModeKey)
         }
         persistManualRates()
+        syncMoney()
     }
 
     func setFxMode(_ mode: FxMode) {
@@ -1406,6 +1512,7 @@ final class AppStore: ObservableObject {
             persistManualRates()
             Task { await refreshRates(force: true) }
         }
+        syncMoney()
     }
 
     private func persistManualRates() {
@@ -1453,6 +1560,7 @@ final class AppStore: ObservableObject {
             let rates = try await ExchangeRateService.fetch()
             ExchangeRateService.save(rates)
             fxRates = rates
+            syncMoney()
             fxError = nil
         } catch {
             // 取れなかったことは隠さない。直前のレートで動かし続ける。
@@ -1491,6 +1599,15 @@ final class AppStore: ObservableObject {
             sampleSummary = TRF("settings_sample_added_summary_format", 0)
             return 0
         }
+        // サンプルは「メインカード」等を参照するので、支払い方法も一緒に入れる。
+        // 組み込みには持たせていない（初期状態は「未設定」だけにするため）。
+        let known = Set(customPayments.map(\.id))
+        let missing = PaymentMethod.samples.filter { !known.contains($0.id) }
+        if !missing.isEmpty {
+            customPayments.append(contentsOf: missing)
+            paymentRepository.save(customPayments)
+        }
+
         subscriptions.append(contentsOf: toAdd)
         persistSubscriptions()
         sampleSummary = TRF("settings_sample_added_summary_format", toAdd.count)

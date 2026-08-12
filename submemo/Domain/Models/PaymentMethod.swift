@@ -73,12 +73,19 @@ nonisolated extension PaymentMethod {
 
     /// 組み込みの支払い方法。ID は旧 PayKey の rawValue と同じにしてあるので、
     /// 以前に保存したサブスクの支払い方法がそのまま読める。
+    /// 最初から入っているのは「未設定」だけ。
+    /// カードや口座は人によって名前も枚数も違うので、こちらで用意しておくと
+    /// 「使っていないサンプルが並んでいる」状態になる。必要な人が自分で足す。
     static let builtIns: [PaymentMethod] = [
-        PaymentMethod(id: "card4242",     nameKey: "pay_name_card4242",     colorHex: 0x5B7CFA, isBuiltIn: true),
-        PaymentMethod(id: "card1881",     nameKey: "pay_name_card1881",     colorHex: 0x8E4EC6, isBuiltIn: true),
-        PaymentMethod(id: "appStore",     nameKey: "pay_name_appStore",     colorHex: 0x8B93A2, isBuiltIn: true),
-        PaymentMethod(id: "bankTransfer", nameKey: "pay_name_bankTransfer", colorHex: 0x00A2C7, isBuiltIn: true),
-        PaymentMethod(id: unsetID,        nameKey: "pay_name_unset",        colorHex: 0x6E7C99, isBuiltIn: true),
+        PaymentMethod(id: unsetID, nameKey: "pay_name_unset", colorHex: 0x6E7C99, isBuiltIn: true),
+    ]
+
+    /// Debug のサンプルデータが参照する支払い方法。投入時に一緒に作る。
+    static let samples: [PaymentMethod] = [
+        PaymentMethod(id: "card4242", nameKey: "pay_name_card4242", last4: "4242", colorHex: 0x5B7CFA),
+        PaymentMethod(id: "card1881", nameKey: "pay_name_card1881", last4: "1881", colorHex: 0x8E4EC6),
+        PaymentMethod(id: "appStore", nameKey: "pay_name_appStore", colorHex: 0x8B93A2),
+        PaymentMethod(id: "bankTransfer", nameKey: "pay_name_bankTransfer", colorHex: 0x00A2C7),
     ]
 
     static let unset = builtIns.last!

@@ -119,10 +119,12 @@ struct SettingsScreen: View {
             row("settings_cats", TRF("settings_cats_value_format", store.categories.count), SM.indigo) { store.go(.cats) }
             row("settings_pays", TRF("settings_count_format", store.payStats.count), SM.indigo) { store.go(.pays) }
             row("settings_theme", TR(appearance.titleKey), SM.indigo) { appearanceRaw = appearance.next.rawValue }
+            row("settings_base", store.baseCurrency.rawValue, SM.indigo) { store.go(.base) }
             row("settings_fx",
                 TRF("settings_fx_value_format", store.fxCurrent.symbol,
                     String(format: "%.1f", store.rate(for: store.fxCurrent))),
                 SM.indigo) { store.go(.fx) }
+            annualSplitRow
             row("settings_storage",
                 TR(iCloudSync.isEnabled ? "settings_storage_value_icloud" : "settings_storage_value"),
                 SM.green, action: nil)
@@ -139,6 +141,31 @@ struct SettingsScreen: View {
     }
 
     // MARK: - iCloud 同期
+
+    /// 「年払いを月割りで含める」。ホームの月表示の意味が変わるので、説明も添える。
+    private var annualSplitRow: some View {
+        VStack(spacing: 0) {
+            Button {
+                store.setSplitsAnnual(!store.splitsAnnual)
+            } label: {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("settings_annual_split".loc).font(SM.f(13)).foregroundStyle(SM.fg)
+                        Text("settings_annual_split_note".loc)
+                            .font(SM.f(10.5)).foregroundStyle(SM.sub)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer(minLength: 12)
+                    SMSwitch(isOn: store.splitsAnnual)
+                }
+                .padding(16)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            Rectangle().fill(SM.line).frame(height: 1)
+        }
+    }
 
     private var iCloudToggleRow: some View {
         VStack(spacing: 0) {
@@ -259,7 +286,7 @@ struct CategoriesScreen: View {
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 Text(verbatim: sum > 0
-                                     ? TRF("per_month_amount_format", Yen.text(sum))
+                                     ? TRF("per_month_amount_format", Money.text(sum))
                                      : TR("cats_unused"))
                                     .font(SM.n(12.5, .medium))
                                     .foregroundStyle(sum > 0 ? SM.fg : SM.dim)
@@ -392,7 +419,7 @@ struct PaymentsScreen: View {
                             VStack(alignment: .leading, spacing: 9) {
                                 methodRow(p.method,
                                           sub: TRF("settings_count_format", p.count),
-                                          trailing: TRF("per_month_amount_format", Yen.text(p.yen)))
+                                          trailing: TRF("per_month_amount_format", Money.text(p.yen)))
                                 GeometryReader { geo in
                                     ZStack(alignment: .leading) {
                                         Capsule().fill(SM.line2)
@@ -661,7 +688,7 @@ struct FxScreen: View {
                                 Text(verbatim: store.rawLabel(sub)).font(SM.n(11, .regular)).foregroundStyle(SM.sub)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(verbatim: Yen.text(store.monthly(sub)))
+                            Text(verbatim: Money.text(store.monthly(sub)))
                                 .font(SM.n(14, .medium)).foregroundStyle(SM.fg)
                         }
                         .padding(.horizontal, 8).padding(.vertical, 11)

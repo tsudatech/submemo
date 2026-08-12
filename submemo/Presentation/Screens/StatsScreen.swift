@@ -59,8 +59,8 @@ struct StatsScreen: View {
             .foregroundStyle(SM.sub)
 
             HStack(alignment: .firstTextBaseline, spacing: 2) {
-                Text(verbatim: "¥").font(SM.f(26, .medium))
-                Text(verbatim: Yen.num(h.value)).font(SM.n(50, .semibold)).kerning(-1)
+                Text(verbatim: store.baseCurrency.symbol).font(SM.f(26, .medium))
+                Text(verbatim: Money.num(h.value)).font(SM.n(50, .semibold)).kerning(-1)
             }
             .foregroundStyle(SM.fg)
             .padding(.top, 8)
@@ -113,7 +113,7 @@ struct StatsScreen: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 Text(verbatim: "\(Int((s.ratio * 100).rounded()))%")
                                     .font(SM.n(12, .regular)).foregroundStyle(SM.sub)
-                                Text(verbatim: Yen.text(s.yen))
+                                Text(verbatim: Money.text(s.yen))
                                     .font(SM.n(13, .medium)).foregroundStyle(SM.fg)
                                     .frame(width: 78, alignment: .trailing)
                                 ChevronRight()
@@ -144,7 +144,7 @@ struct StatsScreen: View {
                 Text("stats_unused_title".loc)
                     .font(SM.f(12, .medium)).tracking(0.7).foregroundStyle(SM.amber)
                 Spacer()
-                Text(verbatim: TRF("stats_unused_meta_format", items.count, Yen.text(yearly)))
+                Text(verbatim: TRF("stats_unused_meta_format", items.count, Money.text(yearly)))
                     .font(SM.n(11, .regular)).foregroundStyle(SM.sub)
             }
             .padding(.bottom, 14)
@@ -160,7 +160,7 @@ struct StatsScreen: View {
                                 Text(verbatim: store.unusedNote(sub)).font(SM.f(11)).foregroundStyle(SM.sub)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(verbatim: TRF("cancel_save_format", Yen.text(store.monthly(sub) * 12)))
+                            Text(verbatim: TRF("cancel_save_format", Money.text(store.monthly(sub) * 12)))
                                 .font(SM.n(12.5, .medium)).foregroundStyle(SM.amber)
                         }
                         .padding(.horizontal, 14)
@@ -207,7 +207,7 @@ struct StatsScreen: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(verbatim: "\(Int((p.ratio * 100).rounded()))%")
                             .font(SM.n(11.5, .regular)).foregroundStyle(SM.sub)
-                        Text(verbatim: TRF("per_month_amount_format", Yen.text(p.yen)))
+                        Text(verbatim: TRF("per_month_amount_format", Money.text(p.yen)))
                             .font(SM.n(12.5, .medium)).foregroundStyle(SM.fg)
                             .frame(width: 96, alignment: .trailing)
                     }
@@ -233,9 +233,9 @@ struct StatsScreen: View {
                             Text(verbatim: sub.name).font(SM.f(13, .medium)).foregroundStyle(SM.fg)
                                 .lineLimit(1)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(verbatim: TRF("stats_per_day_format", Yen.text(store.monthly(sub) * 12 / 365)))
+                            Text(verbatim: TRF("stats_per_day_format", Money.text(store.monthly(sub) * 12 / 365)))
                                 .font(SM.n(11.5, .regular)).foregroundStyle(SM.sub)
-                            Text(verbatim: TRF("per_year_amount_format", Yen.text(store.monthly(sub) * 12)))
+                            Text(verbatim: TRF("per_year_amount_format", Money.text(store.monthly(sub) * 12)))
                                 .font(SM.n(13, .medium)).foregroundStyle(SM.fg)
                         }
                         GeometryReader { geo in

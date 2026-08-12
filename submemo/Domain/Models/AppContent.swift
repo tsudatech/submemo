@@ -43,9 +43,9 @@ nonisolated struct SeedService: Identifiable {
 
     /// 候補一覧の右端に出す料金表記。
     var priceLabel: String {
-        let amount = currency == .JPY
-            ? Yen.text(Double(price))
-            : currency.symbol + Yen.num(Double(price))
+        // 定価は円やドルで持っているが、出すときは表示通貨にそろえる。
+        // ここだけ通貨が混ざると、候補と合計で単位が食い違って見える。
+        let amount = Money.from(Double(price), code: currency.rawValue)
         return amount + TR(cycle == .year ? "per_year_suffix" : "per_month_suffix")
     }
 }

@@ -56,20 +56,12 @@
 "cat_new_default" = "New category";
 
 /* payment methods */
-"pay_label_card4242"     = "Card ••••4242";
-"pay_label_card1881"     = "Card ••••1881";
-"pay_label_appStore"     = "App Store";
-"pay_label_bankTransfer" = "Bank transfer";
 "pay_label_unset"        = "Not set";
 "pay_name_card4242"      = "Main card";
 "pay_name_card1881"      = "Second card";
 "pay_name_appStore"      = "App Store";
 "pay_name_bankTransfer"  = "Bank transfer";
 "pay_name_unset"         = "Not set";
-"pay_sub_card4242"       = "Visa ••••4242";
-"pay_sub_card1881"       = "Mastercard ••••1881";
-"pay_sub_appStore"       = "Billed to Apple ID";
-"pay_sub_bankTransfer"   = "Mizuho Bank";
 "pay_sub_unset"          = "No payment method chosen";
 
 /* sample service names (plain text + initial tile — no logos) */
@@ -96,6 +88,8 @@
 "hero_day"           = "Per day";
 "hero_sub_split"     = "%@ / mo";
 "hero_sub_split_if"  = "%@ / mo if split";
+"hero_month_split"   = "Per month · yearly split";
+"hero_sub_billed_format" = "%@ billed this month";
 "hero_sub_year"      = "%@ / yr";
 "hero_sub_day"       = "%@ / day";
 "home_annual_note_format" = "%1$d yearly plans (%2$@ / mo when split) are not billed this month";
@@ -150,6 +144,7 @@
 "detail_per_day"               = "Per day";
 "detail_category"              = "Category";
 "detail_next"                  = "Next renewal";
+"detail_next_unset"            = "Not set";
 "detail_days_suffix_format"    = " (%d days)";
 "detail_cycle"                 = "Billing cycle";
 "detail_cycle_monthly_format"  = "%@ monthly";
@@ -189,6 +184,7 @@
 "add_trial_note"        = "Alerts you 3 days before it ends, at top priority";
 "add_summary_format"    = "%1$@ / mo · %2$@ / yr · %3$@ / day";
 "add_new_total_format"  = "Adding this brings this month to %@";
+"add_new_chip"          = "Add";
 "add_save"              = "Add";
 
 /* stats */
@@ -207,7 +203,7 @@
 "notif_note_renew_format"    = "Renews in %d days";
 "notif_preview_label"        = "The alert you'll get (preview)";
 "notif_now"                  = "now";
-"notif_preview_cta"          = "Tap to see what opens ›";
+"notif_preview_cta"          = "Try opening this alert ›";
 "notif_row_before"           = "Alert me before a renewal";
 "notif_row_trial"            = "Trial-ending alert";
 "notif_row_trial_value"      = "Top priority · Lock Screen";
@@ -260,8 +256,27 @@
 "settings_pays"            = "Payment methods";
 "settings_count_format"    = "%d";
 "settings_theme"           = "Theme";
-"settings_fx"              = "Currency & exchange rate";
-"settings_fx_value_format" = "JPY · %1$@1=¥%2$@";
+"settings_base"          = "Display currency";
+"base_title"             = "Display currency";
+"base_note"              = "Totals, yearly equivalents and daily figures are shown in this currency. Each subscription still keeps its own billing currency.";
+"base_note_jpy"          = "shown as is";
+"base_rate_format"       = "1 %1$@ = ¥%2$@";
+"base_manual_only"       = "not fetched automatically";
+"base_warn_title"        = "The total will move daily";
+"base_warn_body_format"  = "Pick anything other than yen and the %d entries priced in yen are converted too. Rates change every day, so the total will as well.";
+"base_open_fx"           = "Open exchange rate settings";
+"cur_name_JPY" = "Japanese yen";
+"cur_name_USD" = "US dollar";
+"cur_name_EUR" = "Euro";
+"cur_name_GBP" = "British pound";
+"cur_name_KRW" = "Korean won";
+"cur_name_TWD" = "Taiwan dollar";
+"cur_name_AUD" = "Australian dollar";
+"cur_name_SGD" = "Singapore dollar";
+"settings_fx"              = "Exchange rate";
+"settings_fx_value_format" = "1%1$@ = ¥%2$@";
+"settings_annual_split"      = "Include yearly plans, split";
+"settings_annual_split_note" = "Shows the monthly figure with yearly plans divided across the months";
 "settings_storage"         = "Where data lives";
 "settings_storage_value"   = "This device only";
 "settings_msgs"            = "All alert wording";
@@ -288,7 +303,7 @@
 "pays_privacy_body"  = "Card numbers and expiry dates are never entered. This is just a label so you can tell which card a charge comes from.";
 
 /* currency & exchange rate */
-"fx_title"       = "Currency & exchange rate";
+"fx_title"       = "Exchange rate";
 "fx_current"     = "Rate in use";
 "fx_mode_label"  = "Rate updates";
 "fx_mode_daily"  = "Auto (daily)";
@@ -341,6 +356,8 @@
 "form_title_edit"             = "Edit";
 "form_name_placeholder"       = "Service name";
 "form_next_renewal"           = "Next renewal";
+"form_next_renewal_note" = "Turn on to get an alert before it renews, and to count it in this month's total.";
+"form_next_renewal_date" = "Date";
 "form_new_total_format"       = "Saving brings this month to %@";
 "form_delete"                 = "Delete this subscription";
 "form_delete_confirm_title"   = "Delete this subscription?";

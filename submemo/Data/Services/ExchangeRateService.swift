@@ -21,13 +21,18 @@ nonisolated struct ExchangeRates: Codable, Equatable {
     func rate(for currency: Currency) -> Double? {
         currency == .JPY ? 1 : perYen[currency.rawValue]
     }
+
+    func rate(for currency: DisplayCurrency) -> Double? {
+        currency == .JPY ? 1 : perYen[currency.rawValue]
+    }
 }
 
 nonisolated enum ExchangeRateService {
     private static let storageKey = "submemo.exchangeRates"
 
     /// 取りに行く通貨。JPY は基準なので含めない。
-    private static let targets: [Currency] = [.USD, .EUR]
+    /// 表示通貨として選べるもののうち、欧州中央銀行が公表しているものだけ。
+    private static let targets: [DisplayCurrency] = DisplayCurrency.fetchTargets
 
     enum FetchError: Error { case network, malformed }
 

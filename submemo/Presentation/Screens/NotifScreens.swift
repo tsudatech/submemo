@@ -95,7 +95,7 @@ struct NotifScreen: View {
                         .font(SM.f(11)).foregroundStyle(accentColor(sub))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                Text(verbatim: Yen.text(store.monthly(sub)))
+                Text(verbatim: Money.text(store.monthly(sub)))
                     .font(SM.n(13, .medium)).foregroundStyle(SM.fg)
                     .padding(.trailing, 15)
             }

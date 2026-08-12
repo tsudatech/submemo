@@ -77,8 +77,8 @@ struct DetailScreen: View {
                         size: 72, radius: 22, fontSize: 30)
             Text(verbatim: sub.name).font(SM.f(18, .medium)).foregroundStyle(SM.fg)
             HStack(alignment: .firstTextBaseline, spacing: 3) {
-                Text(verbatim: "¥").font(SM.f(20, .medium))
-                Text(verbatim: Yen.num(store.monthly(sub))).font(SM.n(44, .semibold))
+                Text(verbatim: store.baseCurrency.symbol).font(SM.f(20, .medium))
+                Text(verbatim: Money.num(store.monthly(sub))).font(SM.n(44, .semibold))
                 Text((sub.cycle == .year ? "detail_per_month_yearly" : "detail_per_month").loc)
                     .font(SM.f(14))
                     .foregroundStyle(SM.sub)
@@ -92,8 +92,8 @@ struct DetailScreen: View {
 
     private func statCards(_ sub: Subscription) -> some View {
         HStack(spacing: 10) {
-            statCard("detail_yearly", Yen.text(store.monthly(sub) * 12), mono: true)
-            statCard("detail_per_day", Yen.text(store.monthly(sub) * 12 / 365), mono: true)
+            statCard("detail_yearly", Money.text(store.monthly(sub) * 12), mono: true)
+            statCard("detail_per_day", Money.text(store.monthly(sub) * 12 / 365), mono: true)
             statCard("detail_category", store.category(sub.categoryID).name, mono: false)
         }
         .padding(.horizontal, 20)
@@ -115,8 +115,11 @@ struct DetailScreen: View {
 
     private func infoCard(_ sub: Subscription) -> some View {
         VStack(spacing: 0) {
-            infoRow("detail_next", DateText.short(sub.nextRenewal) + TRF("detail_days_suffix_format", sub.daysLeft()),
-                    color: sub.daysLeft() <= 3 ? SM.alert : SM.fg, divider: true)
+            infoRow("detail_next",
+                    sub.hasRenewalDate
+                        ? DateText.short(sub.nextRenewal) + TRF("detail_days_suffix_format", sub.daysLeft())
+                        : TR("detail_next_unset"),
+                    color: sub.hasRenewalDate && sub.daysLeft() <= 3 ? SM.alert : SM.fg, divider: true)
             infoRow("detail_cycle", cycleFull(sub), color: SM.fg, divider: true)
             infoRow("detail_pay", store.payment(sub.paymentMethodID).label, color: SM.fg, divider: true)
             infoRow("detail_last_used",
@@ -131,7 +134,7 @@ struct DetailScreen: View {
 
     private func cycleFull(_ sub: Subscription) -> String {
         if sub.cycle == .year || sub.currency != .JPY { return store.rawLabel(sub) }
-        return TRF("detail_cycle_monthly_format", Yen.text(store.monthly(sub)))
+        return TRF("detail_cycle_monthly_format", Money.text(store.monthly(sub)))
     }
 
     private func infoRow(_ key: String, _ value: String, color: Color, divider: Bool) -> some View {
@@ -204,6 +207,13 @@ struct CancelSimScreen: View {
             }
         }
         .scrollBottomPadding()
+        // 「年間いくら浮くか」が出た直後だけレビューを頼む。
+        // 画面が出た瞬間に重ねると読む前に邪魔をするので、少し待つ。
+        .task {
+            guard store.cancelMonthly > 0 else { return }
+            try? await Task.sleep(for: .seconds(1.6))
+            ReviewRequester.requestIfAppropriate(subscriptionCount: store.all.count)
+        }
     }
 
     private var summary: some View {
@@ -215,8 +225,8 @@ struct CancelSimScreen: View {
                 .foregroundStyle(SM.sub)
 
             HStack(alignment: .firstTextBaseline, spacing: 3) {
-                Text(verbatim: "¥").font(SM.f(24, .medium))
-                Text(verbatim: Yen.num(monthly * 12)).font(SM.n(56, .semibold)).kerning(-1)
+                Text(verbatim: store.baseCurrency.symbol).font(SM.f(24, .medium))
+                Text(verbatim: Money.num(monthly * 12)).font(SM.n(56, .semibold)).kerning(-1)
             }
             .foregroundStyle(SM.green)
             .padding(.top, 18)
@@ -227,11 +237,11 @@ struct CancelSimScreen: View {
                 .foregroundStyle(SM.green)
                 .padding(.top, 10)
 
-            Text(verbatim: TRF("cancel_breakdown_format", Yen.text(monthly), Yen.text(monthly * 12 / 365)))
+            Text(verbatim: TRF("cancel_breakdown_format", Money.text(monthly), Money.text(monthly * 12 / 365)))
                 .font(SM.n(12, .regular))
                 .foregroundStyle(SM.sub)
                 .padding(.top, 16)
-            Text(verbatim: TRF("cancel_three_years_format", Yen.text(monthly * 36)))
+            Text(verbatim: TRF("cancel_three_years_format", Money.text(monthly * 36)))
                 .font(SM.n(12, .regular))
                 .foregroundStyle(SM.sub)
                 .padding(.top, 4)
@@ -278,7 +288,7 @@ struct CancelSimScreen: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                        Text(verbatim: TRF("cancel_save_format", Yen.text(store.monthly(sub) * 12)))
+                        Text(verbatim: TRF("cancel_save_format", Money.text(store.monthly(sub) * 12)))
                             .font(SM.n(13, .medium))
                             .foregroundStyle(SM.green)
                     }

@@ -79,7 +79,7 @@ struct HomeScreen: View {
             .foregroundStyle(SM.sub)
 
             HStack(alignment: .firstTextBaseline, spacing: 2) {
-                Text(verbatim: "¥").font(SM.f(30, .medium)).foregroundStyle(SM.fg)
+                Text(verbatim: store.baseCurrency.symbol).font(SM.f(30, .medium)).foregroundStyle(SM.fg)
                 CountUpNumber(value: hero.value, animates: hero.animates)
             }
             .padding(.top, 8)
@@ -165,7 +165,7 @@ struct HomeScreen: View {
                         .font(SM.f(11.5))
                         .foregroundStyle(SM.sub)
                     Text(verbatim: TRF("home_unused_save_format",
-                                       Yen.text(store.unusedItems.reduce(0) { $0 + store.monthly($1) } * 12)))
+                                       Money.text(store.unusedItems.reduce(0) { $0 + store.monthly($1) } * 12)))
                         .font(SM.n(19, .bold))
                         .foregroundStyle(SM.green)
                 }
@@ -199,7 +199,7 @@ private struct TrialBanner: View {
                         .font(SM.f(12.5, .bold))
                         .foregroundStyle(SM.red)
                     Text(verbatim: TRF("home_trial_line_format", trial.name,
-                                       DateText.short(trial.nextRenewal), Yen.text(store.monthly(trial))))
+                                       DateText.short(trial.nextRenewal), Money.text(store.monthly(trial))))
                         .font(SM.f(11.5))
                         .foregroundStyle(SM.sub)
                         .multilineTextAlignment(.leading)
@@ -321,7 +321,7 @@ struct SubSwipeRow: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             VStack(alignment: .trailing, spacing: 4) {
-                Text(verbatim: Yen.text(store.monthly(sub)))
+                Text(verbatim: Money.text(store.monthly(sub)))
                     .font(SM.n(14.5, .medium))
                     .foregroundStyle(SM.fg)
                 Text(verbatim: nextLabel)
@@ -343,6 +343,8 @@ struct SubSwipeRow: View {
     }
 
     private var nextLabel: String {
+        // 更新日を入れていないものは、日付欄を空にする（作り話をしない）。
+        guard sub.hasRenewalDate else { return "" }
         if sub.isTrial { return TRF("row_trial_end_format", DateText.short(sub.nextRenewal)) }
         if sub.daysLeft() <= 3 { return TRF("row_days_left_format", sub.daysLeft()) }
         return DateText.short(sub.nextRenewal)
@@ -350,6 +352,7 @@ struct SubSwipeRow: View {
 
     private var nextColor: Color {
         if sub.isTrial { return SM.alert }
+        guard sub.hasRenewalDate else { return SM.dim }
         if sub.daysLeft() <= 3 { return SM.amber }
         return SM.sub
     }

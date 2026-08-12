@@ -22,16 +22,51 @@ extension String {
     var loc: LocalizedStringKey { LocalizedStringKey(self) }
 }
 
-/// 金額表示。
-/// このプロトタイプの基準通貨は日本円なので、ja / en とも ¥ で表示し、
-/// 桁区切りだけを現在ロケールに合わせる（外貨は Currency.symbol を使う）。
-enum Yen {
+/// 円そのものの表示。為替レートや候補の定価など、
+/// 「円建ての事実」をそのまま出すところで使う。表示通貨には従わない。
+nonisolated enum Yen {
     /// 記号なしの数字だけ（"1,590"）
     static func num(_ value: Double) -> String {
         Int(value.rounded()).formatted(.number)
     }
     /// 記号つき（"¥1,590"）
     static func text(_ value: Double) -> String { "¥" + num(value) }
+}
+
+/// 合計や各サブスクの金額。設定で選んだ表示通貨に直して出す。
+///
+/// 計算は最後まで円で行い、ここで一度だけ換算する。
+/// 途中で通貨を混ぜると、丸めが二重にかかって合計が合わなくなる。
+nonisolated enum Money {
+    /// 表示通貨と、その 1 単位あたりの円。AppStore が設定を読んで差し込む。
+    nonisolated(unsafe) private(set) static var base: DisplayCurrency = .JPY
+    nonisolated(unsafe) private(set) static var baseRate: Double = 1
+
+    /// 登録通貨（JPY/USD/EUR）1単位あたりの円。候補の定価を直すのに使う。
+    nonisolated(unsafe) private(set) static var yenPer: [String: Double] = [:]
+
+    static func use(_ currency: DisplayCurrency, rate: Double, yenPer: [String: Double]) {
+        base = currency
+        baseRate = max(rate, 0.000001)   // 0 除算だけ避ける
+        self.yenPer = yenPer
+    }
+
+    /// 登録通貨で書かれた額を、表示通貨の文字列にする。
+    /// 候補の定価のように、円ではない額を渡すところから使う。
+    static func from(_ amount: Double, code: String) -> String {
+        let yen = code == DisplayCurrency.JPY.rawValue ? amount : amount * (yenPer[code] ?? 1)
+        return text(yen)
+    }
+
+    /// 記号なしの数字だけ。表示通貨の桁数で丸める。
+    static func num(_ yen: Double) -> String {
+        let value = base == .JPY ? yen : yen / baseRate
+        let digits = base.fractionDigits
+        return value.formatted(.number.precision(.fractionLength(digits)))
+    }
+
+    /// 記号つき（"¥1,590" / "$10.32"）。
+    static func text(_ yen: Double) -> String { base.symbol + num(yen) }
 }
 
 /// 語をつなぐ区切り（ja「 ・ 」/ en「 · 」）。

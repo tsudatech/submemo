@@ -18,7 +18,7 @@ import SwiftUI
 struct ScrollBottomPadding: ViewModifier {
     /// 末尾の共通余白。タブバー自体は safeAreaInset で避けているので、
     /// ここは「読み終わりのゆとり」ぶんだけ持たせる。
-    static let value: CGFloat = 48
+    static let value: CGFloat = 96
 
     func body(content: Content) -> some View {
         content.contentMargins(.bottom, Self.value, for: .scrollContent)

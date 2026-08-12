@@ -98,7 +98,7 @@ struct AddSearchScreen: View {
                             size: 34, radius: 11, fontSize: 14)
                 VStack(alignment: .leading, spacing: 3) {
                     Text(verbatim: existing.name).font(SM.f(13, .medium)).foregroundStyle(SM.fg)
-                    Text(verbatim: TRF("per_month_amount_format", Yen.text(store.monthly(existing)))
+                    Text(verbatim: TRF("per_month_amount_format", Money.text(store.monthly(existing)))
                          + Sep.mid
                          + TRF("catlist_next_format", DateText.short(existing.nextRenewal)))
                         .font(SM.n(11, .regular)).foregroundStyle(SM.sub)

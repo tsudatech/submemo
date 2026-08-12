@@ -56,20 +56,12 @@
 "cat_new_default" = "新しいカテゴリ";
 
 /* 支払い方法 */
-"pay_label_card4242"     = "カード ・・・4242";
-"pay_label_card1881"     = "カード ・・・1881";
-"pay_label_appStore"     = "App Store 決済";
-"pay_label_bankTransfer" = "口座振替";
 "pay_label_unset"        = "未設定";
 "pay_name_card4242"      = "メインカード";
 "pay_name_card1881"      = "サブカード";
 "pay_name_appStore"      = "App Store";
 "pay_name_bankTransfer"  = "口座振替";
 "pay_name_unset"         = "未設定";
-"pay_sub_card4242"       = "Visa ・・・4242";
-"pay_sub_card1881"       = "Mastercard ・・・1881";
-"pay_sub_appStore"       = "Apple ID 決済";
-"pay_sub_bankTransfer"   = "みずほ銀行";
 "pay_sub_unset"          = "支払い方法を選んでいません";
 
 /* サンプルのサービス名（実名テキスト＋頭文字タイル。ロゴは使わない） */
@@ -96,6 +88,8 @@
 "hero_day"           = "1日あたり";
 "hero_sub_split"     = "月割り %@";
 "hero_sub_split_if"  = "月割りなら %@";
+"hero_month_split"   = "月あたり ・ 年払いは月割り";
+"hero_sub_billed_format" = "今月の請求は %@";
 "hero_sub_year"      = "年 %@";
 "hero_sub_day"       = "1日 %@";
 "home_annual_note_format" = "年払い %1$d件（月割り %2$@）は今月の請求に入りません";
@@ -150,6 +144,7 @@
 "detail_per_day"               = "1日あたり";
 "detail_category"              = "カテゴリ";
 "detail_next"                  = "次回更新";
+"detail_next_unset"            = "未設定";
 "detail_days_suffix_format"    = "（あと%d日）";
 "detail_cycle"                 = "更新サイクル";
 "detail_cycle_monthly_format"  = "毎月 %@";
@@ -189,6 +184,7 @@
 "add_trial_note"        = "終了3日前に最優先で通知します";
 "add_summary_format"    = "月 %1$@ ／ 年 %2$@ ／ 1日 %3$@";
 "add_new_total_format"  = "追加すると今月の合計は %@ になります";
+"add_new_chip"          = "追加";
 "add_save"              = "追加する";
 
 /* 集計 */
@@ -207,7 +203,7 @@
 "notif_note_renew_format"    = "更新（あと%d日）";
 "notif_preview_label"        = "届く通知（プレビュー）";
 "notif_now"                  = "いま";
-"notif_preview_cta"          = "タップして開いた後の画面を見る ›";
+"notif_preview_cta"          = "この通知を開いてみる ›";
 "notif_row_before"           = "更新の◯日前に通知";
 "notif_row_trial"            = "トライアル終了の通知";
 "notif_row_trial_value"      = "最優先・ロック画面";
@@ -260,8 +256,27 @@
 "settings_pays"            = "支払い方法";
 "settings_count_format"    = "%d件";
 "settings_theme"           = "テーマ";
-"settings_fx"              = "通貨と為替レート";
-"settings_fx_value_format" = "JPY ・ 1%1$@=¥%2$@";
+"settings_base"          = "表示する通貨";
+"base_title"             = "表示する通貨";
+"base_note"              = "合計・年額換算・1日あたりを、この通貨で表示します。各サブスクを登録するときの通貨は個別に選べます。";
+"base_note_jpy"          = "そのまま表示します";
+"base_rate_format"       = "1 %1$@ = ¥%2$@";
+"base_manual_only"       = "自動取得の対象外";
+"base_warn_title"        = "合計が毎日変わります";
+"base_warn_body_format"  = "日本円以外を選ぶと、円で登録した%d件も換算して表示します。レートは毎日変わるため、合計も日ごとに変わります。";
+"base_open_fx"           = "為替レートの設定をひらく";
+"cur_name_JPY" = "日本円";
+"cur_name_USD" = "米ドル";
+"cur_name_EUR" = "ユーロ";
+"cur_name_GBP" = "英ポンド";
+"cur_name_KRW" = "韓国ウォン";
+"cur_name_TWD" = "台湾ドル";
+"cur_name_AUD" = "豪ドル";
+"cur_name_SGD" = "シンガポールドル";
+"settings_fx"              = "為替レート";
+"settings_fx_value_format" = "1%1$@ = ¥%2$@";
+"settings_annual_split"      = "年払いを月割りで含める";
+"settings_annual_split_note" = "ホームの月表示を、年払いも月割りにした毎月の負担にします";
 "settings_storage"         = "データの保存先";
 "settings_storage_value"   = "この端末のみ";
 "settings_msgs"            = "通知の文面一覧";
@@ -288,7 +303,7 @@
 "pays_privacy_body"  = "カード番号・有効期限は入力しません。どのカードから引かれるかを自分で見分けるためのラベルです。";
 
 /* 通貨と為替レート */
-"fx_title"       = "通貨と為替レート";
+"fx_title"       = "為替レート";
 "fx_current"     = "現在の適用レート";
 "fx_mode_label"  = "レートの更新";
 "fx_mode_daily"  = "自動（毎日）";
@@ -341,6 +356,8 @@
 "form_title_edit"             = "編集";
 "form_name_placeholder"       = "サービス名";
 "form_next_renewal"           = "次回更新日";
+"form_next_renewal_note" = "オンにすると、更新の前に通知が届きます。今月の請求額にも反映されます。";
+"form_next_renewal_date" = "更新日";
 "form_new_total_format"       = "保存すると今月の合計は %@ になります";
 "form_delete"                 = "この登録を削除";
 "form_delete_confirm_title"   = "この登録を削除しますか？";
